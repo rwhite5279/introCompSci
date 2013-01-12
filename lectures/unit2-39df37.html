@@ -1,0 +1,877 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Lectures - Unit 2</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css">
+	<!-- Lecture styles here -->
+		html {margin: 0; padding: 0; } 
+		body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+		a:link, a:visited	{text-decoration: underline; color: blue; }
+		a:hover{text-decoration: underline; color: red;}
+		a:active	{text-decoration: none; color: blue;}
+		h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+		.level1 {margin:0; padding: 10px;}
+		h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+		.level2 {padding-left: 20px;}
+		h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+		.level3 {padding-left: 40px;}
+		h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+		.level4 {padding-left: 60px;}
+		div#footer p 	{font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+		div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+		div#footer a:hover, div#footer a:active {color: #ccc; }
+		.code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+		.problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+		.definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+		.homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+		.problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+		.definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+		.homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+		.homework p {margin: 0; padding: 0;}
+		ul li {list-style-type: square; margin-top: 1em; }
+		table {border-collapse: collapse;}
+		td {margin: 0; padding: 10px; border: solid 1px #000; }
+		img {width: 100%; }
+		.ilc {font-family: Courier, monospace; font-size: 1.2em; font-weight: bold; } // inline code span style
+	<!-- End of lecture styles -->
+	</style>	
+	
+	<script type="text/javascript">
+	// From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="content">
+			<div class="level1">
+				<h1>Introduction to Computer Science: <br />
+				 Control Structures and Data Types</h1>
+				<p>Welcome to Unit 2!</p>
+				<ul>
+					<li><a href="#part1">Unit 2, Day 1 - Branching Structures</a></li>
+					<li><a href="#part2">Unit 2, Day 2 - Programming Project 1 - CoinFlipper</a></li>
+					<li><a href="#part3">Unit 2, Day 3 - Indefinite Loops</a></li>
+					<li><a href="#part4">Unit 2, Day 4 - Programming Project 2 - Craps</a></li>
+					<li><a href="#part5">Unit 2, Day 5 - String Data Type</a></li>
+					<li><a href="#part6">Unit 2, Day 6 - Program Design Exercise</a></li>
+					<li><a href="#part7">Unit 2, Day 7 - Lists</a></li>
+					<li><a href="#part8">Unit 2, Day 8 - Using a Simple List</a></li>
+					<li><a href="#part9">Unit 2, Day 9 - Sorting, Searching</a></li>
+				</ul>
+					<div id="part1" class="level2">
+						<h2>1. Branching Structures</h2>
+						<p>A "branching structure" is an element in a program that allows a decision to be made, depending on some condition. In Python, the branching structure is the <b>if</b> statement.</p>
+						<div class="level3">
+							<h3>1.a. The <span class="ilc">if</span> statement</h3>
+							<div class="definition">
+								Python's branching structure is the <span class="ilc">if</span> statement. In its most basic form, it looks like this:
+								<div class="ilc" style="white-space: pre; font-weight: bold">
+if &lt;Boolean condition&gt;:
+    &lt;statement&gt;
+    &lt;statement&gt;
+    &lt;statement&gt;
+&lt;Statement that is NOT part of the suite&gt;
+								</div>
+								<p>The <i>Boolean condition</i> has a value that is True or False. If the condition is True, the 3 statements in the indented suite will be executed, and then the statement following that suite will be executed. If the condition is False, the 3 statements are skipped, and only the statement following the suite is executed. (Note that the suite has been indented 4 spaces, the standard in Python.)</p>
+							</div><!--definition-->
+							<div class="problem">
+								<p>Take a look at each of these examples and predict what you think the output will be. Then write each program and see if you were correct:</p>
+								<div class="code"><span style="color:#fff">if (2 &lt; 3):
+    print "hi!"
+print "bye"</span></div>
+								<div class="code"><span style="color:#fff">if (3 &lt; 2):
+    print "hi!"
+print "bye"</span></div>
+								<div class="code"><span style="color:#fff">if (2 &lt;= 2):
+    print "hi!"
+print "hi!"</span></div>
+								<div class="code"><span style="color:#fff">n = "richard"
+if (n == "Richard"):
+    print "I know you!"</span></div>
+								<div class="code"><span style="color:#fff">letter = "b"
+if (letter != "A"):
+    print "The letter is not A"
+print "The letter IS A!"</span></div>
+							</div><!--problem-->
+							<p>Did the very last example behave the way you expected it to? Probably not...</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>1.b. Types of Errors</h3>
+							<p>Writing programs is really hard work. Depending on the type of program, you may find that the time you have to allot to working on it looks something like this:</p>
+							<table cellspacing=0 cellpadding=0><tr><td>Planning your program</td><td>20% of total time</td></tr><tr><td>Writing/entering code</td><td>10% of total time</td></tr><tr><td>Debugging code to eliminate errors</td><td>70% of total time</td></tr></table>
+							<p>The types of errors, or "bugs", that you'll have to deal with fall into three categories:</p>
+							<div class="definition">
+								<p><b>Syntax errors</b> are the equivalent of spelling or grammar mistakes: you have mistyped something, or constructed a program statement in such a way that Python doesn't understand what you're trying to do.</p>
+								<p>In the case of most syntax errors, your program won't even run, and Python will try to give you an error message that may help you figure out what you did wrong.</p>
+							</div>
+							<div class="definition">
+								<p><b>Runtime errors</b> are problems with your program that crop up when the program is running: you ask the user to enter two numbers to be added together, for example, and they type in the words "two" and "three". Writing robust programs that help to prevent this kind of problem is an important part of programming.</p>
+							</div>
+							<div class="definition">
+								<p><b>Logical errors</b> have to do with unexpected behavior of the program. In the example here:</p>
+								<div class="code"><span style="color:#fff">letter = "b"
+if (letter != "A"):
+    print "The letter is not A"
+print "The letter IS A!"</span></div>
+								<p>... the program is syntactically correct, and it runs fine&mdash;it just didn't do what we'd expected it to do: It's output is:</p>
+								<div class="code">The letter is not A
+The letter IS A!</div>									
+								<p>The logical flow of the program doesn't match what we were anticipating.</p>
+							</div>
+							<p>So... how would we write that program to identify whether or not the value of <i>letter</i> is "A"?</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>1.c. Additional <span class="ilc">if</span> statements</h3>
+							<p>There are additional forms of the <span class="ilc">if</span> statement that often come in handy:</p>
+							<div class="definition">
+								If you want to manage a 2-way condition (either do this, or that), use the <span class="ilc">if-else</span> statement:
+								<div class="ilc" style="white-space: pre; font-weight: bold">
+if &lt;Boolean condition&gt;:
+    <span style="font-weight: normal">&lt;statement&gt;
+    &lt;statement&gt;</span>
+else:
+    <span style="font-weight: normal">&lt;statement&gt;
+    &lt;statement&gt;
+&lt;Statement that is continuation of program&gt;</span>
+								</div>
+								<p>Note that the <span class="ilc">if</span> and <span class="ilc">else</span> suites are indented 4 spaces, which helps us visualize that they are the two different options in this part of the program.</p>
+							</div><!--definition-->
+							<div class="problem">
+								<p>Write a program that asks the user to enter a number. If the number is greater than 0, the program prints out a "Hello" message that many times. If the number is not greater than 0, the program should print out a brief error message telling them what they did wrong.</p>
+								
+								<div id="on5" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5', 'on5');">See solution</a>
+								</div>
+								<div id="expand5" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5', 'on5');">Minimize</a>
+									<div class="code"># Richard White, 2010-01-08
+# Hello, World! program
+
+def main():
+    num = input("How many times do you want to be greeted? ")
+    if (num > 0):
+        for i in range(num):
+            print "Hello, world!"
+    else:
+        print "How can I tell you Hello if you won't give me a positive number? :("
+
+# Call the main function
+main()	</div>
+								</div>
+							</div><!--problem-->
+							<p>Some problems require that there be more than a single option considered. For these cases, you basically have two options:</p>
+							<ol>
+								<li>Organize your logical solution so that a series of <span class="ilc">if-else</span> statements can be <i>nested</i>, allowing the program's logic to drill down to find the appropriate action, or</li>
+								<li>if the actions can all be considered simultaneously, use an <b><span class="ilc">if-elif-else</span></b> statement.</li>
+							</ol>
+							<p>Usually one strategy will recommend itself over the other. The next two examples, though, show how each of the strategies can be used to solve the problem of calculating the roots of a quadratic equation.</p>
+							<div class="definition">
+								<p>Example of using a <i>nested</i> <span class="ilc">if-else</span> statement to solve a quadratic equation:</p>
+								<div class="code">a, b, c, = input("Enter coefficients a, b, and c: ")
+discrim = b**2 - 4 * a * c  # "**" = exponent
+if (discrim &lt; 0):
+    print "There are no real roots! Sorry!"
+else:
+    print "You have roots. Now calculating..."
+    if (discrim == 0):   # Here's our nested loop
+        root = -b / (2 * a)
+        print "You have a double root: ",root
+    else:
+        root1 = (-b + discrim ** 0.5) / (2 * a)
+        root2 = (-b – discrim ** 0.5) / (2 * a)
+        print "The roots are:",root1,"and",root2</div>
+							</div>
+							<div class="definition">
+								<p>Example of using an <span class="ilc">if-elif-else</span> statement to solve a quadratic equation:</p>
+								<div class="code">a, b, c, = input("Enter coefficients a, b, and c: ")
+discrim = b**2 - 4 * a * c  # "**" = exponent
+if discrim &lt; 0:
+    print "There are no real roots! Sorry!"
+elif discrim == 0:    # "elif" means "else-if"
+    root = -b / (2 * a)
+    print "You have a double root: ",root
+else:        # if first 2 options passed...
+    root1 = (-b + discrim ** 0.5) / (2 * a)
+    root2 = (-b – discrim ** 0.5) / (2 * a)
+    print "The roots are:",root1,"and",root2</div>
+							</div>			
+							<p>Let's try a simple exercise to put some of these pieces together:</p>
+							<div class="problem">
+								<p>Write a program that asks the user to enter a name. If it's <i>your</i> name, the program should print a brief greeting to you and then say "goodbye." If it's anybody else's name the program should say ""Get out of here, &lt;name&gt;!" and then say goodbye.</p>
+								<p>Recall the syntax for having a user enter a string:</p>
+								<div class="code">name = raw_input("Please enter your name: ")</div>
+							</div>
+						</div><!--level3-->
+						
+					</div><!--level2-->
+					<div id="part2" class="level2">
+						<h2>2. Programming Project 1 - CoinFlipper</h2>
+						<p>For our first larger project, we're going to need a little outside help in writing the program. We're also going to introduce the format for the larger projects, which should give you the support you need to complete these assignments as required. This project is not actually much larger than the programs that we've been writing, so that makes it ideal for helping to ramp up your code-writing abilities.</p>
+						<div class="level3">
+							<h3>2.a. Modules</h3>
+							<div class="definition">
+								<p>A <b>module</b> in Python is a program that someone has written that can be used in a larger program. Collections of modules that can be used by programmers are called <b>libraries</b>.</p>
+							</div>
+							<p>One of the tremendous powers of Python is this ability to leverage the work that other people have already done, and the way one does that in Python is by <i>importing modules</i>.</p>
+							<div class="definition">
+								<p>To import a module that someone has already written so that you can use it in your own program, simply include the statement <span class="ilc">import &lt;modulename&gt;</span> at the beginning of your program, just after your opening comments.</p>
+							</div>
+							<p>One important module is the <span class="ilc">math</span> module, which includes lots of <i>methods</i> for handling more sophisticated math functions.</p>
+							<p>Start the Python interpreter, try out the following statements:</p>
+							<div class="code">$ <span style="color:#fff">python</span>
+Python 2.5.1 (r251:54863, Feb  6 2009, 19:02:12) 
+[GCC 4.0.1 (Apple Inc. build 5465)] on darwin
+Type "help", "copyright", "credits" or "license"
+for more information.
+>>> <span style="color:#fff">print math.pi</span><span style="color:#0f0">
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'math' is not defined
+>>> <span style="color:#fff">import math</span><span style="color:#0f0">
+>>> </span><span style="color:#fff">print math.pi</span></div>
+							<p>If you were to type "pi" into a regular program, Python wouldn't know what to do with it. But the module <b>math</b> has some <i>methods</i> built into it that you can use, once you've imported that module.</p>
+							<p>Similarly, how would you go about calculating the square root of 11? There are actually two ways of doing this:</p>
+							<div class="code">>>> <span style="color:#fff">print 11**(0.5)</span><span style="color:#0f0">
+3.31662479036
+>>> </span><span style="color:#fff">print math.sqrt(11)</span><span style="color:#0f0">
+3.31662479036</div>
+							<p>The operation <span class="ilc">**</span> indicates an exponent, raising some value to the power indicated.</p>
+							<p>What do you think this code might print?</p>
+							<div class="code">>>> <span style="color:#fff">print math.sin(math.radians(90))</span></div>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>2.b. Help with Modules</h3>
+							<p>If you need some quick help with a module or a method while in interactive mode, use the <span class="ilc">help</span> command:</p>
+							<div class="code">>>> <span style="color:#fff">help(math)</span></div>
+							<p>Most help files are more than a single screen in size, so you can use the <b>f</b> and <b>b</b> keys to page <b>f</b>orward and <b>b</b>ackward through the help document. You can also search forward and backward through the document:</p>
+							<div class="code">:<span style="color:#fff">/pi     # searches forward for the term "pi"</span></div>
+							<div class="code">:<span style="color:#fff">?pi     # searches backwards for the term "pi"</span></div>
+							<p>If the first occurrence of the search term isn't the one you want, hit the <b>n</b> key for <b>n</b>ext. </p>
+							<p>When you're done with the help file, type <b>q</b> for <b>q</b>uit.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>2.c. CoinFlipper.py</h3>
+							<p>Take a moment to get the <a href="../assignments/assignment1-coinflipper.pdf">CoinFlipper assignment</a>. As much as you might consider it convenient to just work off an electronic copy on the computer, go ahead and print it on paper. It's almost always a good idea to be able to draw on the paper copy, highlight certain key ideas or components, maybe even sketch a quick flowchart or pseudocode of your solution to the program. These are things that are done more quickly and easily with a pen/pencil on paper, rather than on a keyboard. Save the keyboard for actual coding.</p>
+							<p>Got the printout? Good. Take a look at the assignment and get started.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>2.d. Code Review</h3>
+							<p>You can quickly improve both your coding and your debugging skills by examining programs that other people have written.</p>
+							<p>Be sure you take a few moments to go over other people's programs, see what techniques they've used that you hadn't though of, or see how their programs might be improved.</p>
+							<p>You'll quickly come to realize how important good comments are in a program, as well as using "self-commenting" variables that help one to understand how a program works.</p>
+						</div><!--level3-->
+
+					</div><!--level2-->
+					<div id="part3" class="level2">
+						<h2>3. Indefinite Loops</h2>
+						<p>Let's talk a little more about the <b>while</b> loop, and some of the different ways that it can be used in a program.</p>
+						<div class="level3">
+							<h3>3.a. Review of <i>for</i> loops</h3>
+							<p>The <b>for</b> loop is a loop that repeats a specified number of times:</p>
+							<div class="code">for i in range(10):</div>
+							<div class="code">for names in ("Joe", "Mary", "Bob"):</div>
+							<div class="code">for counter in range(10,0,-1):</div>
+							<div class="code">for number in (1,101,2):</div>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>3.b. The <i>while</i> loop</h3>
+							<p>The <b>while</b> loop is typically used when you have a loop that needs to repeat some number of times, based on a condition. "While we haven't finished adding up this list of numbers, keep adding," for example.</p>
+							<p>Take a look at the following examples of <b>while-loop</b> programs, and identify the advantages and disadvantages of each.</p>
+							<div class="level4">
+								<h4>3.b.i. Interactive loops</h4>
+								<p>The <b>interactive loop</b> allows the user to approve a repeated process.</p>
+								<div class="code"><span style="color: #fff"># Program to find the average of numbers
+# using an interactive loop</span>
+sum = 0.0   # Make sure sum is real
+count = 0
+keep_going = "Yes"
+while (keep_going == "Yes"):
+    num = input("Enter a number: ")
+    sum = sum + num
+    count = count + 1                 
+    keep_going = raw_input("Keep going (Yes/No)?")
+print "You entered",count,"numbers"
+print "which have a mean of",sum/count</div>
+								<p>This loop works pretty well, but one of the problems is that it's annoying for a user to have to approve every iteration.</p>
+							</div><!--level4-->
+							<div class="level4">
+								<h4>3.b.ii. Sentinel loops</h4>
+								<p>One way of solving the problem of having to have a user repeatedly indicate that he/she wants to continue is by using a <i>sentinel value</i>. This value, when entered with the other numbers, will indicate to the loop that it should stop running.</p>
+								<div class="code"><span style="color: #fff"># Program to find the average of numbers
+# using a sentinel loop</span>
+sum = 0.0   <span style="color: #fff"># Make sure sum is real</span>
+count = 0
+num = input("Enter a number (&lt;0 to quit): ")
+while (num >= 0):
+    sum = sum + num
+    count = count + 1                 
+    num = input("Enter a number (&lt;0 to quit): ")
+print "You entered",count,"numbers"
+print "which have a mean of",sum/count</div>
+								<p>This loop works much more nicely... but it introduces a new problem: What if one of the numbers that I want to find an average of is negative?</p>
+								<p>Here's a new trick: have the user enter each number as a <i>string</i>:</p>
+								<div class="code"><span style="color: #fff"># Program to find the average of numbers
+# using a sentinel loop</span>
+sum = 0.0   <span style="color: #fff"># Make sure sum is real</span>
+count = 0
+num = raw_input("Enter a number, &lt;Enter&gt; quits: ")
+while (num != ""):
+    sum = sum + eval(num)   <span style="color: #fff"># eval function converts
+                            # a string to a number</span>
+    count = count + 1                 
+    num = raw_input("Enter a number, &lt;Enter&gt; quits: ")
+print "You entered",count,"numbers"
+print "which have a mean of",sum/count</div>
+								<p>This is the best version of this program yet. </p>		
+							</div><!--level4-->
+							<div class="level4">
+								<h4>3.b.iii. Using <i>while</i> loops to validate input</h4>
+								<p>Your program will be more <i>robust</i>, and less <i>fragile</i>, if it attempts to <i>validate input</i>, making sure that the data coming in to the program is appropriate.</p>
+								<p>Not validating input makes your program easier to break, and in security applications, can be downright dangerous to your program, your user's data, and your computer.</p>
+								<p>Here are two quick examples of how you can use a <b>while</b> loop to validate a user's input after he/she has entered it.</p>
+								<div class="code"><span style="color: #fff"># Program to validate input &gt;0</span>
+positive_number = -1   <span style="color: #fff"># This is a "pre-seed"</span>
+while (positive_number &lt; 0):
+    positive_number = input("Enter a number &gt;0: ")
+print "Thanks for entering",positive_number,"!"
+</div>
+								<p>This next version of the program uses a loop that would repeat infinitely, except for the fact that&mdash;once we get the positive number that we're looking for&mdash;we use the <b>break</b> statement to break out of the loop.</p>
+								<div class="code"><span style="color: #fff"># Program to validate input &gt;0</span>
+while True:  <span style="color: #fff"># This would be an infinite loop, but...</span>
+    positive_number = input("Enter a number &gt;0: ")
+    if positive_number > 0:
+        break  <span style="color: #fff"># Exits the loop</span>
+print "Thanks for entering",positive_number,"!"
+</div>		
+							</div><!--level4-->
+						</div><!--level3-->
+					
+					</div><!--level2-->
+					<div id="part4" class="level2">
+						<h2>4. Programming Project 2 - Craps</h2>
+						<p>We are just about at a point where our projects are too big to fit into a single "program," and that's going to require a slight modification to our thinking about our programs. Before we jump into that, though, let's make a program that will allow the user to play craps on the computer.</p>
+						<div class="level3">
+							<h3>4.a. More <i>nano</i> commands</h3>
+							<p>For smaller programs, you're probably just fine using the arrow keys to move around in <b>nano</b>. Now that our programs are starting to get a little bigger, you should practice using some of the more advanced <b>nano</b> commands that will improve your efficiency in moving around the window.</p>
+							<div class="definition">
+								<p><b>More <i>nano</i> commands</b></p>
+								<ul>
+									<li><b>^a</b> - "Control-a" takes you to the beginning of a line.</li>
+									<li><b>^e</b> - "Control-e" takes you to the <b>e</b>nd of a line.</b></li>
+									<li><b>^w</b> - "Control-w" finds <b>w</b>here a specified text occurs.</li>
+									<li><b>^\</b> - "Control-backslash" begins a Search-and-Replace process. Enter the text you want to search for and hit [Enter], then enter the text you want to use to replace the text you searched for and hit [Enter]. You'll then be given the option to replace individual occurrences of the searched text, or replace all, or Cancel the command.</li>
+								</ul>
+							</div>
+						
+						</div>
+						<div class="level3">
+							<h3>4.b. Craps Assignment</h3>
+				            <p>Print out the <a href="../assignments/assignment2-craps.pdf">Craps assignment</a>. As before, draw on your printout, highlight important details and make a sketch, a flowchart, and/or pseudocode of your program.</p>
+				            <p>Creating a good flowchart of your program is especially useful in determining how you will organize your code in terms of both loop structures and branching structures. It's all too easy to jump into coding before you have a real sense of how you're going to systematically solve your problem. So <b>stop</b>... take a moment to draw up a flowchart.</p>
+				            <p><a href="images/craps_flowchart.graffle.pdf">Compare your flowchart with mine.</a> They don't have to look <i>exactly</i> the same, but they shouldn't be too far off from each other.</p>
+				            <p>Once you think you have a good idea of what you want to do, open up a text editor and get coding!</p>
+						</div><!--level3-->
+						
+					</div><!--level2-->
+
+					<div id="part5" class="level2">
+						<h2>5. Strings</h2>
+						<div class="level3">
+							<h3>5.a. Basic Strings, Slicing, and Functions</h3>
+							<div class="definition">
+								<p>The <b>str</b> (string) data type is used to work with alphanumeric text.</p>
+								<div class="code">>>> <span style="color:#fff">print "Hello, world!"</span></div>
+								<div class="code">>>> <span style="color:#fff">username = raw_input("Please enter your name: ")</span></div>
+							</div>
+							<p>Strings are simply a sequence of characters, and we can easily refer to them by their <b>index</b>, or position in the string.</p>
+							<img src="images/helloworld_string.jpg" />
+							<div class="definition">
+								<p>Accessing a string via its indices is called <b>slicing</b>. The indices are referred to by enclosing them in square brackets [ ].</p>
+								<p>Note that the indices for the characters in a string start at 0, <i>not</i> 1. Thus, if <b>password</b> = "secret", <b>password[1]</b> is "e", not "s".</p>
+							</div>
+							<div class="problem">
+								<p>Predict what will be produced by each of the following statements.</p>
+								<div class="code">>>> <span style="color:#fff">greet = "Hello, world!"</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[1]  # careful!</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[0], greet[12]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[7:12]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[-1]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[0:4]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[7:]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[:5]</span></div>
+								<div class="code">>>> <span style="color:#fff">print greet[1:-1]</span></div>
+							</div>
+							<p>In addition to splicing, there are a number of string operations that may be useful:</p>
+							<div class="problem">
+								<p>Predict what will be produced by each of the following statements.</p>
+								<div class="code">>>> <span style="color:#fff">a_string = “Hello”; b_string = “world”</span></div>
+								<div class="code">>>> <span style="color:#fff">print a_string + b_string # concatenation</span></div>
+								<div class="code">>>> <span style="color:#fff">print 1 + b_string        # careful!</span></div>
+								<div class="code">>>> <span style="color:#fff">print 3 * b_string        # repetition</span></div>
+								<div class="code">>>> <span style="color:#fff">print len(b_string)</span></div>
+								<div class="code">>>> <span style="color:#fff">for i in range(len(b_string),0,-1):<span style="color:#0f0">
+... </span><span style="color:#fff">    print i, b_string[i]   # This won't work--why?</span></div>
+<div class="code">>>> <span style="color:#fff">for i in range(len(b_string),0,-1):<span style="color:#0f0">
+... </span><span style="color:#fff">    print i, b_string[i-1]   # Ah! That's better!</span></div>
+								<div class="code">>>> <span style="color:#fff">print b_string[::-1] # Tricky!</span></div>
+							</div>
+							<p>Of these operations, being able to determine the length of a string and being able to concatenate two strings are definitely among the most valuable.</p>
+							<p>It's also helpful to be able to do various conversions related to strings:</p>
+							<div class="problem">
+								<p>Predict what will be produced by each of the following statements.</p>
+								<div class="code">>>> <span style="color:#fff">print "1" + "2"</span></div>
+								<div class="code">>>> <span style="color:#fff">print eval("1" + "2")  # careful!</span></div>
+								<div class="code">>>> <span style="color:#fff">print eval("1") + eval("2")</span></div>
+								<div class="code">>>> <span style="color:#fff">print eval(12)   # will this work?</span></div>
+								<div class="code">>>> <span style="color:#fff">print ord("b")  # converts to ascii</span></div>
+								<div class="code">>>> <span style="color:#fff">print chr(98)  # converts from ascii</span></div>
+							</div>
+							<p>There are some other Built-In Functions that may be useful in working with string.</p>
+							<div class="problem">
+								<p>Predict what will be produced by each of the following statements.</p>
+								<div class="code">>>> <span style="color:#fff">name = "jules verne"</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.capitalize()</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.title()</span></div>
+								<div class="code">>>> <span style="color:#fff">print "DON'T SHOUT!".lower()</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.upper()</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.replace("jules","phileas")</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.split()  # splits into a list
+                        # default separator is a space " "</span></div>
+                                <div class="code">>>> <span style="color:#fff">print "Wow. That's cool. Right?".split(".")</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.find("verne")</span></div>
+								<div class="code">>>> <span style="color:#fff">print name.count("e")</span></div>
+								<div class="code">>>> <span style="color:#fff">print " ".join(["i","love","you"])    # Joins a list
+                                          # of items into a string
+                                          # separated by " "</span></div>
+
+							</div>
+							</div>
+							<p>The built-in string functions in Python are certainly useful, but it helps to have additional functions. Soon, we'll learn how to import modules that other people have written, as well as learn how to write our own functions.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>5.b. Formatting Output</h3>
+							<p>Up to this point, we haven't worried very much about the format of our output&mdash;simple <i>print</i> statements have worked just fine.</p>
+							<p>If you do need to make your output look nice, or print data in columns, you can use Python's formatting operator, <b>%</b>.</p>
+							<div class="definition">
+								<p>You can specify the format of output as follows:</p>
+								<p><b>print "&lt;formats&gt;" % &lt;values&gt;</b></p>
+							</div>
+							<p>Some examples of how you can use formatting:</p>
+							<div class="code">>>> <span style="color:#fff">print "***%6.2f***" % (math.pi)<span style="color:#0f0">
+***  3.14***</span></div>
+							<p>Here the "%6.2f" indicates that 6 columns total should be used to print a floating point number, with 2 places after the decimal point. The asterisks are just being used here to indicate the columns.</p>
+							<div class="code">>>> <span style="color:#fff">name = "Richard"</span><span style="color:#0f0">
+>>> <span style="color:#fff">print "%s!" % name<span style="color:#0f0">
+Richard!</span></div>
+							<p>Here the "%s" indicates that <b>name</b> is a string that should be printed with an exclamation point directly after it.</p>
+							<div class="code">>>> <span style="color:#fff">print "%s! Your # is %5d." % (name,42)<span style="color:#0f0">
+Richard! Your # is    42.</span></div>
+							<p>Here the "%s" is used to print the string, while the %5d is used to print the number 42. There are 4 spaces between the word "is" and the 42: one space because there's a blank in the double quotes, and 3 spaces because we specified that the two-digit 42 should be printed in a total of 5 columns.</p>
+							<p>Note that there are a much wider variety of format possibilities available than what is listed here. See the Python documentation for further information.</p>	
+						</div><!--level3-->
+                        
+					</div><!--level2-->
+					<div id="part6" class="level2">
+						<h2>6. Program Design Exercise</h2>
+						<div class="problem">
+							<p>A user comes to you wanting a program that takes three numbers that she enters, and identifies the largest value.</p>
+							<p>Write the program.</p>
+						</div>
+						<div class="level3">
+							<h3>6.a. "Compare each pair" solution</h3>
+							<div id="on1" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand1', 'on1');">See solution 1</a>
+							</div>
+							<div id="expand1" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand1', 'on1');">Minimize</a>
+								
+									<p>Here's a "brute force" solution that certainly finds the right answer.</p>
+									<div class="code">if (a > b) and (a > c):
+    print a
+if (b > a) and (b > c):
+    print b
+if (c > a) and (c > b):
+    print c</div>
+		    						<p>Advantages: Easy to understand this program.</p>
+	    							<p>Disadvantages: What happens if we have to find the largest value of 100 numbers??!</p>					
+							</div>
+						</div><!--level3-->	
+						
+						<div class="level3">
+							<h3>6.b. Multibranch "decision tree" solution</h3>
+							<div id="on2" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand2', 'on2');">See solution 2</a>
+							</div>
+							<div id="expand2" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand2', 'on2');">Minimize</a>
+									<div class="code">if (a > b):
+    if (a > c):
+        print a
+    else:
+        print c
+else:
+    if (b > c):
+        print b
+    else:
+        print c</div>
+									<p>Advantages: It works.</p>
+									<p>Disadvantages: Harder to understand, and doesn't allow for easy expansion.</p>
+							</div>
+						</div><!--level3-->
+						
+						<div class="level3">
+							<h3>6.c. "Sequential comparisons" solution</h3>		
+							<div id="on3" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand3', 'on3');">See solution 3</a>
+							</div>
+							<div id="expand3" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand3', 'on3');">Minimize</a>
+									<div class="code">max = a
+if b > max:
+    max = b
+if c > max:
+    max = c
+print max</div>
+								<p>Advantages: Easy to understand, expandable</p>
+								<p>Disadvantage: Requires an extra variable</p>
+							</div>
+						</div><!--level3-->
+						
+						<div class="level3">
+							<h3>6.d. Python <b>max</b> solution</h3>		
+							<div id="on4" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand4', 'on4');">See solution 4</a>
+							</div>
+							<div id="expand4" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand4', 'on4');">Minimize</a>
+								<div class="code">print max(a,b,c)</div>
+								<p>Advantages: Built-in function comes pre-defined in Python.</p>
+								<p>Disadvantages: Most languages don't have this function pre-defined, so you still need to know how to write your own!</p>
+							</div>
+						</div><!--level3-->
+						
+						<div class="level3">
+							<h3>6.e. List solution</h3>
+							<div id="on6" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand6', 'on6');">See solution 5</a>
+							</div>
+							<div id="expand6" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand6', 'on6');">Minimize</a>
+									<p>We'll learn how to use lists next. Lists are ideal for working your way through a series of values. Here's another way to find the maximum value.</p>
+									<div class="code">numberList = [2, 4, 6, 12, 13, 15, 90]
+max = numberList[0]  # First number is the biggest we've seen
+for number in numberList:
+    if number > max:
+        max = number
+print max</div>
+								<p>Advantages: Easy to understand, works for different types of values, easily expandable to any size of list</p>
+								<p>Disadvantages: none</p>
+							</div>
+						</div><!--level3-->
+						
+					</div><!--level2-->
+					<div id="part7" class="level2">
+						<h2>7. Lists</h2>
+						
+						<p>The <b>list</b> (called an <i>array</i> in most other programming languages) is an incredibly useful and powerful data type that you will learn to love.</p>
+						<div class="level3">
+							<h3>7.a. Intro to <i>lists</i></h3>
+							<div class="definition">
+								<p>A <b>list</b> is a sequence of data values. Lists may be made up of any type of value: strings, ints floats, even other lists. Lists are indicated with square brackets enclosing the items in the list, which are separated by commas. Individual items in a list can be referenced by their index.</p>
+								<p>Examples:</p>
+								<ul>
+									<li>my_fingers = [1,2,3,4,5,6,7,8,9,10]</li>
+									<li>my_data = ['Richard','White','626-845-1235',50]</li>
+									<li>my_friends = ["Robbie","Dana","Gary","Ruthie"]</li>
+								</ul>
+							</div>
+							<div class="problem">
+								<p>What do you think the output will be for these statements?</p>
+								<div class="code">>>> <span style="color:#fff">mylist = ["A","B","C","D","F"]</span><span style="color: #0f0">
+>>> <span style="color: #fff">print mylist[2]</span></div>
+								<div class="code">>>> <span style="color:#fff">print mylist[3:4]  # careful!</span></div>
+								<div class="code">>>> <span style="color:#fff">print len(mylist)</span></div>
+								<div class="code">>>> <span style="color:#fff">print mylist[:]</span></div>
+								<div class="code">>>> <span style="color:#fff">print mylist[::-1]</span></div>
+							</div>
+							<p>You can see that we can use some of the same tricks on <b>lists</b> that we used on strings.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>7.b. Using lists</h3>
+							<div class="level4">
+								<h4>7.b.i. Iterating through a list</h4>
+								<p>How are lists so powerful? Just as we've used a <b>for</b> loop to run through a range of numbers, we can easily set up a loop to run through a series of items in a list.</p>
+								<p>You could run through the items in the list this way:</p>
+								<div class="code">>>> <span style="color:#fff">shopping_list = ["apples", "oranges", "bananas"]</span>
+>>> <span style="color: #fff">for i in range(len(shopping_list)):</span>
+... <span style="color: #fff">    print "I need to buy",shopping_list[i]</span></div>
+								<p>That's unnecessarily complicated, though. It's easier to do it this way:</p>
+								<div class="code">>>> <span style="color:#fff">for item in shopping_list:</span>
+... <span style="color: #fff">    print "I need to buy",item</span></div>
+								<p>Just as in a <b>for</b> loop with numbers, this loop will repeat: the first time through, <b>item</b> will represent the first piece of data in the list <b>shopping_list</b> ("apples"), the second time through it will be "oranges", and the third time through, "bananas".</p>
+								<p>In future programs, we'll quickly learn just how useful the <b>list</b> can be.</p>
+							</div><!--level4-->
+							<div class="level4">
+								<h4>7.b.ii. Some <i>list</i> operations</h4>
+								<div class="definition">
+									<p>Some of the more useful <i>operations</i> that can be performed with <b>lists</b> include:</p>
+									<ul>
+										<li><b>listA + list_b</b> - concatenates two lists into one</li>
+										<li><b>listA * &lt;integer&gt;</b> - repeats a list a number of times</li>
+										<li><b>listA[n]</b> - gets the item located at position <i>n</i></li>
+										<li><b>listA[i:j]</b>	- slices a subset from the larger list</li>
+										<li><b>len(listA)</b> - determines the length of a list</li>
+										<li><b>for j in listA:</b> - iterate through the list</li>
+										<li><b>if (j in listA):</b> - boolean, checks to see if an item is in the list</li>
+									</ul>
+								</div><!--definition-->
+								<div class="problem">
+    								<p>Write a program that asks the user to enter a word, and then tells them how many vowels there are in the word.</p>
+    								<div id="on7" style="padding: 5px;">
+        								<a href="javascript: expandCollapse('expand7', 'on7');">See solution</a>
+        							</div>
+        							<div id="expand7" style="display: none; padding: 5px;">
+        								<a href="javascript: expandCollapse('expand7', 'on7');">Minimize</a>
+    								    <p>Here's one solution:</p>
+    									<div class="code">userWord = raw_input('Please enter a word: ')
+print "The vowels in your word are: ",
+for letter in userWord:
+    if letter in ['a','e','i','o','u']:
+        print letter,
+print
+print "I'm terribly sorry if I missed any 'y's."
+                                        </div>
+                                        <p>Can you see how to improve the program to look for the occurrence of y's, but perhaps only count them if no other vowels have been found?</p>
+                                        
+                                        <div id="on8" style="padding: 5px;">
+    								        <a href="javascript: expandCollapse('expand8', 'on8');">See modification</a>
+    							        </div>
+    							        <div id="expand8" style="display: none; padding: 5px;">
+    								        <a href="javascript: expandCollapse('expand8', 'on8');">Minimize</a>
+    									    <div class="code">userWord = raw_input('Please enter a word: ')
+vowelCount = 0
+yCount = 0
+print "The vowels in your word are: ",
+for letter in userWord:
+    if letter in ['a','e','i','o','u']:
+        print letter,
+        vowelCount += 1
+    elif letter == 'y':
+        yCount += 1
+if vowelCount == 0:
+    if yCount > 0:
+        print yCount * 'y '
+    else:
+        print "non-existent."
+        print "I don't think you entered a real word."
+                                            </div> 
+    				                    </div>     
+        							</div>
+    							</div>
+							</div><!--level4-->
+							<div class="level4">
+								<h4>7.b.iii. Some <i>list</i> methods</h4>
+								<div class="definition">
+									<p>List <i>methods</i> that you may find helpful include:</p>
+									<ul>
+										<li><b>listA.append(x)</b> - add an element to end of listA</li>
+										<li><b>listA.sort()</b> - sort listA</li>
+										<li><b>listA.reverse()</b> - reverse listA</li>
+										<li><b>listA.index(x)</b> - find the first location of x in listA</li>
+										<li><b>listA.insert(i,x)</b> - insert x into listA at index i</li>
+										<li><b>listA.count(x)</b> - count how many occurences of x in listA</li>
+										<li><b>listA.remove(x)</b> - remove the first occurence of x from listA</li>
+										<li><b>listA.pop(i)</b> - returns element i from listA, and removes it from list. <i>.pop()</i> acts on the last item of the list.</li>
+									</ul>
+								</div><!--definition-->
+								<div class="problem">
+									<b>Play with lists</b>
+									<p>Take a few moments to create some lists&mdash;of friends? sports teams? foods? bands?&mdash;and practice manipulating them: append items to your list, pop items from the list, print a slice of the list, sort the list, etc.</p>
+								</div><!--problem-->
+							</div><!--level4-->
+							<div class="level4">
+								<h4>7.b.iv. Lists and Strings</h4>
+								<p>You may find it useful to convert from strings to lists, or vice versa.</p>
+								<div class="definition">
+									<ul>
+									<li> <b>','.join(myList)</b> - takes the elements from myList and assembles them into a string, with each element separated by a comma. To just convert the list to a string <i>without</i> any separators, use <b>''.join(myList)</b></li>
+									<li><b>list(myString)</b> - takes a string and converts it into a list of characters</li>
+								</div>
+							</div><!--level4-->
+						</div><!--level3-->
+                        
+					</div><!--level2-->
+					<div id="part8" class="level2">
+					    <h2>8. Using a Simple List</h2>
+					    <p>It's one thing to know about the concept of a list, and another to actually use it. Let's figure out how to write a simple but useful program that uses a list.</p>
+					    <p>First, though, let's review the <b>%</b> (mod) operator.</p>
+					    <div class="level3">
+					        <h3>8.a. The <b>%</b> (mod) operator</h3>
+					        <div class="definition">The mod operator returns the remainder from a whole-number division operation.</div>
+					        <p>One obvious application for this operation is to determine whether one number is easily divisible by another.</p>
+					        <div class="problem">
+					            <p><b>Even or odd?</b></p>
+					            <p>Write an if-statement to determine whether the integer stored in the variable <i>n</i> is even or odd.</p>
+					            <div id="on9" style="padding: 5px;">
+					                <a href="javascript: expandCollapse('expand9', 'on9');">See answer</a>
+					            </div>
+					            <div id="expand9" style="display: none; padding: 5px;">
+					                <a href="javascript: expandCollapse('expand9', 'on9');">Minimize</a>
+					                <div class="code">if n % 2 == 0:
+    print "n is even"
+else:
+    print "n is odd"</div>
+                                </div>
+					        </div>
+					        <p>Expanding on this idea:</p>
+					        <div class="problem">
+					            <p><b>Evenly divisible?</b></p>
+					            <p>Write an if-statement to determine whether the integer stored in the variable <i>n</i> is evenly divisible by the integer stored in the variable <i>x</i>.</p>
+					            <div id="on10" style="padding: 5px;">
+					                <a href="javascript: expandCollapse('expand10', 'on10');">See answer</a>
+					            </div>
+					            <div id="expand10" style="display: none; padding: 5px;">
+					                <a href="javascript: expandCollapse('expand10', 'on10');">Minimize</a>
+					                <div class="code">if n % x == 0:
+    print "n is evenly divisible by x"
+else:
+    print "n is not evenly divisible by x"</div>
+                                </div>
+					        </div>     
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>8.b. Finding primes</h3>
+                            <p>Based on what we know, write the following program.</p>
+                            <div class="problem">
+					            <p><b>A list of primes</b></p>
+					            <p>Write a program that creates a table of the first million primes. Recall that a <i>prime number</i> is an integer (greater than 1) that is evenly divisible only by itself and 1.</p>
+					            <p>Your program needs to print out the number of the prime, and next to it the value of that prime. Thus, the first few lines of output will be:</p>
+					            <div class="code">Prime #      Prime Value
+    1            2
+    2            3
+    3            5
+    4            7</div>
+                                <p>Your prime numbers should be stored in a <i>list</i> called "primes."</p>
+					        </div>
+                        
+                        </div>
+					
+					</div><!--level2-->
+					
+					<div id="part9" class="level2">
+						<h2>9. Sorting and Searching</h2>
+						<p>Although we've just seen how Python has <i>searching</i> and <i>sorting</i> operations built into the language, it's instructive to consider algorithms that perform these operations, and build such algorithms ourselves.</p>
+						<p>We'll start out with the <a href="http://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a>.</p>
+						<div class="level3">
+							<h3>9.a. The Selection Sort algorithm</h3>
+							<div class="definition">
+								<p>The Selection Sort algorithm works as follows:</p>
+								<ol>
+									<li>Begin with a list of unsorted items.</li>
+									<li>Go through the list and find the smallest value.</li>
+									<li>Place that value first in the list.</li>
+									<li>Repeat, starting at 2nd position: go through list, find smallest item on list, and place it in 2nd position.</li>
+									<li>Go through entire list in this fashion until done.</li>
+								</ol>
+							</div><!--definition-->
+							<p>Let's write a Select Sort algorithm in Python.</p>
+							<div class="problem">
+								<p><b>SelectSort</b></p>
+								<p>Write a program that:</p>
+								<ol>
+									<li>creates a list of 100 items from random numbers between 1 and 1000, inclusive.</li>
+									<li>applies a Select Sort to this list. Display the list onscreen as your program works.</li>
+									<li>prints out the final sorted list.</li>
+								</ol>
+								<p>Once you have the basic program working, consider ways in which you might improve its efficiency.</p>
+								<p>You can get some idea of how efficient your program works by determining how long it takes the system to run your code:</p>
+									<div class="code">$ <span style="color:#fff">time python selectsort-whiter.py</span></div>
+							</div><!--problem-->
+						</div><!--level3-->
+						<p>A slightly more complex sorting algorithm is the Bubble Sort.</p>
+						<div class="level3">
+							<h3>9.b. The Bubble Sort algorithm</h3>
+							<div class="definition">
+								<p>The Bubble Sort algorithm works as follows:</p>
+								<ol>
+									<li>Begin with a list of unsorted items.</li>
+									<li>Start with the first item in the list, and compare it with the one right after it. If the second item is smaller than the first, swap them. (At this point, the higher of the two items has been "bubbled" up in the list.)</li>
+									<li>Continue on to the second item, and compare it with the third, swapping them as required like before. Continue through the entire list in this fashion. By the time you've passed through the list this first time, the highest value will have bubbled up to the end of the list.</li>
+									<li>Repeat this process again, passing through the list and swapping items as necessary.</li>
+									<li>Continue passing through the list in this fashion until no more swaps are performed. At this time the list is sorted.</li>
+								</ol>
+							</div><!--definition-->
+							<p>Let's write a BubbleSort algorithm in Python.</p>
+							<div class="problem">
+								<p><b>BubbleSort</b></p>
+								<p>Write a program that:</p>
+								<ol>
+									<li>creates a list of 100 items from random numbers between 1 and 1000, inclusive.</li>
+									<li>applies a Bubble Sort to this list. Display the list onscreen as your program works.</li>
+									<li>prints out the final sorted list.</li>
+								</ol>
+								<p>Once you have the basic program working, consider ways in which you might improve its efficiency.</p>
+								<p>You can get some idea of how efficient your program works by determining how long it takes the system to run your code:</p>
+									<div class="code">$ <span style="color:#fff">time python bubblesort-whiter.py</span></div>
+							</div><!--problem-->
+						</div><!--level3-->
+						<p>A slightly more complex sorting algorithm is the Bubble Sort.</p>
+						<div class="level3">
+							<h3>9.c. Searching</h3>
+							<p>Okay, so we've got our lists of items sorted. How do you quickly go about <i>finding</i> something on the list? Just flipping through the list sequentially, starting with the first item and continuing until you get to the end doesn't seem very efficient, especially if you've got a very long list. (This <i>is</i> a legitimate search strategy&mdash;it's called a <i>Linear Search</i>.)</p>
+							<div class="definition">
+								<p>The Binary Search algorithm works as follows:</p>
+								<ol>
+									<li>Begin with a list of sorted items and a "search item" that you're looking for.</li>
+									<li>Compare the search item with the item at the middle of the sorted list.
+										<ul>
+											<li>If the items match, you've found the location of that item!</li>
+											<li>If the search item is greater than the middle item of the list, the bottom half of the sorted list can be eliminated from consideration. The top half of the list will become our new search space.</li>
+											<li>If the search item is less than the middle of the list, the upper half can be eliminated, and the bottom half of the list will become our new search space.</li>
+										</ul></li>
+									<li>Continue searching through the smaller and smaller sections of lists until either the search item is found, or it is not found.</li>
+								</ol>
+							</div><!--definition-->
+							<p>The Binary Search can be tricky to implement. Challenges include identifying the middle of a list of an even number of items, and keeping track of upper- and lower-bounds of the search space.</p>
+							<p>There are also more sophisticated concerns, like "what happens if you have a billion items to search through?" Large lists like this can tax an algorithm, and <a href="http://googleresearch.blogspot.com/2006/06/extra-extra-read-all-about-it-nearly.html">even the experts</a> can get tripped up.</p>
+							<div class="problem">
+								<p><b>BinarySearch</b></p>
+								<p>Write a program that:</p>
+								<ol>
+									<li>creates a list of 100 items from random numbers between 1 and 1000, inclusive, and imports one of your Search programs as a module to sort the list, <b>or</b> asks the user to enter a list of numbers (useful for testing).</li>
+									<li>asks for a search item (a number between 1 and 1000).</li>
+									<li>performs a Binary Search for that item in your list, displaying the results as it goes.</li>
+									<li>Print out the location of the search item, if it exists. Otherwise, print out a "search item not found" message.</li>
+								</ol>
+								<p>Test your program with the following lists to see if it works. When testing your program, be sure to look for an item that is on the list, and also an item that <i>isn't</i> on the list.</p>
+								<ul>
+									<li>[1, 3, 7, 8, 9]</li>
+									<li>[1, 3, 7, 8, 9, 11]</li>
+								</ul>
+							</div><!--problem-->
+						</div><!--level3-->
+					</div><!--level2-->
+			</div><!--level1-->
+		</div><!--content-->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy;2013, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

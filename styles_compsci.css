@@ -1,0 +1,27 @@
+html {margin: 0; padding: 0; } 
+body {margin: 0; padding: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 95.01%; font-weight: normal; color: #000; background: #fff; } 
+a:link, a:visited	{text-decoration: underline; color: blue; }
+a:hover{text-decoration: underline; color: #900;}
+a:active	{text-decoration: none; color: blue;}
+div#header {background: #900; color: #fff; }
+div#header h1	{font-weight: bold; padding: 10px; margin: 0; color: #fff; }
+div#header h1 a:link, div#header a:visited {text-decoration: none; color: #fff; }
+div#header h1 a:hover, div#header a:active {text-decoration: underline; color: #fff; }
+div#horzmenu {font-size: 110%; font-weight: bold; float: right; margin 0; padding: 20px 15px 0 0; color: #999; }
+div#horzmenu #here {color: #fff;}
+div#horzmenu a:link, div#horzmenu a:visited, div#horzmenu a:active	{text-decoration: none; color: #ccc; }
+div#horzmenu a:hover {text-decoration: underline; color: #fff; }
+div#mainwrapper {float: left; width: 100%; }
+div#content 	{background: #fff; margin: 0; padding: 10px; border: 0; overflow: auto; line-height: 1.5em;}
+div#content h1 	{font-weight: bold; }
+div#content h2  {font-size: 110%; font-weight: bold; font-style: italic; background: #999; color: #900; margin-top: 40px; padding: 5px; }
+div#footer p 	{font-size: 90%; background: #900; color: #999; clear: both; padding: 5px; margin: 0; }
+div#footer a:link, div#footer a:visited {text-decoration: none; color: #fff; }
+div#footer a:hover, div#footer a:active {text-decoration: underline; color: #fff; }
+img, embed{margin: 5px; padding: 5px ; }
+.codeblock {background: #ddd; font-family: Courier, monospace; font-size: 130%; padding: 10px; margin: 10px; border: solid 1px #000; white-space: pre; }
+/* .code { margin: 5px; border: dashed 1px black; padding: 5px; background: #fff; font-family: Courier, monospace;  font-size: 130%; font-weight: bold;} */
+.code {font-family: Courier, monospace; font-size: 130%; font-weight: bold;}
+td		{vertical-align: top; border: solid 1px #333; margin: 0; margin: 0; padding: 5px;}
+ul li {list-style-type: square; }
+span.header {font-weight: bold;}

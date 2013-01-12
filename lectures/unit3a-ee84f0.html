@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Polytechnic Computer Science - Lectures - Unit 3a</title>
+    <meta name="resource-type" content="document" />
+    <meta name="author" content="richard white" />
+    <meta name="description" content="polytechnic computer programming" />
+    <meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+    <meta name="distribution" content="global" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+    <style type="text/css">
+    <!-- Lecture styles here -->
+        html {margin: 0; padding: 0; } 
+        body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+        a:link, a:visited   {text-decoration: underline; color: blue; }
+        a:hover{text-decoration: underline; color: red;}
+        a:active    {text-decoration: none; color: blue;}
+        h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+        .level1 {margin:0; padding: 10px;}
+        h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+        .level2 {padding-left: 20px;}
+        h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+        .level3 {padding-left: 40px;}
+        h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+        .level4 {padding-left: 60px;}
+        div#footer p    {font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+        div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+        div#footer a:hover, div#footer a:active {color: #ccc; }
+        .code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+        .problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+        .definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+        .homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+        .problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+        .definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+        .homework h1 { background-color: #f99; color: #000; font-size: 120%; padding: 0;  } 
+        ul li {list-style-type: square; }
+        table {}
+        td {margin: 0; padding: 10px; border: solid 1px #000; border-collapse: collapse;}
+        img {width: 100%; }
+    <!-- End of lecture styles -->
+    </style>    
+    
+    <script type="text/javascript">
+    // From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="mainwrapper">
+        <div id="content">
+            <div class="level1">
+                <h1>Introduction to Computer Graphics</h1>
+                <p>In this unit, we take a look at graphics.</p>
+                <p>Getting graphics programs to run on a computer introduce some new complications for us: in addition to running our programs from a text-based Command Line Interface, the programs will need to be able to display output on a CRT monitor or LCD screen run by various graphics drivers and cards. This makes the programs that we right necessarily more complex, and and also requires that we turn to more sophisticated software libraries to help us control the images we create on those screens.</p>
+                <p>For the main part of this course, we'll be using <b>graphics.py</b>, which is very easy to install. If you decided that you want more graphics power, you may choose to work on getting <b>pygame</b> installed. Introductions to both of these packages are included here.</p>
+                <ul>
+                    <li><a href="#part1">graphics.py - good and simple</a></li>
+                    <li><a href="#part2">pygame - powerful and complex</a></li>
+                </ul>
+                <div id="part1" class="level2">
+                    <h2>1. Graphics.py</h2>
+                    <p><b>graphics.py</b> is a module that was created by our textbook author Zelle to accompany our textbook. You can get a copy from the the instructors Public folder on the class server, or download one <a href="http://mcsp.wartburg.edu/zelle/python/graphics.py">here</a>. Save this program as <b>graphics.py</b> on your computer.</p>
+                    <div class="level3">
+                        <h3>1.a. Installing <i>graphics.py</i></h3>
+                        <p><b>graphics.py</b> is simply a Python program that you'll be importing as a module into your programs. For your program to be able to find the <b>graphics.py</b> module, you'll need to move your copy to one of two places.</p>
+                        <ol>
+                            <li>Put <b>graphics.py</b> in the same directory as the program that you're running.<br />
+                            This is easy to do, but it isn't terribly convenient&mdash;you probably have a number of different programs that you'll want to be able to use this module with, and they're probably not all in the same directory. But it's easy: move the <b>graphics.py</b> program into the same folder where your program is.</li>
+                            <li>Put <b>graphics.py</b> in the "site-packages" directory for Python.<br />
+                            <i>site-packages</i> is a folder specially made for holding a module like this, but you'll have to find the folder.
+                            <div class="code">>>> <span style = "color:#fff">import sys</span>
+>>> <span style="color: #fff">sys.path</span>
+<span style="white-space:normal">['', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python27.zip', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-old', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-dynload', '/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages']</span></div>
+                            You can see there the location of the directory <b>site-packages</b>. Now move the <b>graphics.py</b> program there.<br /><br />From the Terminal:
+                            <div class="code">$ <span style = "color:#fff">mv graphics.py /Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site-packages</span></div>
+                            </li>
+                        </ol>
+                        <p>To actually <i>use</i> the <b>graphics.py</b> module now, simply import into your program.</p>
+                        <p>Although we'll be going over some of the more important features of this module, you can learn a lot more about this module (or any other module) by importing it in interactive mode and looking at some of its documentation.</p>
+                            <div class="code">>>> <span style = "color:#fff">import graphics</span>
+>>> <span style="color: #fff">dir(graphics)   # lists the Methods available</span>
+['BAD_OPTION', 'Circle', 'DEAD_THREAD', 'DEFAULT_CONFIG', 'Entry', 'GraphWin', 'GraphicsError', 'GraphicsObject', 'Image', 'Line', 'OBJ_ALREADY_DRAWN', 'Oval', 'Pixmap', 'Point', 'Polygon', 'Rectangle', 'Text', 'Transform', 'UNSUPPORTED_METHOD', '_BBox', '__builtins__', '__doc__', '__file__', '__name__', '__package__', '_root', 'color_rgb', 'os', 'sys', 'test', 'time', 'tk', 'update']
+>>> <span style="color: #fff">help(graphics)    # gives extensive help</span></div>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.b. Hello, World!</h3>
+                        <p>Let's set up a graphics window and print "Hello, World! inside it.</p>
+                        <div class="problem">
+                            <p>Enter the following program and run it.</p>
+                            <div class="code">"""Hello, World graphics program"""
+from graphics import *
+myWindow = GraphWin("Hello!",640, 480)  <span style="color: #fff"># creates the graphics window</span>
+myText = Text(Point(320,240),"Hello, World")  <span style="color: #fff"># Center-justified</span>
+myText.draw(myWindow)               <span style="color: #fff"># Draw text</span>
+wait = raw_input("[Enter] to continue...")</div>
+                            <p>Note that without some means of preventing the program from ending, the text will be displayed and the program will end and close the window before the user has had a chance to see it.</p>                         
+                        </div>
+                        <p>Because we'll need to keep track of where on the screen we're placing various objects, it's important to know the coordinate system that is used.</p>
+                        <div class="definition">
+                            <p>The <i>screen</i> or <i>window</i> is a rectangular grid of pixels, each addressed by an <i>x-y</i> pair of coordinates.</p>
+                            <p><i>X</i> runs across the top of the screen, and is indexed from 0 to the width - 1.</p>
+                            <p><i>Y</i> runs down the left side of the screen, and is indexed from 0 to the height - 1.</p>
+                            <img src="images/window_coords.jpg" style="width: 50%" />
+                            <p>Keeping track of coordinates and locations on the screen can be a major source of confusion. <b>graphics.py</b> offers a very useful "coordinate transformation" function (described below) that allows you to use a more standard <i>x-y</i> coordinate axis reference system.</p>
+                        </div><!--definition-->
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.c. Static graphics</h3>
+                        <p><b>graphics.py</b> give one the ability to display various types of geometric shapes, including single Picture Elements ("pixels"), Lines, Circles, Rectangles, etc.</p>
+                        <p>Typically, the characteristics of the shape need to be defined&mdash;type of object, location in the window, dimensions, outline color, fill color, etc.&mdash;and then the object is displayed using the <b>draw()</b> method. Let's look at a simple example.</p>
+                        <div class="problem">
+                            <p>Enter the following code segments into a program, and run the program after entering each new section to see how the graphics window behaves.</p>
+                            <div class="code"># graphics_demo.py
+from graphics import * <span style="color: #fff"># get the graphics.py module</span>
+myWin = GraphWin("Here are some shapes",640,480)
+myWin.setBackground("black")
+myWin.close() <span style="color: #fff"># closes the window</span></div><!--code-->
+                            <p>Two things to point out here.</p>
+                            <ol>
+                                <li>Once we're done with the program, you need to close the window. And,</li>
+                                <li>If you don't include some means of pausing the program's execution before the window closes, you won't get to see much. Let's add a statement just before the end of the program that will make it wait until we've hit the [Enter] key.</li>
+                            </ol>
+                            <div class="code"># graphics_demo.py
+from graphics import * <span style="color: #fff"># get the graphics.py module</span>
+myWin = GraphWin("Here are some shapes",640,480)
+myWin.setBackground("black")
+input=raw_input("Press [Enter] to quit.")
+myWin.close() <span style="color: #fff"># closes the window</span></div><!--code-->
+                            <p>Okay, let's add a section of code between creating the graphics window and closing the graphics window:</p>
+                            <div class="code">myPoint = Point(100,100)  <span style="color: #fff"># A point on the screen
+                           is specified using the Point() method. 
+                           Then it's assigned to a variable
+                           so that we can re-use it.</span>
+myCirc = Circle(myPoint, 40)  <span style="color: #fff"># Define a circle using the Circle() method</span>
+myCirc.setFill("red")       
+myCirc.setOutline("blue")
+myCirc.draw(myWin)  <span style="color: #fff"># You have to "draw" the circle for it to finally appear</span></div><!--code-->
+                            <p>Different graphics modules will work differently, but they all typically use the same process:</p>
+                            <ol>
+                                <li>set up a graphics window</li>
+                                <li>create objects to be displayed in that window</li>
+                                <li>draw them in the window so that the user can see them</li>
+                            </ol>
+                            <p>Let's try a few more:</p>
+                            <div class="code">myLabel = Text(myPoint, "Hi!")  <span style="color: #fff"># How to change font? color?</span>
+myLabel.draw(myWin) <span style="color: #fff"># Have to draw the text for it to appear</span></div><!--code-->
+                            <p>Now let's try some other shapes:</p>
+                            <div class="code">myRect = Rectangle(Point(30,30), Point(70,70))
+myRect.draw(myWin)
+myLine = Line(Point(639,0),Point(0,479))
+myLine.setFill("yellow")
+myLine.draw(myWin)</div><!--code-->
+                        </div><!--problem-->
+                        <p>Drawing basic shapes is a nice introduction to the process of placing graphics on a screen, but the real power of graphics is unleashed when we make those shapes <i>move</i>.</p>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.d. Animation in <i>graphics.py</i></h3>
+                        <p>All visual sense of motion is created by presenting slightly different images in quick succession. The typical digital video stream displays 30 frames per second, which is enough for the human eye to perceive as motion.</p>
+                        <p>Thus, to create an animation, we need to:</p>
+                        <ol>
+                            <li>Create a window</li>
+                            <li>Create an object</li>
+                            <li>Display it in the window</li>
+                            <li>Move the object to a new location</li>
+                            <li>Update the display</li>
+                            <li>Move the object to a new location</li>
+                            <li>Update the display</li>
+                            <li>etc...</li>
+                        </ol>
+                        <div class="problem">
+                            <p>Let's see how that might actually work in a program.</p>
+                            <div class="code"><span style="color: #fff"># animation_demo_1.py</span>
+from graphics import * <span style="color: #fff"># get the graphics.py module</span>
+myWin = GraphWin("Animation 1",640,480)
+myWin.setBackground("white")
+myLine = Line(Point(0,0),Point(0,479))  <span style="color: #fff"># create line</span>
+myLine.setFill('blue')
+myLine.draw(myWin)  <span style="color: #fff"># Draw the initial line...</span>
+
+for i in range(320):
+    myLine.undraw() <span style="color: #fff"># ...then remove line from screen</span>
+    myLine = Line(Point(i*2,0),Point(0,479))  <span style="color: #fff"># create line</span>
+    myLine.setFill('blue')
+    myLine.draw(myWin)  <span style="color: #fff"># display line onscreen</span>               
+input=raw_input("Press [Enter] to quit.")
+myWin.close() <span style="color: #fff"># closes the window</span></div><!--code-->
+                        </div>
+                        <p>Depending on your monitor, your computer, your graphics card/processor, you should have some degree of success seeing a line moving across the screen. Getting that line to move more smoothly, or more quickly, or with a different motion, or with a different color&mdash;or moving a <i>sprite</i> (a figure built of graphical components)&mdash;is what programming in graphics is all about.</p>
+                        <p>Try a slightly different demonstration of how this can work.</p>
+                        <div class="problem">
+                            <p>Rather than drawing and undrawing the object, let's just <i>move</i> it a certain number of pixels to the left or right, and up or down:</p>
+                            <div class="code"><span style="color: #fff"># animation_demo_2.py</span>
+from graphics import * <span style="color: #fff"># get the graphics.py module</span>
+myWin = GraphWin("Animation 2",640,480)
+myWin.setBackground("white")
+myLine = Line(Point(639,0),Point(0,479))  <span style="color: #fff"># create a line</span>
+myLine.draw(myWin)                        <span style="color: #fff"># display the line</span>
+for i in range(100):         
+    myLine.move(-1,0)                     <span style="color: #fff"># now move the line</span>
+
+myRect = Rectangle(Point(30,30), Point(70,70))
+myRect.draw(myWin)
+for y in range(100):
+    myRect.move(2, 5)  <span style="color: #fff"># This moves the box 100 times,
+                       # displacing it 2 pixels to the right and 5 pixels down
+                       # each time.
+                       # Does the animation seem smooth to you, even though
+                       # we're displacing the box by more than a single pixel?</span></div><!--code-->
+                        <p>The <i>move()</i> method doesn't require explicitly updating the display&mdash;it just displaces the object a certain amount. In more traditional animation techniques&mdash;the motion of the blue line that we did at first, for example&mdash;calling the <i>draw()</i> method is required to update the display.</p>
+                        <p>Can you guess what would be displayed if we didn't <i>undraw()</i> each line after we drew it? Try removing that line from the <b>animation_demo_1.py</b> and see what happens.</p>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.e. <i>graphics.py</i> methods</h3>
+                        <p>For reference, here are a list of some of the more common methods in <b>graphics.py</b>. Don't forget, though, that you can get a complete look at the documentation by simply using <b>help(graphics)</b> in interactive mode after you've imported the graphics module.</p>
+                        <table cellspacing=0 cellpadding=0 style="border-collapse: collapse">
+                            <tr><td>win = graphics.GraphWin(title, width, height)</td><td>creates window</td></tr>
+                            <tr><td>win.close()                                     </td><td>closes window</td></tr>
+                            <tr><td>win.plot(x, y, color)                           </td><td>draws pixel at x, y</td></tr>
+                            <tr><td>Point(x,y)</td><td>defines an x-y point on the screen</td></tr>
+                            <tr><td>Line(point1, point2)        </td><td>draws a line between given points</td></tr>
+                            <tr><td>Circle(centerPoint, radius)</td><td></td></tr>
+                            <tr><td>Rectangle(point1, point2)</td><td></td></tr>
+                            <tr><td>Oval(point1, point2)</td><td></td></tr>
+                            <tr><td>Text(anchorPoint, string)</td><td></td></tr>
+                            <tr><td>setFill(color)          </td><td>set the fill color of the object</td></tr>
+                            <tr><td>setOutline(color)       </td><td>set the color of the outline</td></tr>
+                            <tr><td>setWidth(pixels)        </td><td>set the width of the outline</td></tr>
+                            <tr><td>draw(aGraphWin)         </td><td>Draws the object in the window</td></tr>
+                            <tr><td>move(dx,dy)             </td><td>Moves the object the specified units</td></tr>
+                            <tr><td>clone()                 </td><td>Return an (as yet undrawn) duplicate</td></tr>
+                        </table>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.f. Coordinate tranformation</h3>
+                        <div class="definition">
+                            <p><i>Coordinate transformation</i> refers to defining how coordinates will be labeled/used in a program.</p>
+                            <p>In <b>graphics.py</b>, the method <i>setCoords</i> has 4 parameters that indicate the x- and y- coordinates of the lower left, then upper right, of the window. Once the coordinates have been set, you can use the new coordinate system to create graphics in the window without having to refer to individual pixels.</p>
+                        </div>
+                        <p>Enter this code into the Python interpreter to see how coordinate transformation works.</p>
+                        <div class="code">>>> w = GraphWin("My window",500, 300)
+>>> w.setCoords(0.0, 0.0, 5.0, 20.0)
+>>> Line(Point(0, 10), Point(5, 19)).draw(w)
+>>> for i in range(6):
+....    Line(Point(i,0),Point(i,1)).draw(w)</div><!--code-->
+                        <p>The graphics window produced:</p>
+                        <img src="images/coordinate_transformation.png" style="width: 70%" />
+                        
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>1.g. Interacting with the User</h3>
+                        <p>Of course most graphics-based programs will require interaction with the user, both in the form of keyboard input and working with the mouse. <i>Events</i> that pygame looks for can include a key pressed on the keyboard, motion of the mouse, or a click of the mouse.</p>
+                        <p>Here are some techniques that you can use to interact with the user.</p>
+                        <div class="level4">
+                            <h4>1.g.i. Capturing Keyboard Input!</h4>
+                            <p>Here's a code snippet that demonstrates how once can capture keyboard input from the graphics window:</p>
+                            <div class="code">from graphics import *
+win = GraphWin("Accepting Text", 600, 400)
+<span style="color: #fff"># Set up coordinate transformation</span>
+win.setCoords(0.0, 0.0, 6.0, 4.0) 
+<span style="color: #fff"># Create text and draw it in window  </span>                                     
+Text(Point(1,3),"Enter something here:").draw(win)
+<span style="color: #fff"># Create the input field</span>
+input = Entry(Point(2,3),5)
+<span style="color: #fff"># Draw the input field</span>
+input.draw(win)
+Text(Point(1,1),"Now click this button:").draw(win)
+<span style="color: #fff"># Create the button</span>
+rect = Rectangle(Point(3,1.5),Point(4,1))
+<span style="color: #fff"># Draw the button</span>
+rect.draw(win)
+<span style="color: #fff"># Blank message so we can undraw it later</span>
+mssg = Text(Point(4,3),"")
+mssg.draw(win)
+while True:
+click = win.getMouse()
+    if click.getX()>3 and click.getX()&lt;4 and \ 
+    click.getY()&lt;1.5 and click.getY()>1:
+        mssg.undraw()
+        mssg = Text(Point(4,3),"Thanks for clicking the button!")
+        mssg.draw(win)
+        response = input.getText()
+        print "They entered the text",response
+        break
+    else:
+        mssg.undraw()
+        mssg = Text(Point(4,3),"You didn't click the button!")
+        mssg.draw(win)
+pause = raw_input("[Enter] to finish")  </div>
+                        </div><!--level4-->
+                        <div class="level4">
+                            <h4>1.g.ii. Capturing Mouse Input</h4>
+                            <p>Let's see how we can use the mouse to have the user draw a box:</p>
+                            <div class="code">>>> <span style="color: #fff">import graphics</span>
+>>> <span style="color: #fff">w = graphics.GraphWin()</span>         # Open up a window
+>>> <span style="color: #fff">p1 = w.getMouse()</span>           # Capture click event
+>>> <span style="color: #fff">p1.getX(); p1.getY()</span>        # Show coordinates
+>>> <span style="color: #fff">p2 = w.getMouse()</span>           # Get another click
+>>> <span style="color: #fff">rect = graphics.Rectangle(p1,p2)</span> # Draw a rectangle...
+>>> <span style="color: #fff">rect.draw(w)</span>                # ... using those clicks</div><!--code-->
+                        </div><!--level4-->
+                    </div><!--level3-->
+                </div><!--level2-->
+                <div id="part2" class="level2">
+                    <h2>2. Pygame</h2>
+                    <p>Pygame is a set of modules based on Tkinter, and specifically designed to allow one to write games. The website for Pygame is <a href="http://pygame.org">pygame.org</a>, where you can find all sorts of interesting resources.</p>
+                    <p>Getting Pygame installed on your own machine can be challenging. We've already taken care of installing Pygame on the machines in our lab. Because each computer has its own graphics capabilities, if you want to work on a Pygame-based program at home, you're going to want to try to install Pygame on that home machine. Information on how to do so for your particular operating system is available on the Pygame website.</p>
+                    <p>If you're really having difficulties installing Pygame, you might consider a somewhat drastic option: booting into a USB-based Linux OS, and running Python from that drive. There are challenges there as well; speak with the instructor in class about this if you decide to pursue this option.</p>
+                    <p>If you <i>really</i> get into programming games, check out <a href="http://inventwithpython.com/"><i>Invent Your Own Computer Games with Python</i></a>, 2nd Ed. by A. Sweigart. (Go to the website; you can download a PDF of this book for free!)</p>
+                    <p>We'll almost certainly be looking at programming games later on in this course. For now, we're just going use Pygame's graphics capabilities to learn about structured programming.</p>
+                    <div class="level3">
+                        <h3>2.a. Setting up a window</h3>
+                        <p>Let's write a graphics-based <i>Hello, World</i> program.</p>
+                        <p>Graphics based programs are necessarily more complex to code, because there is so much more to keep track of. How big is the window going to be? What color is the background going to be? What shapes, of what colors, do you want to draw in the window? Do you want to display text? a photo? a movie? a button? a scrollbar? a menu?</p>
+                        <p>We'll start with creating a window.</p>
+                        <div class="problem">
+                            <p>Enter this program, save it and run it.</p>
+                            <div class="code">import sys, pygame     <span style="color:#fff"># Get the system and pygame modules</span>
+pygame.init()          <span style="color:#fff"># Initialize the pygame module</span>
+size = width, height = 640, 480   <span style="color:#fff"># Establish size of window</span>
+screen = pygame.display.set_mode(size, 0, 32)   <span style="color:#fff"># Create screen</span>
+pygame.display.set_caption("Richard's awesome game")  <span style="color:#fff"># Title bar</span>
+BLACK = (0,0,0)     <span style="color:#fff"># Establish some identifiers for colors</span>
+WHITE = (255,255,255)   <span style="color:#fff"># Use 0-255 in Red, Green, Blue</span>
+RED = (255,0,0)    
+GREEN = (0,255,0)     
+GUESSME = (255,255,0)   <span style="color:#fff"># Remember Conceptual Physics?</span>
+screen.fill(WHITE)  <span style="color:#fff"># Fills the screen with white</span>
+pygame.display.update()    <span style="color:#fff"># draw window on screen</span>
+while True:         <span style="color:#fff"># Enter loop that collects events</span>
+    for event in pygame.event.get():  <span style="color:#fff"># let stuff happen</span>
+        if event.type == pygame.QUIT: <span style="color:#fff"># if they ask to quit...</span>
+            pygame.quit()             <span style="color:#fff"># quit pygame</span>
+            sys.exit()                <span style="color:#fff"># exit python</span></div><!--code-->
+                        </div><!--problem-->
+                        <p>If you enter everything correctly and have a copy of the pygame module that was able to be loaded, then you should see a white window appear on your computer screen. Nothing happens until you close the window or entered Ctrl-C to break out of the program.</p>
+                        <p>It's not much, but it's a start!</p>
+                    </div>
+                    <div class="level3">
+                        <h3>2.b. Displaying text on the screen</h3>
+                        <p>Now, let's put a "Hello, world" in the middle of that window.</p>
+                        <div class="problem">
+                            <p>Modify your program by entering this code right after the <i>screen.fill(WHITE)</i> line:</p>
+                            <div class="code">basicFont = pygame.font.SysFont(None, 48)  <span style="color:#fff"># set up font</span>
+                     <span style="color:#fff"># Here, we use default system font, size 48pt</span>
+text = basicFont.render('Hello, world!',True,(0,0,255),BLACK) <span style="color:#fff"># set up text</span>
+                     <span style="color:#fff"># Returns text surface that is anti-aliased,</span>
+                     <span style="color:#fff"># with specified color,background</span>
+textRect = text.get_rect()   <span style="color:#fff"># get_rect returns a rectangular shape containing</span>
+                             <span style="color:#fff"># the surface, with parameters x, y, width, height</span>
+                             <span style="color:#fff"># where x,y indicate upper-left corner</span>
+textRect.centerx = screen.get_rect().centerx  <span style="color:#fff"># set center of rect at screen ctr</span>
+textRect.centery = screen.get_rect().centery
+screen.blit(text, textRect)   <span style="color:#fff"># place the text in the rectangle</span></div><!--code-->
+                            <p>"Blit" means "BLock Image Transfer," and is used to transfer something from your source image to the screen&mdash;your text in this case.</p>
+                            <p>One of the interesting thing about drawing graphics is that you typically assemble all the elements on the screen before you actually use <i>pygame.display.update()</i> to display those graphics on the screen.</p>
+                        </div><!--problem-->
+                    </div>
+                    
+                    <div class="level3">
+                        <h3>2.c. Drawing basic objects</h3>
+                        <p>Let's write a program that combines some of these ideas, and puts a few other types of objects on the screen.</p>
+                        
+                        <div class="code"><span style="color:#fff">"""Mr. White's Pygame"""</span>
+import pygame, sys, random <span style="color:#fff"># we're going to need these!</span>
+from pygame.locals import *  <span style="color:#fff"># allows us to use machine-dependent features</span>
+
+<span style="color:#fff"># set up pygame</span>
+pygame.init()
+
+<span style="color:#fff"># set up window</span>
+width = 400
+height = 300
+myScreen = pygame.display.set_mode((width, height), 0, 32)  
+pygame.display.set_caption('Hello world!') <span style="color:#fff"># sets window title</span>
+
+<span style="color:#fff"># identify some common colors</span>
+WHITE = (255, 255, 255) <span style="color:#fff"># Red-Green-Blue color code</span>
+RED = (255, 0, 0)
+BLACK = (0, 0, 0)
+GRAY = (127, 127, 127)
+GREEN = (0, 255, 0)
+
+<span style="color:#fff"># Set up the game clock</span>
+clock = pygame.time.Clock()
+
+<span style="color:#fff"># create screen background</span>
+myScreen.fill(WHITE)  <span style="color:#fff"># fills screen with white, but doesn't display it!</span>
+
+<span style="color:#fff"># create fonts for window</span>
+myFont = pygame.font.SysFont(None, 48)  <span style="color:#fff"># None refers to default font, 48 is point size</span>
+
+<span style="color:#fff"># create text</span>
+myText = myFont.render('Hello, world!', True, WHITE, GRAY)
+textRect = myText.get_rect()  <span style="color:#fff"># Place text on a rectangle surface, returns that surface (into textRect)</span>
+textRect.centerx = myScreen.get_rect().centerx <span style="color:#fff"># sets x location of textRect</span>
+textRect.centery = myScreen.get_rect().centery <span style="color:#fff"># sets y location of textRect</span>
+myScreen.blit(myText,textRect)                 <span style="color:#fff"># puts text on screen</span>
+
+<span style="color:#fff">"""blit() method draws contents of one surface object onto another surface object.
+Here, we're taking the myText that we created, and drawing it on the screen at textRectangle.
+"""</span>
+
+<span style="color:#fff"># Draw a single pixel on the surface at (10,30)</span>
+myScreen.set_at((10, 30),(0, 0, 255))
+
+<span style="color:#fff"># Defines a new rectangle with upper-left corner</span>
+<span style="color:#fff"># at (10, 220), with width 20 and height 40</span>
+anotherRect = pygame.Rect(10, 220, 20, 40) 
+pygame.draw.rect(myScreen, RED, anotherRect)
+
+<span style="color:#fff"># Draw a line</span>
+pygame.draw.line(myScreen, GRAY, (60, 60), (120,20), 4)
+
+<span style="color:#fff"># Draw a circle</span>
+pygame.draw.circle(myScreen, GREEN, (300, 200), 20, 0)
+
+running = True
+while running:  <span style="color:#fff"># This is the game loop</span>
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()    
+    clock.tick(40)  <span style="color:#fff"># Use this value to tune your computer: cpu vs. game speed</span>
+    pygame.display.update()  <span style="color:#fff"># displays screen, finally!</span></div>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>2.d. Basic animation</h3>
+                        <p>Let's add one more section to our program. We want to make a small circle travel across the screen, from left to right. How does one do this?</p>
+                        <p>The basic idea is the same as that from a flip-book animation: draw an object, then draw that object in a slightly different position, and then again, and display them all one after another.</p>
+                        <div class="problem">
+                            <p>Let's write a new program that starts like this:</p>
+                            <div class="code">import sys, pygame
+pygame.init()
+size = width, height = 640, 480
+screen = pygame.display.set_mode(size, 0, 32)
+pygame.display.set_caption("Richard's awesome game")
+clock = pygame.time.Clock()
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    pygame.draw.circle(screen, (255, 0, 0), (0, 50), 20, 0)
+    # parameters here specify:
+    # surface to draw on, color, (x,y) center of circle
+    # radius, and thickness of border (0 = solid fill)        
+    pygame.display.update()  # display circle on screen
+    clock.tick(400)</div>
+                            <p>A common mistake at the beginning is to forget to update the display. Just remember, creating the surfaces doesn't actually <i>display</i> them&mdash; for that, you have to use <b>display.update()</b>.</p>
+                            <p>We've got our circle in there now, on the far left. How do we make it move?</p>
+                            <div class="code">while True:
+    for i in range(0, screen.get_rect().right, 3):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        pygame.draw.circle(screen, (255, 0, 0), (i, 50), 20, 0)
+        pygame.display.update()  # display circle on screen
+        clock.tick(400)</div>
+                            <p>Run that program and you'll see that it's not <i>quite</i> what we had in mind. In addition to drawing each circle, we need to erase the one before it. There are two ways to do this.</p>
+                            <ol>
+                                <li>Erase the old circle by redrawing it in white just before we redraw the new one in red.</li>
+                                <li>Erase the entire screen, then redraw everything (text, circle in new position) before calling display.update.</li>
+                            </ol>
+                            <p>I'm going to rewrite the program according to the second option. Here it is, with comments removed for brevity:</p>
+                            <div class="code">import sys, pygame
+pygame.init()
+size = width, height = 640, 480
+screen = pygame.display.set_mode(size, 0, 32)
+clock = pygame.time.Clock()
+while True:
+    for i in range(0, screen.get_rect().right, 3):
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+        screen.fill((255, 255, 255))
+        pygame.draw.circle(screen, (255, 0, 0), (i, 50), 20, 0)
+        pygame.display.update()
+        clock.tick(400)</div>
+                            <p>You can see that we've placed the event checker inside the loop that draws the circle, so that we can break out in the middle of that loop if we need to.</p>
+                        </div><!--problem-->
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>2.e. Interacting with the other objects</h3>
+                        <p>One of the challenges of working with animation is making your animated objects interact with each other or with the window that they're moving in. A ball, for instance, might fall until it hits the bottom of the screen and then bounce back up. Animating this motion requires keeping track of where the ball and its borders are at all times.</p>
+                        <div class="problem">
+                            <p>Look at the following code. Examine it first to see if you can figure what it does. Then enter and run it.</p>
+                            <div class="code">import sys, pygame
+pygame.init()
+size = width, height = 640, 480
+screen = pygame.display.set_mode(size, 0, 32)
+clock = pygame.time.Clock()
+ball_radius = 25
+ball_position_x = 25
+ball_position_y = 50
+ball_color = (255,0,0)
+speed = 6     # we can increment by varying amounts
+direction = 1 # starts out moving to right
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+    screen.fill((255, 255, 255))
+    ball = pygame.draw.circle(screen, ball_color, (ball_position_x, ball_position_y), ball_radius, 0)
+    pygame.display.update()
+    if ball.right + speed * direction &gt; width:
+        direction = -1
+    elif ball.left + speed * direction &lt; 0:
+        direction = +1
+    ball_position_x += speed * direction
+    clock.tick(400)</div>
+                        </div>
+                    </div><!--problem-->
+                    <div class="level3">
+                        <h3>2.f. Help!</h3>
+                        <p>The <b>pygame</b> module has lots of modules that you can use to create graphics, animations, and yes, games. If you're interested in seeing some of the documentation, try:</p>
+                        <div class="code">>>> <span style="color:#fff">help (pygame)</span></div>
+                        <p>Some of the modules you have available to you include:</p>
+                        <ul>
+                            <li>cdrom - manage cdrom devices and audio playback</li>
+                            <li>cursors - load cursor images, includes standard cursors</li>
+                            <li>display - control the display window or screen</li>
+                            <li>draw - draw simple shapes onto a Surface</li>
+                            <li>event - manage events and the event queue</li>
+                            <li>font - create and render Truetype fonts</li>
+                            <li>image - save and load images</li>
+                            <li>joystick - manage joystick devices</li>
+                            <li>key - manage the keyboard</li>
+                            <li>mouse - manage the mouse</li>
+                            <li>movie - playback of mpeg movies</li>
+                            <li>sndarray - manipulate sounds with Numeric</li>
+                            <li>surfarray - manipulate images with Numeric</li>
+                            <li>time - control timing</li>
+                            <li>transform - scale, rotate, and flip images</li>
+                        </ul>
+                        <p>You'll also benefit from some of the tutorials linked to on the <a href="http://pygame.org">pygame.org</a> website.</p>
+                    </div>
+                    
+                    <div class="level3">
+                        <h3>2.g. Interacting with the User</h3>
+                        <p>Of course most graphics-based programs will require interaction with the user, both in the form of keyboard input and working with the mouse. Here are some techniques that you can use to facilitate that process.</p>
+                        <div class="level4">
+                            <h4>2.g.i. Capturing Keyboard Input!</h4>
+                            <p>Coming soon!</p>                     
+                        </div><!--level4-->
+                        <div class="level4">
+                            <h4>2.g.ii. Capturing Mouse Input</h4>
+                            <p>Coming soon!</p>
+                        
+                        <!-- 
+                        10     event = pygame.event.poll()
+11     if event.type == pygame.QUIT:
+12         running = 0
+13     elif event.type == pygame.MOUSEMOTION:
+14         print "mouse at (%d, %d)" % event.pos
+            x, y = event.pos
+        elif event.type == pygame.MOUSEBUTTONDOWN and event.button == LEFT:
+15         print "You pressed the left mouse button at (%d, %d)" % event.pos
+16     elif event.type == pygame.MOUSEBUTTONUP and event.button == LEFT:
+17         print "You released the left mouse button at (%d, %d)" % event.pos
+
+                        -->
+                        
+                        </div><!--level4-->
+                    </div><!--level3-->
+            
+                </div><!--level2-->
+            </div><!--level1-->
+        </div><!--content-->
+    </div> <!--mainwrapper-->
+    <div id="footer">
+        <p>&copy; 2012, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+    </div>
+</body>
+</html>

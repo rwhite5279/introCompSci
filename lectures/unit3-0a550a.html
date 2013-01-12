@@ -1,0 +1,830 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Lectures - Unit 3</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css">
+	<!-- Lecture styles here -->
+		html {margin: 0; padding: 0; } 
+		body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+		a:link, a:visited	{text-decoration: underline; color: blue; }
+		a:hover{text-decoration: underline; color: red;}
+		a:active	{text-decoration: none; color: blue;}
+		h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+		.level1 {margin:0; padding: 10px;}
+		h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+		.level2 {padding-left: 20px;}
+		h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+		.level3 {padding-left: 40px;}
+		h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+		.level4 {padding-left: 60px;}
+		div#footer p 	{font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+		div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+		div#footer a:hover, div#footer a:active {color: #ccc; }
+		.code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+		.problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+		.definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+		.homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+		.problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+		.definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+		.homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+		.homework p {margin: 0; padding: 0;}
+		ul li {list-style-type: square; margin-top: 1em; }
+		table {}
+		td {margin: 0; padding: 10px; border: solid 1px #000; border-collapse: collapse;}
+		img {width: 100%; }
+	<!-- End of lecture styles -->
+	</style>	
+	
+	<script type="text/javascript">
+	// From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="content">
+			<div class="level1">
+				<h1>Introduction to Computer Science: <br />
+				Functions, Graphics, and Objects</h1>
+				<p>Welcome to Unit 3!</p>
+				<ul>
+					<li><a href="#part1">Unit 3, Day 1 - Preparing for Structured Programming</a></li>
+					<li><a href="#part2">Unit 3, Day 1-2 - Functions and Parameters</a></li>
+					<li><a href="#part3">Unit 3, Day 2-4 - Intro to Graphics</a></li>
+					<li><a href="#part4">Unit 3, Day 5-7 - Independent Project 2</a></li>
+					<li><a href="#part5">Unit 3, Day 9 - Object-Oriented Programming</a></li>
+				</ul>
+				<div id="part1" class="level2">
+					<h2>1. Preparing for Structured Programming</h2>
+					<p>Before we begin our study of some Structural Elements of Python, there are two things that you should start including in your programs:</p>
+					<ol>
+						<li><b>Include a <i>docstring</i> as your first comment in each program or function.</b><br />
+							A <i>docstring</i> is a special type of comment, typically enclosed by triple-quotes ("""), and that is placed on the first line of the program or function. The docstring typically includes important information about the program (who wrote it, when, what it does) or function (what the function does).</li>
+						<li><b>After writing your main() program, call your <i>main()</i> program with this <i>if</i> statement at the bottom of your program:</b><br />
+							<div class="code">if __name__ == "__main__":
+    main()</div>
+						The purpose of this <i>if</i> statement is to allow your programs, increasingly powerful and useful, to be used by <i>other</i> programs by importing them as modules. We'll take advantage of this capability soon.</li>
+					</ol>
+				</div><!--level2-->
+				<div id="part2" class="level2">
+					<h2>2. Functions and Parameters</h2>
+					<div class="level3">
+						<h3>2.a. Definition and Uses of Functions</h3>
+						<div class="definition">
+							<p>A <b>function</b> is simply a small program inside a larger one, whose purpose is to:</p>
+							<ul>
+								<li>organize your program into logical blocks of code</li>
+								<li>reduce duplicated code (shortening and simplifying your program)</li>
+								<li>make your program easier to maintain (by keeping your code better organized)</li>
+							</ul>
+							<p>You should include functions in your program if:</p>
+							<ul>
+								<li>You find that you're repeating code</li>
+								<li>Your program takes up more than "one screen" of space</li>
+							</ul>
+						</div><!--definition-->
+						<p>Imagine that you're writing a program to play the game of "Monopoly." As part of that game, you know that players are occasionally going to be paying the bank money. Because of this, it makes some sense to write a function that will take care of that transaction. In this outline of part of the program, you can see that there's a function <i>payBank</i>, which will be called anytime some player needs to pay the bank some amount of money.</p>
+						<img src="images/monopoly.png" style="width:50%">
+						<p>You can also see in this outline that the programmer has written a <i>passGo</i> function, to be called anytime a players motion on the board takes him past the "Go" square. The <i>passGo</i> function, in turn, calls the function <i>fromBank</i>, which takes care of distributing money to players.</p>
+						<p>It should be clear that the program outline above isn't complete&mdash;there's still a lot of work that needs to be done. But we've begun our coding by considering the pieces&mdash;the <i>functions</i>&mdash;that we'll be writing. By breaking our code up into logical chunks, it will be far easier to write programs.</p>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>2.b. Parameters and Scope</h3>
+						<p>One use of a function is simply to organize your code so that it's easier for programmers to read and manage.</p>
+						<p>Let's say that you're writing a program that allows the user to play Blackjack on the computer. If you want to print out the instructions for the user, you could certainly put a bunch of print statements in the main() body of your program. That's what we've done up to this point.</p>
+						<p>But it's better to move that block of print statements to someplace else&mdash;to a <i>function</i>&mdash;and then we'll just call that function if needed. The code looks like this:</p>
+						<div class="code">def print_instructions():
+    advice = raw_input("Need instructions? (y/n)")
+    if advice.lower() == "y":
+        print """Here's how you play Blackjack. 
+        Play begins with 2 cards dealt to each player...
+        """
+
+def main():
+    print_instructions()
+    .
+    .
+	
+if __name__ == "__main__":
+    main()</div>
+						
+						<p>Notice that my main() program now is much less cluttered and easier to read, now that I'm using it to call other functions.</p>
+						<p>In this first example, we didn't need to pass any information back and forth between the main program and the function, but most programs DO need some way of doing that. How do you pass information into the function so that it can actually do something useful? You use <i>parameters</i>.</p>
+						<div class="definition">
+							<p>A <b>parameter</b> is information that is passed into a function.</p>
+							<p>A <i>formal parameter</i> is included in parentheses as part of the function definition. The <i>actual parameter</i>, either a variable or a value, is included in parentheses when the function is called.</p>
+						</div><!--definition-->
+						<p>Let's take a look at a complete program that actually uses parameters.</p>
+						<div class="code"><span style="color: #fff;">"""Calculator Program, by Richard White
+This program takes two numbers entered
+by the user and performs a mathematical
+operation on them.
+"""</span>
+
+def add_them(number1,number2):
+    print "The sum of",number1,"and",number2,
+    print "is",number1+number2
+
+def main():
+    n1 = input("Enter a number: ")
+    n2 = input("Enter a second number: ")
+    add_them(n1, n2)
+	
+if __name__ == "__main__":
+    main()</div>
+						<p>You can probably guess exactly how this program works. At run time, the <i>main</i> program is called, which asks the user to input two numbers, after which the <i>add_them</i> procedure is called, with those two variables as parameters. In the <i>add_them</i> function, the formal parameters (variables) <i>number1</i> and <i>number2</i> refer to the actual parameters <i>n1</i>  and <i>n2</i>. Printing <i>number1</i> refers to whatever value was referred to when the function was called... and that was <i>n1</i>. The function takes <i>n1</i> and <i>n2</i> and prints their sum. Pretty straightforward to this point.</p>
+						<p>We need to talk about <i>scope</i> for a minute, though.</p>
+						<div class="definition">
+							<p><b>Scope</b> refers to the location in a program where a particular variable may be used.</p>
+							<p><i>Local scope</i> variables may be used "locally" (in the current function), but don't have any value outside the function.</p>
+							<p><i>Global scope</i> variables have value outside a given function, and <i>may</i> be referred to inside a function, but they typically can't be changed by that function.</p>
+						</div><!--definition-->
+						<p>In our Calculator Program, <i>n1</i> and <i>n2</i> are local to <i>main()</i>, and global to <i>add_them</i>. <i>number1</i> and <i>number2</i> are local to <i>add_them</i>, and undefined outside of that function.</p>
+						<div class="problem">
+							<p>Examine the following function, and predict what the output of each of the statements will be.</p>
+							<div class="code">def hello(a_name):
+    print "Hello,",a_name
+    a_name = "Joe" <span style="color: #fff"># Careful! This may not</span>
+                   <span style="color: #fff"># do what you think!</span>
+
+<span style="color: #0f0"># Now let's see how the function works!</span>
+
+myname = "Sue"      <span style="color: #fff"># set global variable</span>
+print hello(myname) <span style="color: #fff"># call the function</span>
+print myname        <span style="color: #fff"># did function change</span>
+                    <span style="color: #fff"># the value of myname?</span>
+print a_name        <span style="color: #fff"># will this even work?</span></div><!--code-->
+						</div><!--problem-->
+					</div><!--level3-->
+					<div class="level3">
+						<h3>2.c. Examples of functions</h3>
+						<p>Well, let's try writing a small program to practice using a simple function.</p>
+						<div class="problem">
+								<p>Write a short program to print all the lyrics to the song "99 bottles of beer on the wall." The program should use a single function "print_lyrics," that takes a single integer parameter to print out a verse of the song. The main program should then call that function from inside a loop.</p>
+						
+								<div id="on1" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand1', 'on1');">See solution</a>
+								</div>
+								<div id="expand1" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand1', 'on1');">Minimize</a>
+									<div class="code"><span style="color: #fff">"""
+99 Bottles of beer on the Wall, by Richard White                             
+
+This program prints out all the lyrics to the song 
+using a function called from within a loop.
+
+Future improvements include:
+* When only one bottle, don't say 'bottles.'
+* At end, instead of 0, say 'No more...'
+"""</span>
+
+def print_lyrics(num):
+    print num,"bottles of beer on the wall,"
+    print num,"bottles of beer."
+    print "Take one down and pass it around."
+    print num - 1,"bottles of beer on the wall."
+    print
+
+def main():
+    for i in range(99,0,-1):
+        print_lyrics(i)
+
+if __name__ == "__main__":
+    main()
+								
+								</div><!--code-->
+							</div><!--expand-->
+						</div><!--problem-->
+						<p>Now that we've actually coded a function, let's look at another example where functions might come in handy. We won't actually do any coding on these, perhaps, but let's see if we can't figure out where functions might come in handy.</p>
+						<div class="problem">
+							<p><b>Write the initial flowchart for a program that allows the user to play Blackjack against the computer.</b></p>
+							<p>Take a moment to think about what the design for this program is going to look like, and make a flowchart for the basic game.</p>
+							<p>You don't need to get too detailed at this point. Let's just do one main loop that will identify 2-4 steps in running this game.</p>
+							<p>Here's one possibility:</p>		
+							<div id="on2" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand2', 'on2');">See flowchart1</a>
+							</div>
+							<div id="expand2" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand2', 'on2');">Minimize</a>
+								<p>This is one possible flowchart for a Blackjack-playing game. You can see that after creating the chart I was able to identify two parts of the algorithm that do something very similar: dealing cards. I can imagine that the "card-dealing code" that I'm going to be writing will have some redundancies in it, so writing a function for that part would be a strong possibility.</p>
+								<img src="images/blackjack_flowchart1.png" style="width: 600px" />
+							</div>
+							<p>What do you think the algorithm for dealing cards might look like? Let's drill down a little deeper and consider what steps&mdash;what loops, what branches&mdash;we might include in our card-dealing function.</p>
+							<p>Here's one way it might work:</p>
+							<div id="on3" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand3', 'on3');">See flowchart2</a>
+							</div>
+							<div id="expand3" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand3', 'on3');">Minimize</a>
+								<p>You can see here that I've gotten a little closer to distributing cards, but I still haven't identified exactly how to hand out cards from the deck. According to my chart, I'm going to have to do that at least twice in this function, which means I'll probably end up writing a function for it.</p>
+								<img src="images/blackjack_flowchart2.png" style="width: 600px">
+								<p>The actual card-distribution function we won't worry about here. This was just an exercise to see how useful functions can be in helping us organize our code and avoid repeating too much.</p>
+							</div>
+						</div><!--problem-->
+					</div><!--level3-->
+					<div class="level3">
+						<h3>2.d. Getting information back out of a function</h3>
+						<p>We've learned that you can pass information <i>into</i> a function using parameters. But how do you get information back <i>out?</i></p>
+						<p>Let's take a look at our calculator program again. What if we'd written this:</p>
+						<div class="code"><span style="color: #fff">"""Calculator Program that
+won't work.
+"""</span>
+
+def add_them(number1,number2):
+    answer = number1 + number2
+
+def main():
+    n1 = input("Enter a number: ")
+    n2 = input("Enter a second number: ")
+    add_them(n1, n2)
+    print answer   <span style="color: #fff"># This won't work</span>
+	
+if __name__ == "__main__":
+    main()</div><!--code-->
+						<p>This program won't work as we need it to, because the variable <i>answer</i> is "local to <i>add_them</i>", and undefined in our <i>main</i> program. We need to get the answer back out of the function somehow.</p>
+						<p>Our programming solution is to <i>return</i> a value.</p>
+						<div class="definition">
+							<p>A <b>return</b> statement in a function that returns operation of a program back to the point where the function was called. Any variables included as part of the <b>return</b> statement are sent back to the function call as a result.</p>
+							<div class="code">def add_them(a,b):
+    return a+b  <span style="color: #fff"># Calculate a+b</span>
+                <span style="color: #fff"># and sends result back</span>
+                <span style="color: #fff"># to function call</span>
+
+x = 3
+y = 8
+answer = add_them(x,y)  <span style="color: #fff"># Calls function and</span>
+                        <span style="color: #fff"># puts result in answer</span>
+print "The sum of",x,"and",y,"is",
+print answer</div>
+						</div>
+						<p>Here's a version of our program, then, that <i>does</i> work:</p>
+						<div class="code"><span style="color: #fff">"""Calculator Program that works!
+"""</span>
+
+def add_them(number1,number2):
+    return number1 + number2
+
+def main():
+    n1 = input("Enter a number: ")
+    n2 = input("Enter a second number: ")
+    answer = add_them(n1, n2)
+    print answer
+	
+if __name__ == "__main__":
+    main()</div><!--code-->
+						<p>One common use for functions is to gather user input. Writing separate functions for "initializing" a program (setting initial values for data) and actually processing that data is very common.</p>
+						<div class="problem">
+							<p>Write a small program that includes a function to get the user's name and age. The function should pass this information back to the main program.</p>
+							<div id="on4" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand4', 'on4');">See solution</a>
+							</div>
+							<div id="expand4" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand4', 'on4');">Minimize</a>
+								<div class="code">def get_input():
+    name = raw_input("Enter your name: ")
+    age = input("Enter your age: ")
+    return name, age
+
+main()
+    user,age = get_input()   <span style="color: #fff"># Call the function</span>
+    if age > 90:
+        print "Wow,",user,"that's pretty old!"
+    else:
+        print user, ", you are",age,"years old."</div><!--code-->
+							</div>
+						</div><!--problem-->
+						<p>Now try this one:</p>
+						<div class="problem">
+							<p>Write a small program that includes two functions: one to get the dimensions of a quadrilateral, and one to calculate the area and perimeter of that quadrilateral.</p>
+							<div id="on5" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand5', 'on5');">See solution</a>
+							</div>
+							<div id="expand5" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand5', 'on5');">Minimize</a>
+								<div class="code">def get_dimensions():
+    length = input("Enter length of quadrilateral: ")
+    width = input("Now enter width:")
+    return length, width
+
+def calc_area_perimeter(length, width):
+    area = length * width
+    perimeter = 2 * length + 2 * width
+    return area, perimeter
+
+main()
+    l,w = get_dimensions()
+    a,p = calc_area_perimeter(l,w)
+    print "The area and perimeter of your"
+    print "quadrilateral are", a,"and", p</div><!--code-->
+							</div>
+						</div><!--problem-->
+						
+						<div class="homework">
+							<h1>Homework</h1>
+							<p>Ready Chapter 6, Sections 6.1-6.7, do Ch 6 programming exercises #1, #3, upload to server.</p>
+						</div>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>2.e. Immutable vs. Mutable, Assignment by Reference vs. Assignment by Value</h3>
+						<p>While Python is a very straightforward computer language in many ways, it does have a few characteristics that make working with it tricky for the uninitiated. Now that we're starting to build programs with a little complexity to them, let's take a look at two aspects of Python that sometimes cause difficulty.</p>
+						<div class="level4">
+							<h4>2.e.i. Immutable vs. Mutable Data Types</h4>
+							<div class="definition">
+								<p>In Python, <i>numbers</i>, <i>strings</i>, and <i>tuples</i> (about which we haven't yet learned) are <i>immutable</i> objects&mdash;they can't be changed.</p>
+							</div>
+							<p>What that means is that when we say <b>a = 1</b> in Python, the value "1" can't be changed. We can certainly assign a new value to <b>a</b> by using a statement like <b>a = a + 1</b>, but the value of "1" itself hasn't changed.</p>
+							<p>That may seem like a silly, obvious example, but it's important to begin there. Here's a slightly more sophisticated one. If we say <b>name = "Rich"</b>, the string "Rich" is also immutable&mdash;it can't be changed. We could find out what the fourth letter is by saying <b>print name[3]</b>, but we can't say <b>name[3] = "k"</b> to change the name. Why? Because "strings are immutable."</p>
+							<div class="definition">
+								<p><i>Lists</i> and <i>dictionaries</i> (about which we haven't yet learned), are <i>mutable</i>. A list <i>can</i> be changed by altering an element in that list.
+								</div>
+							<p>We've already done just that in some of the programs that we've written:</p>
+							<div class="code">>>> <span style="color: #fff">shopping_list = ["apples","oranges","bananas"]</span>
+>>> <span style="color: #fff">shopping_list.append("grapes")</span>
+>>> <span style="color: #fff">print shopping_list</span>
+['apples', 'oranges', 'bananas', 'grapes']</div>				
+						<p>Knowing which of your data are <i>immutable</i> and which are <i>mutable</i> is important for understanding the next topic. Read on.</p>
+						</div><!--level4-->
+						<div class="level4">
+							<h4>2.e.ii. Assignment by Reference vs. Assignment by Value</h4>
+							<p>Here's the tricky part.</p>
+							<div class="definition">
+								In Python, <i>assignment</i> (using an equals sign, =) copies a <i>reference</i> to a value, and not the value itself.
+							</div>
+							<p>How does this affect your programming? When you're assigning immutable values to a variable, you don't have to worry much. Let's see what it looks like in the computer's memory after you write these instructions:</p>
+							<div class="code">>>> <span style="color: #fff">myAge = 25</span>
+>>> <span style="color: #fff">yourAge = myAge</span></div>
+							<img src="images/immutable_reference.png" style="width: 30%" />
+							<p>As you can see here, Python has set up a reference to the value of <i>myAge</i>, so that both variables are referring to the same object, the value 25.</p>
+							<p>This typically isn't a problem. If you want to add a year to <i>myAge</i>, you'd probably do it this way, and it works just fine.</p>
+							<div class="code">>>> <span style="color: #fff">myAge = myAge + 1</span>
+>>> <span style="color: #fff">print myAge</span>
+26
+>>> <span style="color: #fff">print yourAge</span>
+25</div>
+							<img src="images/immutable_reference2.png" style="width: 30%" />
+							<p><i>myAge</i> has a new object for its value, the integer object 26.</p>
+							<p>What about this though?</p>
+							<div class="code">>>> <span style="color: #fff">myShopping = ["apples","oranges","bananas"]</span>
+>>> <span style="color: #fff">yourShopping = myShopping</span></div>
+							<p>This is the same thing that we had before, in which both variables&mdash;<i>myShopping</i> and <i>yourShopping</i>&mdash;having been set up with references to the same object: that list of items.</p>
+							<img src="images/mutable_reference.png" style="width: 60%" />
+							<p>Lists are mutable objects, and so we almost always want to change their values, perhaps like this:</p>
+							<div class="code">>>> <span style="color: #fff">myShopping.append("grapes")</span></div>
+							<p>Because lists are mutable, changing the list doesn't create a new object&mdash;it just changes the value of the old object, and that object (the list) is still referred to by two different variables. As a result:</p>
+							<div class="code">>>> <span style="color: #fff">print myShopping</span>
+['apples', 'oranges', 'bananas', 'grapes']
+>>> <span style="color: #fff">print yourShopping</span>
+['apples', 'oranges', 'bananas', 'grapes']</div>
+							<p>By adding an item to the mutable list <i>myShopping</i>, I've effectively added that same item to <i>yourShopping</i> as well. That's what it seems like, anyway, but experienced Python programmers know that you've really just been referring to the same object: that mutable list.</p>
+							<img src="images/mutable_reference2.png" style="width: 60%" />
+							<p>So be aware of this difference.</p>
+							<p>If it turns out that you really <i>do</i> want to make a separate copy of a mutable object like a list, to be copied into a second variable, there are several ways to do it. Here's one:</p>
+							<div class="code">>>> <span style="color: #fff">myShopping = ["apples","oranges","bananas"]</span>
+>>> <span style="color: #fff">yourShopping = myShopping[:]</span></div>
+							<p>When you use the slice operator [:] with <i>myShopping</i>, it produces a list of the items there, and assigns them into <i>yourShopping</i> as a separate list.</p>
+							<p>For a more complex copy&mdash;say a list-within-a-list, or an object&mdash;it's convenient to be able to use the <b>copy</b> module:</p>
+							<div class="code">>>> <span style="color: #fff">import copy</span>
+>>> <span style="color: #fff">yourShopping = copy.copy(myShopping)</span></div>
+							<p>Now <i>myShopping</i> and <i>yourShopping</i> are two completely separate lists.</p>
+							
+						</div><!--level4-->
+					</div><!--level3-->
+					<div class="level3">
+						<h3>2.f. Another way of getting data from a function</h3>
+						<p>It's very important to understand that when a function uses data that has been passed in to it via a parameter, changing the value of that parameter while inside the function has <i>no effect on the global variable</i>. To see what we mean, take a look at the following example:</p>
+						<div class="code">>>> <span style="color:#fff">def birthday(age):</span>
+...     <span style="color:#fff">age = age + 1</span>
+...     <span style="color:#fff">[Enter]</span>
+>>> <span style="color: #fff">my_age = 50</span>
+>>> <span style="color: #fff">birthday(my_age)</span>
+>>> <span style="color: #fff">print my_age</span>
+>>> 50</div>
+						<p>You'd be forgiven for expecting that adding 1 to <i>my_age</i> from within the function might affect the global variable&mdash;indeed, some languages work that way. Python does not.</p>
+						<p>Global variables&mdash;variables outside a function, whose information may be passed in via a parameter&mdash;aren't affected by function because the formal parameter of the function (<i>age</i> in this example) only receives a copy of the information in the actual parameter&mdash;the formal parameter doesn't actually point to the variable we indicated. This process of taking a variable's value and passing it in to the function is called, strangely enough, "passing by value."</p>
+						<p>An exception to this rule is when a parameter is a <i>mutable object</i>, like a <b>list</b>. If a list is modified by a function, the list will contain those updated values. For lists, the parameter is "passed by reference," meaning the formal parameter in the function <i>does</i> refer to the actual parameter outside the function.</p>
+						<p>To see this in action, let's take a look at function that is designed to add interest to a list of bank accounts.</p>
+						<div class="problem">
+				            <p>A program has a list of bank account balances, and we wish to add 10% interest to each of the accounts by calling the function add_interest:</p>
+				            <div class="code">bank_accounts = [200, 1000, 10]  <span style="color: #fff"># global list</span>
+add_interest(bank_accounts, 0.10) <span style="color: #fff"># call function on list</span></div>
+                            <p>The function might be written like this:</p>
+                            <div class="code">def add_interest(account_list, interest):
+    for i in range(len(account_list)):
+        account_list[i] = account_list[i] * (1 + interest)
+                         <span style="color: #fff"># Note we're altering princ[i]!</span>
+
+print bank_accounts  
+<span style="color: #fff">=> [220.00000000000003, 1100.0, 11.0]</span></div>
+    						
+    						<p>It's easy to make a mistake here, though. What's wrong with this next program? Why won't it work as intended?</p>
+    						
+    						<div class="code">def add_interest(account_list, interest):
+    for acct in account_list:
+        acct = acct * (1 + interest)  
+        <span style="color: #fff"># We're altering acct, but that's just</span>
+        <span style="color: #fff"># a variable. It's not the mutable list!</span>
+                                      
+bank_accounts = [200, 1000, 10]  <span style="color: #fff"># global list</span>
+add_interest(bank_accounts, 0.10) <span style="color: #fff"># call function on list</span>
+print bank_accounts          
+<span style="color: #fff">=> [200, 1000, 10]</span></div>
+                        </div><!--problem-->
+					</div><!--level3-->
+					<div class="homework">
+						<h1>Homework</h1>
+						<p>Do Ch 6 programming exercises #7, #12, upload to server.</p>
+					</div>
+				</div><!--level2-->
+				<div id="part3" class="level2">
+					<h2>3. Intro to Graphics</h2>
+					<p>Up to this point in the course, we've been working in text-mode only, and interacting with the computer via a Terminal.</p>
+					<p>Most computers, though, allow one to manipulate the individual "picture elements," or <i>pixels</i>, on the screen. It is by creative use of these pixels that Microsoft's Windows, Apple's OS X, and Linux's Gnome and KDE <i>graphical user interfaces</i> (GUIs) give the user a kinder, gentler, graphics-based experience.</p>
+					<p>We won't be developing full graphics interfaces in here, but we can play around with some of the concepts in Python. We'll be looking at two different graphics options:</p>
+					<ul>
+						<li><b><a href="unit3a-ee84f0.html#part1">graphics.py</a></b><br />
+						This nifty little module was put together by Zelle, the author of our textbook. While it's not as full-featured as some more extensive graphics packages, what it lacks in power it makes for in convenience. It's a single module that's easy to install, and will do just about everything you need for studying graphics in this course.</li>
+						<li><b><a href="unit3a-ee84f0.html#part2">pygame</a></b><br />
+						Pygame is a powerful module that allows one to create a far more powerful, complex, and feature-rich graphics environment. Because it makes better use of the graphics capabilities of your computer, however, installing pygame can be a challenge, particularly if you're working on a number of different platforms, or using different versions of Python in your development.</li>
+					</ul>
+					<p>Which package you use depends on what your needs/interests are. Students who don't planning on doing as much with graphics will be perfectly content with <i>graphics.py</i>, while students who want more speed and power from their graphics (including the ability to write a decent game) will want to explore <i>pygame</i>.</p>
+					<p>You can find information on each module <a href="unit3a-ee84f0.html">here</a>.</p>
+					<div class="level3">
+						<h3>3.a. Practicing Animation</h3>
+						<p>Work your way through the following <b>graphics.py</b> examples in part 1 (graphics.py) of the lesson above.</p>
+						<p>Then, try this one:</p>
+						<div class="problem">
+    						<p>Using the <b>graphics</b> module, create a graphics window of your choosing that includes at least 3 different graphics elements, at least one of which animates during the program's operation.</p>
+    				    </div>
+					</div><!--level3-->
+					
+					
+				</div><!--level2-->
+				<div id="part4" class="level2">
+					<h2>4. Independent Project 2</h2>
+					<p>We've covered a great deal of information very quickly in the last few weeks.</p>
+					<ul>
+					   <li><b>Assigning values to variables</b> is essential for performing calculations.</li>
+					   <li><b>input()</b> for numbers, <b>raw_input()</b> for strings, and <b>print</b> statements for output allow us to communicate with our programs.</li>
+					   <li><b>for loops</b> and <b>while loops</b> allow us to repeat a sequence of instructions very quickly.</li>
+					   <li><b>if-elif-else statements</b> allow our programs to make decisions</li>
+					   <li><b>def</b> allows us to define functions that provide convenient organization and re-use of code.</li>
+					   <li><b>import</b> allows us to use programs (modules) that have been written by others.</li>
+					</ul>
+					<p>We've had a little bit of practice with all of these things, and now we want to take a few moments to try to put a lot of these ideas together.</p>
+					<p>One of the items that we haven't covered much in these online documents is using flowcharts and pseudocode to plan your programming. The larger the program, the more you'll benefit from taking a few moments to think about how you want to structure your program.</p>
+					<img src="images/flowchart_example2.jpg" style="width: 600px" />
+					<p>Now that we know a little about building structured programs and working with computer graphics, let's try <a href="../assignments/assignment4-independentproject2.pdf">Independent Project 2</a>.</p>
+				</div><!--level2-->
+				
+				<div id="part5" class="level2">
+					<h2>5. Object-Oriented Programming</h2>
+					<blockquote style="border: dashed 1px #000; padding: 20px; background-color: #ccc;">
+						<p>Object-oriented programming is an exceptionally bad idea that could only have originated in California.</p>
+						<p>-- Edsger Dijkstra</p>
+					</blockquote>
+					<div class="level3">
+						<h3>5.a. Objects, Classes, Instances, and Methods</h3>
+						<p>Object-oriented programming is a way of analyzing problems and developing program solutions that make use of <i>objects</i>. This is a confusing topic for some people at first&mdash;the theory can be a bit abstract&mdash;so we’re going to approach it by looking at a series of examples: some examples that you've already seen (perhaps without knowing about it), some abstract but common-sense examples, and then some more concrete.</p>
+						<p>You should also know that learning about object-oriented programming is, at first, very much an exercise in vocabulary. Part of learning about OOP is learning how to use a few special terms.</p>
+						<div class="definition">
+							<p>An <b>object</b> is a "thing" in a programming language&mdash;an "entity&mdash;that has both <i>attributes</i> (values that describe the object) and <i>methods</i> (actions or behaviors that you can do to an object).</p>
+							<p>Examples of <i>objects</i> in Python include a list, the integer 7, a function, a string, and even an entire program. In fact, <i>everything</i> in Python is an object.</p>
+						</div>
+						<p>Okay, so we've got these <i>objects</i>. So what?</p>
+						<div class="definition">
+							<p>A <b>class</b> is specific group of <i>objects</i> that all share some qualities in common.</p>
+							<p>An <b>instance</b> is a single object from a given <i>class</i>. So every object is an <i>instance</i> of a <i>class</i>.</p>
+							<p>Examples of various types of <i>classes</i>:</p>
+							<ul>
+								<li><b>[1,2,3]</b> is an <i>object</i>, and an <i>instance</i> of the class <b>list</b>.</li>
+								<li><b>"joey"</b> is an <i>object</i>, and an <i>instance</i> of the class <b>string</b>.</li>
+								<li>If <b>a = 3</b>, <b>a</b> is an <i>object</i>, and an <i>instance</i> of the class <b>int</b>.</li>
+								<li><b>myDog</b> is an <i>object</i>, and an <i>instance</i> of the <i>class</i> <b>canines</b>. This one I actually made up, but that's exactly what we're going to be doing: making up classes that are useful to us in writing our programs.</li>
+							</ul>
+						</div>
+						<p>Okay, so I've got a bunch of <i>instances</i> of these different <i>classes</i>. Now what?</p>
+						<div class="definition">
+							<p><i>Objects</i> have <b>attributes</b> and <b>methods</b>.</p>
+							<ul>
+								<li>An <b>attribute</b> stores information about an object in a variable. Attributes may also be called <i>instance variables</i>.</li>
+								<li>A <b>method</b> is something that you can <i>do</i> to the object.</li>
+							</ul>
+							<p><b>Hint:</b> You can easily tell <i>attributes</i> and <i>methods</i> for an object because of <b>dot</b> that separates the instance and the attribute or method.</p>
+							<p><b>Example:</b><br />
+								The <b>graphics.py</b> module that we've used to create graphics allows one to draw circles. Look at the following three statements.</p>
+							<div class="code">>>> <span style="color: #fff">myCirc = graphics.Circle(graphics.Point(10,10),5)</span></div>
+							<p>This first line creates an "instance" of the class "Circle," called "myCirc".</p>
+							<div class="code">>>> <span style="color: #fff">myCirc.setFill("red")</span></div>
+							<p>Here we've used the <i>method</i> "setFill" to <i>do</i> something to our object&mdash;we've set the color of the circle to red.</p>
+							<div class="code">>>> <span style="color: #fff">myCirc.getRadius()</span>
+5</div>
+							<p>The "getRadius" <i>method</i> returns the radius of the circle.</p>
+							<p>The value of the radius, 5, is stored in an <i>instance variable</i> myCirc.radius. (Typically, instance variables for an object are not directly accessed except via a method designed to return the value.)</p>
+						</div><!--definition-->
+						<p>Are you confused yet? Like everything else in programming, it will take a few times practicing all of this before it starts to make a little sense.</p>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>5.b. Some Examples of classes</h3>
+						<p>Let's try another example of a Class, this one a little more abstract. We won't be programming this, but we'll consider a common object, and see if we can't create some <i>attributes</i> and <i>methods</i> for that class.</p>
+						<div class="problem">
+							<p><b>Problem:</b> In order to be able to operate an iPod MP3 player, an object-oriented program is going to define a <i>class</i> called <b>mp3Player</b>. The program begins by creating an instance of the class:</p>
+							<div class="code">iPod = mp3Player()</div>
+							<p>What <i>attributes</i> (properties) and <i>methods</i> (things that get done to the player) should the mp3Player class have?</p>
+							
+							<div id="on7" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand7', 'on7');">See solution</a>
+							</div>
+							<div id="expand7" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand7', 'on7');">Minimize</a>
+								<p>Some possible <i>attributes</i> for the class mp3Player:</p>
+								<ul>
+									<li>onOffState</li>
+									<li>volume</li>
+									<li>songPlaying</li>
+									<li>artistPlaying</li>
+									<li>albumPlaying</li>
+									<li>shuffleMode</li>
+								</ul>
+								<p>There are others that you might have thought of, of course, but this is a start.</p>
+								<p>Now, what <i>methods</i> might we use to operate the mp3Player?</p>
+								<ul>
+									<li>turnOnOff()</li>
+									<li>volumeUp()</li>
+									<li>volumeDown()</li>
+									<li>nextSong()</li>
+									<li>previousSong()</li>
+									<li>nextAlbum()</li>
+									<li>previousAlbum()</li>
+									<li>shuffle()</li>
+								</ul>
+								<p>Notice that <i>attributes</i> don't have any parentheses () after them, but that <i>methods</i> do. That's the easy way to tell them apart.</p>
+							</div>
+						</div>
+						<p>Well, okay. Maybe this is starting to make a little more sense, but we should definitely look at an example. Without actually digging into the code of <i>writing</i> a class just yet, let's look at one that's already been written for us.</p>
+						<div class="problem">
+							<p>The class <b>Coin</b> represents a coin that may be flipped into the air, with a result of "heads" or "tails" when it lands.</p>
+							<p>What does this program statement do?</p>
+							<div class="code">myCoin = Coin()</div>
+							<div id="on8" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand8', 'on8');">See answer</a>
+							</div>
+							<div id="expand8" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand8', 'on8');">Minimize</a>
+								<p>This statement creates an instance, "myCoin", of the class Coin.</p>
+							</div>
+							
+							<p>What do you think this statement will do?</p>
+							<div class="code">result = myCoin.flip()</div>
+							<div id="on9" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand9', 'on9');">See answer</a>
+							</div>
+							<div id="expand9" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand9', 'on9');">Minimize</a>
+								<p>This statement takes myCoin and performs the "flip" method on it, getting a result of "heads" or "tails".</p>
+							</div>
+							
+							<p>What does this program statement do?</p>
+							<div class="code">print myCoin.getState()</div>
+							<div id="on10" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand10', 'on10');">See answer</a>
+							</div>
+							<div id="expand10" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand10', 'on10');">Minimize</a>
+								<p>This statement doesn't flip the coin again, but returns the value of the current state of the coin ("heads" or "tails").</p>
+							</div>
+							
+							<p>What does <b>myCoin.status</b> represent?</p>
+							<div id="on11" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand11', 'on11');">See answer</a>
+							</div>
+							<div id="expand11" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand11', 'on11');">Minimize</a>
+								<p>myCoin.status is an <i>attribute</i> of myCoin, and has a value of "heads" or "tails". It's used internally by the class, but can be accessed by calling the method <i>myCoin.getState()</i></p>
+							</div>	
+						</div><!--problem-->
+					</div><!--level3-->
+					<div class="level3">
+						<h3>5.c. Writing a class</h3>
+						<p>We're not really at a point where you can run out and write your own class yet, but we're getting close. Let's take a look at the Coin class that we used above, and see how it was written.</p>
+						<div class="code">#!/usr/bin/python
+<span style="color: #fff">"""coinFlipper-whiter.py
+Coin Flipper, by Richard White, 2011-03-15
+An example of a simple class declaration, methods, and instances
+"""</span>
+
+import random
+
+class Coin:
+    <span style="color: #fff">"""It's customary to include a comment here describing
+    your class. Here, the class Coin represents a coin that is 
+    going to be flipped in the air, with a result of 'heads' or
+    'tails'."""</span>
+    
+    def __init__(self):   <span style="color: #fff"># This 'constructor method' is called 
+        when an instance of Coin is created.</span>
+        self.status = self.flip()   
+    	<span style="color: #fff"># There's not much to do in this simple example,
+        # but we need to set up the initial status of the
+        # coin. We'll do that by calling the flip() method,
+        # defined below.</span>
+        
+    def flip(self):
+        <span style="color: #fff">"""The flip method determines a random state--'heads'
+         or 'tails'--and returns that value as a string."""
+        # Assign heads or tails to the attribute "status"</span>
+        self.status = random.choice(['heads','tails'])
+        <span style="color: #fff"># Return this status for the function call</span>
+        return self.status                              
+
+    def getState(self):
+        <span style="color: #fff">"""Returns the current value of the status of the coin,
+        'heads' or 'tails', without flipping it."""</span>
+        return self.status 
+
+def main():
+    <span style="color: #fff">"""Test the coinFlipper by letting it do its thing!"""</span>
+    myCoin = Coin()
+    print myCoin.getState()
+    for i in range(10):
+        myCoin.flip()  # Flips the coin
+        print myCoin.getState()   
+        <span style="color: #fff"># Can also just "print myCoin.flip()"</span>
+    
+if __name__ == "__main__":
+    main()</div>
+    					<p>Enter this program, and play around with it a little bit to see if you can understand how the pieces fit together.</p>
+    					<p>Then, once you're done with that, take a look at this next program. It's incomplete&mdash;the documentation refers to some methods that haven't been defined just yet&mdash;but you should be able to follow through a get some idea of what's going on.</p>
+    					<p>Then answer the questions down below.</p>
+    					<div class="code">#!/usr/bin/python
+<span style="color: #fff">"""planet_class_demo.py
+Planet Class Demo, by Richard White, 2011-03-15
+
+This program demonstrates the construction and use of a Planet 
+class and is based in part upon material from Miller & Ranum's 
+"Python: Programming in context."
+
+Attributes for the Planet class include name, mass, radius, 
+and orbitRadius.
+
+Accessor Methods include getName(), getMass(), getRadius(), 
+and getOrbitRadius(), as well as calcVolume(), calcDensity(), 
+calcVelocity(), and calcPeriod().
+
+Mutator Methods include setName(), setMass(), setRadius(), 
+and setOrbit().
+"""</span>
+
+import math
+
+class Planet:
+
+    def __init__(self, Name, Mass, Radius, Orbit):
+        <span style="color: #fff">"""This list of attributes is data that the planet 
+        knows about itself. The constructor "__init__" is used 
+        to create a new instance of a Planet object, and the 
+        included parameters become attributes that describe
+        the planet's initial state.
+
+        Note that the "self" parameter is a special parameter 
+        that is refers to the object being constructed. It is 
+        always the first parameter in the list."""</span>
+
+        self.name = Name
+        self.mass = Mass
+        self.radius = Radius
+        self.orbit = Orbit
+
+    def getName(self):
+        <span style="color: #fff;">"""This is a type of method called an Accessor Method:
+        it gives us proper access to one of the object's 
+        attributes. It's typical that each instance variable
+        have an associated "get" method in order to pass 
+        information from the class to the program. Thus, to 
+        refer to the name of "myPlanet", you would use:
+                          myPlanet.getName()
+        Although you /could/ also use "self.name" to refer 
+        to the same value, using the formal accessor method 
+        protects the user from unanticipated changes in internal 
+        representations of this information. We can protect the 
+        user from having to deal with the internals via this 
+        "information hiding" (using accessor
+        methods).
+        """</span>
+        return self.name
+
+    def getMass(self):
+        <span style="color: #fff">"""This Accessor Method returns the mass
+        of the object."""</span>
+        return self.mass
+
+    def calcVolume(self):
+        <span style="color: #fff">"""This is another Accessor method, that 
+        uses a planet's attributes to calculate a planet's 
+        volume, assuming a spherical shape, based on:
+                    Volume = ((4/3)*pi*r^3)
+        """</span>
+        return ((4/3.0)*math.pi*self.radius**3)
+
+    def setName(self,newName):
+        <span style="color: #fff">"""This last method is a Mutator method, because 
+        it mutates or changes an attribute of the object.
+        """</span>
+        self.name = newName
+
+
+def main():
+    myPlanet = Planet("Earth",5.98e+24,6.38e+6,1.5e+11)
+    print "The mass of",myPlanet.getName(),"is", 
+    print myPlanet.getMass()
+    print myPlanet.calcVolume()
+    myPlanet.setName("Gaia")
+    print myPlanet.getName()
+
+if __name__ == "__main__":
+    main()</div>	
+    					<div class="problem">
+    						<p>Use your analysis of the program  above, <b>planet_class_demo.py</b>, to answer the following questions.</p>
+    						<p>1. <i>myPlanet</i> and <i>Planet</i> are:<br />
+    						a. an instance and a class<br />
+    						b. a method and a class<br />
+    						c. a class and an instance<br />
+    						d. an attribute and a class 
+    						</p>
+    						<div id="on12" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand12', 'on12');">See answer</a>
+							</div>
+							<div id="expand12" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand12', 'on12');">Minimize</a>
+								<p>The correct answer is <b>a</b>&mdash;<i>myPlanet</i> is an instance of the class <i>Planet</i>.</p>
+							</div>
+							<p>2. A(n) __________ stores info about an object, while a(n) ________________ does something to an object.<br />
+							a. attribute, instance<br />
+							b. instance, method<br />
+							c. method, attribute<br />
+							d. attribute, method
+							</p>
+							<div id="on13" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand13', 'on13');">See answer</a>
+							</div>
+							<div id="expand13" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand13', 'on13');">Minimize</a>
+								<p>The correct answer is <b>d</b>&mdash;<i>attributes</i> like .mass, .radius, and .name store information about an object, while <i>methods</i> like .getmass(), .calcVolume(), and .setName() DO stuff to the object.</p>
+							</div>
+							<p>3. The planet Mercury has a mass of 3.3e23 kg, a radius of 2.4e6 m, and an orbital radius of 5.8e10 m. What statement would you place in your main() program to create an object for this planet? How would you use the object to print out Mercury's mass from your program?</p>
+							<div id="on14" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand14', 'on14');">See answer</a>
+							</div>
+							<div id="expand14" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand14', 'on14');">Minimize</a>
+								<p>To create the object:</p>
+								<div class="code">firstPlanet = Planet("Mercury",3.3e23, 2.4e6, 5.8e10)</div>
+								<p>To print out Mercury's mass:</p>
+								<div class="code">print firstPlanet.getMass()</div>
+							</div>
+							<p>4. The program already has one Accessor method that calculates the planet's Volume. Write a method that calculates the planet's density, and write a statement in your main() program to test your method.</p>
+							<div id="on15" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand15', 'on15');">See answer</a>
+							</div>
+							<div id="expand15" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand15', 'on15');">Minimize</a>
+								<p>Include the following statements in your definition of the Planet class:</p>
+								<div class="code">def calcDensity(self):
+<span style="color: #fff">    """This method uses the calcVolume() method that we've already defined,
+    along with self.mass, to calculate the density of the planet."""</span>
+    return self.mass / self.calcVolume()</div>
+        						<p>The main() program can then call use that method like this:</p>
+        						<div class="code">print "The density is",myPlanet.calcDensity()</div>
+							</div>
+    					</div><!--problem-->	
+					</div><!--level3-->
+					<div class="level3">
+						<h3>5.d. Writing your own Classes and Objects</h3>
+						<p>Despite that fact that you've been using classes and objects from the very first day of this course, writing one's own classes and objects, at least for the smaller scale programs that we're working with in this introductory class, is usually more trouble than it's worth, and entirely unnecessary except as an exercise.</p>
+						<p>You will not be required to use Object-Oriented Programming in the development of programs in here.</p>
+						<p>That being said, writing objects and classes can be extraordinarily useful, and you may enjoy playing around with the ideas behind classes, objects, instances, attributes, and methods. If you wish to write object-oriented programs for your assignments in here, feel free to.</p>
+						<p>And don't forget to dig through the <a href="../assignments/">Assignments folder</a>, where you may find object-oriented versions of some of the program assignments.</p>
+				    </div><!--level3-->
+				</div><!--level2-->
+			</div><!--level1-->
+		</div><!--content-->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy;2012, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

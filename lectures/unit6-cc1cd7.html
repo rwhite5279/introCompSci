@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Lectures - Unit 5</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css">
+	<!-- Lecture styles here -->
+		html {margin: 0; padding: 0; } 
+		body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+		a:link, a:visited	{text-decoration: underline; color: blue; }
+		a:hover{text-decoration: underline; color: red;}
+		a:active	{text-decoration: none; color: blue;}
+		h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+		.level1 {margin:0; padding: 10px;}
+		h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+		.level2 {padding-left: 20px;}
+		h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+		.level3 {padding-left: 40px;}
+		h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+		.level4 {padding-left: 60px;}
+		div#footer p 	{font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+		div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+		div#footer a:hover, div#footer a:active {color: #ccc; }
+		.code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+		.problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+		.definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+		.homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+		.problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+		.definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+		.homework h1 { background-color: #f99; color: #000; font-size: 120%; padding: 0;  } 
+		ul {list-style-type: square; }
+		li {margin-top: 1em;}
+		img {width: 90%; margin: 10px; }
+		table {margin: 0; padding: 0; border-collapse: collapse;}
+		tr {margin:0; padding:0}
+		td {margin 0; padding: 10px; border: solid 1px #999;}
+	<!-- End of lecture styles -->
+	</style>
+	
+	<script type="text/javascript">
+	// From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="content">
+			<div class="level1">
+				<h1>Introduction to Computer Science: <br />
+				Culminating Programs and Projects</h1>
+				<p>Welcome to Unit 6!</p>
+				<ul>
+					<li><a href="#part1">Unit 6, Day 1 - Some Final Comments on Programming Design</a></li>
+					<li><a href="#part2">Unit 6, Day 1-3 - Programming Exercises</a></li>
+					<li><a href="#part3">Unit 6, Day 4-10 - Final Project</a></li>
+				</ul>
+				<div id="part1" class="level2">
+					<h2>1. Some Final Comments on Programming and Design</h2>
+					<p>We've covered a fair amount of ground in here in the last eleven weeks:</p>
+					<ul>
+						<li>Working in BASH on the Terminal, locally and on the server</li>
+						<li>Intro to programming in Python, including output, input, control structures, and data structures</li>
+						<li>Organizing smaller Python units (functions, objects) into larger programs</li>
+						<li>Writing HTML code to produce static webpages</li>
+						<li>Intro to database design, and using Python to manipulate an SQLite database</li>
+					</ul>
+					<p>We haven't wasted a whole lot of time talking about programming <i>philosophy</i>, or software design principles, or Big Picture stuff like that. (If you're interested in Real Life stories of coding, check out <a href="http://www.slashdot.com">slashdot.com</a>, or <a href="http://www.amazon.com/Coders-Work-Reflections-Craft-Programming/dp/1430219483">Coders at Work: Reflections on the Craft of Programming</a>, by Peter Seibel.)</p>
+					<p>Perhaps there are a few principles, though, that you may have picked up on as we've worked on developing our skills:</p>
+					<ol>
+						<li>Programming is Hard</li>
+						<li>Google is your friend</li>
+						<li>Top-Down Design can help</li>
+						<li>Bottom-Up Design can help</li>
+						<li>Functions / Objects can help you structure your work</li>
+						<li>Print statements are your friend</li>
+					</ul>
+					
+				</div><!--level2-->
+				<div id="part2" class="level2">
+					<h2>2. Programming Exercises</h2>
+					<p>Before beginning a long-term final project for this class, let's spend a little time brushing up on a series of smaller programs that will allow us to review some fundamental techniques.</p>
+					<div class="problem">
+						<p><b>Programming Exercises</b></p>
+						<ul>
+							<li><b>happy_birthday.py</b><br />
+							Write a program that prints the lyrics to the Happy Birthday song for every person in our class. The program should consist of two functions: one called "sing()" that prints the lyrics to the song based on a parameter "name" that is passed in, and a main function that uses the list "people" to store the names of everyone in the class, and then calls the sing() function with those names.</li>
+							<li><b>sieve_of_eratosthenes.py</b><br />
+							The "Sieve of Eratosthenes" finds all prime numbers up to n using this strategy:
+							<ol>
+				                <li>Create a list of all numbers from 2 to n.</li>
+				                <li>Remove first number the list, identify it as a prime number.</li>
+				                <li>Remove all multiples of this number from the list as well.</li>
+				                <li>Continue until the list is empty.</li>
+							</ol><br />
+							Write a program that asks the user to enter a number n and then uses the sieve algorithm to find all primes less than or equal to n.
+							</li>
+							<li><b>the_locker_problem.py</b><br />
+							There are 1000 students at a school, and each student has a locker, and the lockers are all in a line, and numbered from 1 to 1000. The lockers are all initially closed at the start of the problem, when student #1 starts at locker # 1, and visits locker, opening them. Student #2 starts at the second locker, and visits every other locker (2, 4, 6, etc.), and closes them. Student #3 starts at locker #3 and visits every third locker (3, 6, 9, etc), and closes the door if it's open, or opens the door if it's closed. This process continues until all 1000 students have traveled along the line of lockers.<br />
+                                <br />
+                                What is the final state of each locker in the row of 1000 lockers? Write a program to simulate the opening and closing of the lockers in this problem.</li>
+							<li><b>one_D_life.py</b><br />
+							From <a href="http://www.stephenwolfram.com/interviews/85-sciam/">http://www.stephenwolfram.com/interviews/85-sciam/</a>
+							<br />
+							A one-dimensional cellular automaton (hereafter called a line automoton) consists of an infinite strip of cells changing states according to a given set of rules. As in the game of Life a cosmic clock ticks away and at each tick every cell enters a state determined by its previous state and the previous states of cells in its neighborhood. A line automaton is specified by giving two numbers called k and r as well as a set of rules for deriving the next state of a cell. The first number, k, determines how many states are allowed for each cell. In Life there are just two states and so k is equal to 2; among the line automata to be considered, higher values of k are common. The second number, r, refers to the radius of neighborhoods use to compute the next state of a cell. The present state of a cell and the states of its r neighbors on both sides determine the next state of the cell. For example, if r is equal to 2 and k is equal to 3, a certain rule might specify that when a cell's neighborhood looks like [0,2,1,1,0] the next state occupied by the central cell would be [3].<br />
+				                <br />
+				                The set of rules that define a line automaton must decided the fate of a cell for every possible configuration of states inhabiting its neighborhood. Depending on the size of k and r the number of possible rule sets to consider can be enormous... The number of possible rule sets to consider is greatly reduced by adopting the ones Wolfram calls totalistic. Here the next state of a given cell is determined only by the sum of the states in the cell's neighborhood. The sum includes the state of the given cell. The number of possible sums varies from 0 to m, where m is the largest value of the state multiplied by the size of the neighborhood. If one specifies how these sums become the central cell's next state, one has specified the line automaton completely.<br />
+				                <br />For example, there is a very interesting line automaton governed by totalistic rules given in this table:<br />
+				                <br />
+				                <pre>
+           +-----------------------+
+       sum | 5 | 4 | 3 | 2 | 1 | 0 |
+           +-----------------------+
+next state | 0 | 1 | 0 | 1 | 0 | 0 |
+           +-----------------------+
+</pre>
+Write a program to track a line automaton, by:
+<ol>
+    <li>Creating a list of an initial state of one hundred zeros and ones and print it out.</li>
+    <li>Apply the rules described in the rule table given above to find the next state and print it out.</li>
+    <li>Repeat.</li>
+</ol></li><br />
+							<li><b>shopping_list.py</b><br />
+							This program uses an external file to keep track of a grocery store shopping list. The program should allow the user to A)dd to the list, S)how the list, D)elete a single item from the list, and C)lear the list.</li>
+						</ul>
+					</div><!--problem-->
+				</div><!--level2-->
+				<div id="part3" class="level2">
+					<h2>3. Final Project</h2>
+					<p>Download <a href="../assignments/assignment7-independentproject3.pdf">here</a>.</p>
+				</div><!--level2-->	
+			</div><!--level1-->
+		</div><!--content-->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy; 2011, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Lectures - Unit 5</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css">
+	<!-- Lecture styles here -->
+		html {margin: 0; padding: 0; } 
+		body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+		a:link, a:visited	{text-decoration: underline; color: blue; }
+		a:hover{text-decoration: underline; color: red;}
+		a:active	{text-decoration: none; color: blue;}
+		h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+		.level1 {margin:0; padding: 10px;}
+		h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+		.level2 {padding-left: 20px;}
+		h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+		.level3 {padding-left: 40px;}
+		h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+		.level4 {padding-left: 60px;}
+		div#footer p 	{font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+		div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+		div#footer a:hover, div#footer a:active {color: #ccc; }
+		.code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+		.problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+		.definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+		.homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+		.problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+		.definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+		.homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+		.homework p {margin: 0; padding: 0;}
+		ul li {list-style-type: square; }
+		li {margin-top: 1em;}
+		img {width: 90%; margin: 10px; }
+		table {margin: 0; padding: 0; border-collapse: collapse;}
+		tr {margin:0; padding:0}
+		td {margin 0; padding: 10px; border: solid 1px #999;}
+	<!-- End of lecture styles -->
+	</style>
+	
+	<script type="text/javascript">
+	// From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="content">
+			<div class="level1">
+				<h1>Introduction to Computer Science: <br />
+				Databases</h1>
+				<p>Welcome to Unit 5!</p>
+				<ul>
+					<li><a href="#part1">Unit 5, Day 1 - External files, and flat-file databases</a></li>
+					<li><a href="#part2">Unit 5, Day 2 - AddressBook Project</a></li>
+					<li><a href="#part3">Unit 5, Day 3 - Intro to Databases: tables, records, and fields
+					<li><a href="#part4">Unit 5, Day 4 - Intro to sqlite and Firefox extensions</a></li>
+					<li><a href="#part5">Unit 5, Day 5-6 - Python and sqlite</a></li>
+					<li><a href="#part6">Unit 5, Day 7 - Python and Apache</a></li>
+				</ul>
+				<div id="part1" class="level2">
+					<h2>1. External files, and flat-file databases</h2>
+					<p>It has been said: "All programs of significance are either games or databases."</p>
+					<p>We've already studied a little about programming games... so now it's time to get serious. We need to talk about <b>databases</b>.</p>
+					<p>Let's begin with the easy stuff.</p>
+					<div class="level3">
+						<h3>1.a. Program files</h3>					
+						<p>We've been using Python in two different ways in here:</p>
+						<ol>
+							<li><i>interactive mode</i>, in which we can type commands "live" and have Python implement them immediately
+							<div class="code">>>> <span style="color: #fff">print "So then he said, \"Hey, what's up?\""</span>
+So then he said, "Hey what's up?"</div>
+							</li>
+							<li><i>program mode</i>, in which we enter commands into a text file. The statements are implemented later when we run the program.<div class="code">$ <span style="color: #fff">python craps_rwhite.py</span>
+Hi! What's your name? <span style="color: #fff">Richard</span>
+Well, Richard, wanna play craps (y/n)? <span style="color: #fff">y</span>
+Alrighty, then! Press &lt;enter> to roll the dice...
+</div></li>
+						</ol>
+						<p>We like <i>program mode</i> because it allows us to save commands&mdash;potentially a long, complicated series of commands&mdash;over time, to be used again later on.</p>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>1.b. Data files</h3>
+						<p>The same way that we like having lines of a program saved when a program isn't running, we often want to be able to save program <b>data</b>, even when a program isn't running.</p>
+						<p>Examples: An Address Book, or an essay you're writing, or an email draft.</p>
+						<p>What we're going to be investigating now is how we can have our Python programs collect data entered by the user, store that data in an <i>external file</i> (outside of the program), and close that file up for safe keeping on the disk.</p>
+						<p>Obviously, we'll also need to have our programs open up that external file, read the data from it into the program, use it (including modifying or even deleting it), and then close the file again.</p>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>1.c. What does data in a file look like?</h3>
+						<p>What file data looks like depends on the file. For the moment, we're going to be using text files for out data, so our data will be readable by any text editor.</p>
+						<p>Before we get too far into this, you should know about <i>metacharacters</i>.</p>
+						<div class="definition">
+							<p>A <b>metacharacter</b> is a character that has a special meaning outside of its literal meaning.</p>
+							<p><i>Example:</i> <b>\</b> (a backslash) is a metacharacter. When placed in front of another character, it has another meaning.</p>
+							<p><i>Example:</i> <b>\n</b> represents a "new-line" in Python. Printing "\n" will cause subsequent output to begin displaying on a new line.</p>
+							<p><i>Example:</i> <b>\t</b> represents a <i>Tab</i>. Print "\t" causes a Tab (spacing) to be displayed in output.</p>
+						</div><!--definition-->
+						<div class="code">>>> <span style="color: #fff">print "He said,\n\"This isn't\tfunny!\""</span>
+He said,
+"This isn't	funny!"</div>
+						<p>You can see that the <b>\n</b> caused output to jump to the next line, and the <b>\t</b> caused a tab to space out the output there.</p>
+						<p>You might also have noticed that the double-quote <b>"</b>, which we ordinarily use to indicate output, was actually printed when we put the backslash metacharacter in front of it.</p>
+						<p>There are other metacharacters as well which come in handy in various circumstances.</p>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>1.d. A list of Contact Information</h3>
+						<p>Before we begin writing our next program, designed to keep track of contact information (addresses and phone numbers, etc.), let's look at one way we might do that in real life.</p>
+						<p>In real life, I might have a physical address book with pages I can flip. There might be one page for each person I know, and I can put contact information for that person on that page.</p>
+						<p>If I really wanted to streamline the process, I could probably just write the contact information for each person down on a single line of a piece of paper, something like this:</p>
+						<img src="images/contact_info.jpg" style="width: 80%" />
+						<p>That's pretty much exactly what we're going to do in our next program.</p>
+						
+					</div><!--level3-->
+					<div class="level3">
+						<h3>1.e. Writing data to a file</h3>
+						<p>Let's take a look at how we can collect information, store it in our program, and then write it to an external file.</p>
+						<div class="problem">
+							<p>Enter this short program <b>address_book.py</b> into the computer and run it. The program collects data from the user into a list, and then converts the lists to text to be written to an external file.</p>
+							<div class="code"><span style="color: #fff">"""address_book.py
+Program to write a text file of contacts"""</span>
+
+def add_contact(contacts):
+    print "Adding a contact"
+    name = raw_input("Contact name (Last, First): ")
+    email = raw_input("Contact email: ")
+    phone = raw_input("Contact phone #: ")
+    <span style="color: #fff"># Put contact info into a list</span>
+    new_contact = [name,email,phone]
+    <span style="color: #fff"># Append that list onto a contacts list</span>
+    contacts.append(new_contact)
+
+def write_file(contacts):
+    <span style="color: #fff"># outfile is the "handle" that refers to</span>
+    <span style="color: #fff"># the external file</span>
+    outfile = open("contacts.txt", "w")
+    <span style="color: #fff"># "w" specifies that we're Writing to the file</span>
+    for record in contacts:  <span style="color: #fff"># go through the contacts...</span>
+        <span style="color: #fff"># Write to outfile a line for each contact</span>
+        outfile.write("\t".join(record)+"\n")
+    outfile.close()  <span style="color: #fff"># close the external file</span>
+
+def menu():
+    print "+---------------------+"
+    print "|    ADDRESS BOOK     |"
+    print "|                     |"
+    print "| 1. Enter contact    |"
+    print "| 6. Exit             |"
+    print "+---------------------+"
+    choice = raw_input("Enter your choice: ")
+    return choice
+
+def main():
+    myContacts = []
+    choice = ""
+    while (choice !="6"):
+        choice = menu()
+        if choice == "1":
+            add_contact(myContacts)
+    write_file(myContacts)
+    print "Program closing"
+
+if __name__ == "__main__":
+    main()</div><!--code-->
+							<p>After running the program and entering a contact or two, take a look in the same directory where the program <b>address_book.py</b> is located. Notice anything new there?</p>
+							<p>If everything worked as expected, there should be a new file in that directory, <b>contacts.txt</b>. This is a text file that you can open with a text editor to examine. Or use the <b>cat</b> command in the Terminal to list it out:</p>
+							<div class="code">$ <span style="color: #fff">cat contacts.txt</span></div>
+						</div><!--problem-->
+					</div><!--level3-->
+					<div class="level3">
+						<h3>1.f. Reading data from a file</h3>
+						<p>This is nice little program but we've still got some work to do on it. One problem is the fact that we're able to write the information to the file, but we can't really get that information back into our program yet.</p>
+						<p>Let's look at one way to go about doing that.</p>
+						<div class="problem">
+							<p>Add these functions, one at at time to your address book program and test them out to make sure they work. You'll obviously need to determine where in your <i>main()</i> function you should call these new functions, and include appropriate calls to the functions at those locations.</p>
+							<div class="code">def initialize():
+    <span style="color: #fff">"""This function is run at the beginning of the main;
+    it reads in information from contacts.txt.</span>
+    <span style="color: #fff"># Specify handle for file and open for Reading</span>
+    infile = open("contacts.txt","r")
+    <span style="color: #fff"># Initialize the contacts list to nothing</span>
+    contactsLines = []
+    <span style="color: #fff"># Get one line at a time, and strip off newline</span>
+    for line in infile:
+        contactsLines.append(line.rstrip())
+    <span style="color: #fff"># Now we've got all the data, at least as lines</span>
+    infile.close()
+    <span style="color: #fff"># Break lines up according to tab separators</span>
+    contacts = []
+    for line in contactsLines:
+        <span style="color: #fff"># split line up by tab separators</span>
+        <span style="color: #fff"># and append it to our contacts list</span>
+        contacts.append(line.split("\t"))
+    return contacts</div>
+							<p>To this point, the only way that we've been able to view our contacts.txt file is by looking at it in a text editor. Let's include a function that will allow us to examine that data from within the program itself.</p>
+							<p>Note the comment that says this function is called by option 2 in the main menu, so... it looks like you'll need to modify code there as well.</p>
+							<div class="code">def view_contacts(contacts):
+    <span style="color: #fff">"""This function is called by option 2 on the
+    main menu and allows the user to see all
+    their contacts."""</span>
+    for record in contacts:
+    for field in record:
+        print field
+    print "-----"</div>
+					<div id="on5-1" style="padding: 5px;">
+						<a href="javascript: expandCollapse('expand5-1', 'on5-1');">See full program listing to this point</a>
+					</div>
+					<div id="expand5-1" style="display: none; padding: 5px;">
+						<a href="javascript: expandCollapse('expand5-1', 'on5-1');">Minimize</a>
+						<div class="code">"""address_book.py
+Program to write a text file of contacts"""
+
+import os
+
+def initialize():
+    # Specify handle for file and open for Reading
+    infile = open("contacts.txt","r")
+    # Initialize the contacts list to nothing
+    contactsLines = []
+    # Get one line at a time, and strip off newline
+    for line in infile:
+        contactsLines.append(line.rstrip())
+    # Now we've got all the data, at least as lines
+    infile.close()
+    # Break lines up according to tab separators
+    contacts = []
+    for line in contactsLines:
+        # split line up by tab separators and place
+        # and append it to our contacts list 
+        contacts.append(line.split("\t"))
+    return contacts
+
+def view_contacts(contacts):
+    """This function is called by option 2 on the
+    main menu, and allows the user to see all their
+    contacts."""
+    for record in contacts:
+    for field in record:
+        print field
+    print "-----"
+
+def add_contact(contacts):
+    print "Adding a contact"
+    name = raw_input("Contact name (Last, First): ")
+    email = raw_input("Contact email: ")
+    phone = raw_input("Contact phone #: ")
+    new_contact = [name,email,phone]
+    contacts.append(new_contact)
+
+def write_file(contacts):
+    # outfile is the "handle" that refers to
+    # the external file
+    outfile = open("contacts.txt", "w")
+    # "w" specifies that we're Writing to the file
+    for record in contacts:  # go through the contacts...
+        # Write to outfile a line for each contact
+        outfile.write("\t".join(record)+"\n")
+    outfile.close()  # close the external file
+
+def menu():
+    # os.system('clear')
+    print "+---------------------+"
+    print "|    ADDRESS BOOK     |"
+    print "|                     |"
+    print "| 1. Enter contact    |"
+    print "| 2. View contacts    |"
+    print "| 6. Exit             |"
+    print "+---------------------+"
+    choice = raw_input("Enter your choice: ")
+    return choice
+
+def main():
+    myContacts = initialize()
+    choice = ""
+    while (choice !="6"):
+        choice = menu()
+        if choice == "1":
+            add_contact(myContacts)
+        elif choice == "2":
+            view_contacts(myContacts)
+    write_file(myContacts)
+    print "Program closing"
+
+if __name__ == "__main__":
+    main()</div>	
+						</div><!--problem-->
+						<p>This is a really good start to a nice little program. Can you anticipate what other features are going to need to be added to this program to make it more fully functional?</p>
+						
+						<div id="on5-2" style="padding: 5px;">
+							<a href="javascript: expandCollapse('expand5-2', 'on5-2');">See additional features</a>
+						</div>
+						<div id="expand5-2" style="display: none; padding: 5px;">
+							<a href="javascript: expandCollapse('expand5-2', 'on5-2');">Minimize</a>
+							<p>We'll almost certainly want to 3. Search for a contact, 4. Edit a contact, and 5. Delete a contact.</p>
+						</div>
+					
+						<p>Note that in this <b>initialize()</b> example, we've read the external file line by line, and put each line into a list. There are other ways to read an external file as well.</p>
+						<div class="definition">
+							<b>Three ways to read data from an external file.</b>
+							<ul>
+								<li>Read the entire file at once as a single string:
+								<div class="code">contacts = infile.read() <span style="color: #fff"># Gets data all at once</span>
+infile.close()
+print contacts         <span style="color: #fff"># returns one long string</span</div></li>
+								<li>Read the entire file at once but put it into separate lines:<div class="code">contacts = file.readlines()  <span style="color: #fff"># reads a list</span>
+infile.close()      <span style="color: #fff"># close the file</span>
+print contacts      <span style="color: #fff"># print the list</span></div></li>
+								<li>Read the file line by line, putting lines into a list as you go:
+								<div class="code">contacts = []      <span style="color: #fff"># initialize the list</span>
+for line in infile: <span style="color: #fff"># Gets only one line</span>
+    contacts.append(line.rstrip()) <span style="color: #fff"># add to list</span>
+infile.close()
+print contacts</div></li>
+							</ul>
+						</div>
+					</div><!--level3-->
+					<div class="homework">
+						<h1>Homework</h1>
+						<p>Read Chapter 5, Section 5.9.; do Chapter 5 programming exercises #14.</p>
+					</div>
+				</div><!--level2-->
+				<div id="part2" class="level2">
+					<h2>2. Address Book Project</h2>
+					<p>Based on the work we've done in class so far, and on the specifications outlined on the assignment sheet linked to here, create an <a href="../assignments/assignment6-addressbook.pdf">Address Book</a> that uses an external text file to maintain a list of contact information.</p>
+				</div><!--part2-->
+				<div id="part3" class="level2">
+					<h2>3. Intro to Databases: tables, records, and fields</h2>
+					<p>A <b>database</b> is a system of storing information long-term. Examples range from <i>contacts.txt</i> in our recent project all the way to the databases that are so large they are distributed over entire networks: Google's search indexes, and Amazon.com's inventory, prices, and orders.</p>
+					<img src="images/amazon_screenshot.jpg" style="width: 70%; padding: 10px; display: block; border: solid 1px #000; margin: 0 auto; " />
+					<p>Some terminology: The <i>database</i> actually stores the data.  A <i>database management system</i> (DBMS) accesses the data and provides an interface for the user/system.</p>
+					<p>Over the next few days, we're going to be creating both <i>databases</i> of stored information, and using simple RDBMSs to manipulate that data.</p>
+					
+					<div class="level3">
+						<h3>3.a. Flat file databases, and CSV</h3>
+						<p>In our <i>contacts.txt</i> database, information is stored in a single <b>flat file</b>, which can be easily accessed and manipulated via text methods, if we choose to.</p>
+						<p>Once especially common type of <i>flat file database</i> format is called "Comma-Separated-Values" file, or CSV. In fact, your grades for this class, stored and manipulated by computers at Engrade, are stored in a CSV file. Here's a copy of your data:</p>
+						<img src="images/compsci_grades.jpg" style="width: 70%; padding: 10px; display: block; margin: 0 auto; "/>
+						<p>Just as we used <i>tabs</i> and <i>newlines</i> to separate the pieces of data in your address book, the CSV file uses commas and newlines to separate data.</p>
+						<p>The strength of the flat file database is its simplicity. Its weakness, however, is its inability to store and express more complex relationships. For most serious databases, a <i>Relational Database</i> is used, in which data is stored in a series of <b>tables</b>.</p>
+						<p>There are lots of different relational database systems that one can choose from, including MySQL, PostgreSQL, and Oracle. As you might guess from some of the names, these databases use something called <i>Structured Query Language</i> (SQL) to interact with the database.</p>
+						<p>For our own study of databases, we're going to be using a small but powerful relational database system called <a href="http://www.sqlite.org/">SQLite</a>.</p>
+					</div>
+					<div class="level3">
+						<h3>3.b. Tables, Records, and Fields</h3>
+						<p>A <i>relational database</i> is one that allows for more complex relationships between the data in the database. A <i>relational database management system</i> (RDBMS) provides tools to easily and quickly use that data.</p>
+						<div class="definition">
+						<p><b>Database vocabulary</b></p>
+							<ul>
+								<li><b>Database</b> – a collection of sets of information, organized into tables.</li>
+								<li><b>Table</b> – a collection of one set of information, organized as records ("rows") and columns ("fields") of individual pieces of data. Easily visualized as a spreadsheet.</li>
+								<li><b>Record</b> – a "row" of information concerning a single object in the data base, consisting of fields.</li>
+								<li><b>Field</b> – a piece of information describing one aspect of the object described in the record.</li>
+							</ul>
+							<p>Most people find it helpful to visualize a <i>table</i> in a database as a spreadsheet:</p>
+							<table>
+								<tr><td><b>userID</b></td><td><b>userNick</b></td><td><b>userEmail</b></td><td><b>userSignup</b></td><td><b>userAuth</b></td></tr>
+								<tr><td>1</td><td>rwhite</td><td>rwhite@crashwhite.com</td><td>4/3/11</td><td>9487026d978cb596dbe42b9eef6c59b5</td></tr>
+								<tr><td>2</td><td>Gillian</td><td>jbush@polytechnic.org</td><td>4/3/11</td><td>98b6997e95b6a5cda3c974076aaae28f</td></tr>
+								<tr><td>3</td><td>PhysicsGuy</td><td>cfletcher@polytechnic.org</td><td>4/3/11</td><td>9c0aafe998ad8276158552b2c17a618e</td></tr>
+							</table>
+						</div><!--definition-->
+						<p>As with any programming that has the potential for being a bit complex, it's a good idea to step away from the computer when designing a database. Let's look at how one goes about creating a database.</p>
+					</div><!--level3-->
+					<div class="level3">
+					<h3>3.c. Designing a Database</h3>
+						<p>Before we can actually create our database, we need to:</p>
+						<ol>
+							<li>visualize it (sketch it out)</li>
+							<li>identify specifically what information and what information types will be stored in each field of each table</li>
+						</ol>
+						<p>In order to understand this design process, let's consider an actual context.</p>
+						<div class="problem">
+							<p><b>ASSIGNMENT</b></p>
+							<p>Design a database that will allow registered users to leave comments for each other on a computer-based discussion board.</p>
+						</div><!--problem-->
+						<p>It might be clear right from the start that we have two main types of information that we're going to have to keep track of: <i>users</i>, and <i>comments</i>. Let's start out by creating a table for each one of those, which will hold the different types of information that we'll need to keep track of.</p>
+						<img src="images/sqlite_usertable.jpg" />
+						<p>Designing a database table is something that isn't necessarily obvious at first, so some of these columns (<i>fields</i>) may not make sense just yet. Still, it may help to have some idea of where we're going with all of this. Here's what each field represents for a given row (<i>record</i>):</p>
+						<ul>
+							<li><b>userID</b> - This is an integer that we'll use to keep track of the different users. Each user will have a unique userID, and the database itself will keep track of that number. In database-talk, the userID is a unique <i>primary key</i>.</li>
+							<li><b>userNick</b> - We're going to allow users to identify themselves with a nickname that will be displayed on the page when they leave a comment. We don't know how long their nickname will be, but they can have up to 20 characters for that name.</li>
+							<li><b>userEmail</b> - We'll want to be able to email our users. This is what they'll use to log in, too.</li>
+							<li><b>userSignup</b> - This is a particular kind of data, a DATE or TIMEDATE that we can use to track when people first signup for our Discussion Board.</li>
+							<li><b>userHash</b> - This is unique 32-character code that will also represent the user in various circumstances.</li>
+							<li><b>userPassword</b> - A 32-character hash of the user's password.</li>
+							<li><b>userActive</b> - a Boolean variable set to True or False, depending on whether the user is currently permitted to be active on the Discussion Board.</li>
+						</ul>
+						<p>We're jump-starting the database here, and almost certainly not giving you enough information to know all you should, but... with that in mind, take a look at the second table in our database: the commentTable:</p>
+						<img src="images/sqlite_commenttable.jpg" />
+						<p>Based on our brief discussion to this point, can you guess what type of data will be stored in each of these fields, and what each will be used for?</p>
+						<div class="problem">
+							<div id="on5-3" style="padding: 5px;">
+								<a href="javascript: expandCollapse('expand5-3', 'on5-3');">See fields and explanations</a>
+							</div>
+							<div id="expand5-3" style="display: none; padding: 5px;">
+								<a href="javascript: expandCollapse('expand5-3', 'on5-3');">Minimize</a>
+								<ul>
+									<li><b>commentID</b> - As with the <i>userId</i> in the userTable above, this is an integer that we'll use to keep track of the different comments.</li>
+									<li><b>commentThread</b> - We'll use this to keep track of the original commentID if this is a follow-up comment. This field will be blank if the comment is an original.</li>
+									<li><b>commentUserID</b> - This will be the userID of the person leaving the comment.</li>
+									<li><b>commentTime</b> - A time stamp for when this comment was submitted</li>
+									<li><b>commentHash</b> - This is unique 32-character code that might be used to represent the comment.</li>
+									<li><b>comment</b> - The actual comment itself, finally!</li>
+									<li><b>commentFlagged</b> - A Boolean variable that is True or False. If True, the comment will be flagged, and we'll prevent it from being displayed on the Discussion Board.</li>
+								</ul>
+							</div>
+						</div><!--problem-->
+					</div><!--level3-->
+				</div><!--level2-->
+				<div id="part4" class="level2">
+					<h2>4. Intro to sqlite and Firefox extensions</h2>
+					<div class="level3">
+						<h3>4. a. Getting ready to create the database</h3>
+						<p>So, we've got a couple of tables for our database, or at least a first draft of those tables. How does one actually create that database on the computer?</p>
+						<p>A relational database is not represented by text in a text file; it's coded in binary, so we're going to have to use some type of software to create and manage that information.</p>
+						
+						<p>A reminder: A <b>relational database</b> is one that allows for looking at complex relationships between the data in the database. A <b>relational database management system (RDBMS)</b> provides tools to easily and quickly use that data.</p>
+						<p>So we're going to be working with a database for our hypothetical Discussion Board. SQLite is the RDBMS that we'll be using to <i>do</i> that work.</p>
+						<p>We have a number of <b>clients</b> (programs) that we can use to work with SQLite. <a href="http://www.navicat.com/en/products/navicat_sqlite/sqlite_overview.html">Navicat</a> makes a nice one, although we'll be using a Firefox extension which is quite a bit more lightweight.</p>
+						<p>Also, you can always use the <b>Command Line Interface (CLI)</b> provided by SQLite to work with the data, although we won't be bothering with that for our work in here. Although the CLI is ultimately the most powerful way to work with databases, it can be a bit odd at first, unless you enjoy issuing commands like this:</p>
+						<div class="code">CREATE TABLE "userTable" ("userID" INTEGER PRIMARY KEY
+NOT NULL ,"userNick" VARCHAR NOT NULL ,"userEmail" VARCHAR 
+NOT NULL ,"userSignup" DATETIME NOT NULL DEFAULT (CURRENT_DATE),
+"userHash" CHAR,"userPassword" varchar, "userActive" BOOL NOT 
+NULL DEFAULT True)</div>
+						<p>Those are the types of commands that you would issue to SQLite if you launched it from the Terminal:</p>
+						<div class="code">$ <span style="#fff">sqlite3</span>
+SQLite version 3.7.3
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> </div>
+						<p>Although one can manipulate a database this way&mdash;and we'd absolutely need to use this method if we were going to be manipulating a database on a remote server&mdash;we're actually going to take advantage of a different interface: the Firefox browser.</p>
+						<div class="problem">
+							<b>Using SQLite Manager with Firefox</b>
+							<ol>
+								<li>Make sure Firefox is installed on your computer. Take note of what version of Firefox you have installed.</li>
+								<li>Go to <a href="http://code.google.com/p/sqlite-manager/">http://code.google.com/p/sqlite-manager/</a>, or<br /><a href="https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/">https://addons.mozilla.org/en-US/firefox/addon/sqlite-manager/</a><br />with your Firefox browser to download sqlite-manager to your machine and install the browser extension.</li>
+								<li>Launch the SQLite Manager extension by going to <b>Firefox > Tools > SQLite Manager</b><br />
+									<img src = "images/starting_sqlite_manager.jpg" style="width: 80%" /></li>
+								<li>Use the buttons/menus to create your database and tables, and to manage, populate, and query the data in those tables. (We'll be talking about how to do that next.)<br /><img src = "images/sqlite_manager_interface.jpg" style="width: 80%" /></li>
+							</ol>
+						</div>
+					</div><!--level3-->
+					<div class="level3">
+						<h3>4. b. Creating the Database and tables on the computer</h3>
+						<div class="definition">
+							<p><b>Working with a Database</b></p>
+							<p>When working databases, you'll typically want to do one of just a few things:</p>
+							<ul>
+								<li><b>Create</b> the database</li>
+								<li><b>Create</b> tables in that database</li>
+								<li><b>Insert</b> (enter) data into a table</li>
+								<li><b>Select</b> (retrieve) data from a table</li>
+								<li><b>Update</b> (edit) data in a table</li>
+								<li><b>Delete</b> data from a table</li>
+							</ul>
+							<p>A command to perform one of these actions is called a <b>query</b>.</p>
+						</div>
+						<p>Let's <a href="video/sqlite_manager1.mov">see a movie</a> on how to use the Firefox Extension SQLite Manager to create our database in SQLite and enter the information for our userTable.</p>
+						<div class="problem">
+							<p>After watching the video, take a moment to launch Firefox and create your own version of this database and first table.</p>
+						</div>
+					</div><!--level3-->	
+				</div><!--level2-->
+				<div id="part5" class="level2">
+					<h2>5. Python and sqlite</h2>
+					<p>Well, we've got a <i>BullBoard.sqlite</i> database, and we'd like to be able to manipulate it in all the ways that we manipulated our AddressBook.py data that was stored in <i>contacts.txt</i>. How do we get Python to manage that for us?</p>
+					<div class="level3">
+						<h3>5.a. Beginning the program</h3>
+						<p>Let's start with the usual&mdash;some comments and some import statements. (Note that this is an abbreviated version of the program, with most of the comments removed for brevity. You can also see <a href="../assignments/bullBoard.py">a more complete version</a> of the program, with many comments. </p>
+						<div class="code"><span style="color: #fff">#!usr/bin/env python
+"""
+bullBoard-crashwhite.py
+This program introduces some of the ways that Python can
+interact with an sqlite database, and adds a user to the 
+BullBoard.sqlite database.
+"""</span>
+
+import sqlite3  <span style="color: #fff"># Module required to work with sqlite database</span>
+import hashlib  <span style="color: #fff"># Module produces hash values for data</span>
+import random   <span style="color: #fff"># Used to create random hash seeds</span>
+import datetime <span style="color: #fff"># Used to get current date, time</span>
+import os       <span style="color: #fff"># Used to turn off tty during password entry</span>
+</div>         
+						<p>There are some new modules here that we haven't seen before&mdash;lots of good stuff that we'll be learning!</p>
+					</div>
+					
+					<div class="level3">
+						<h3>5.b. Write a main() function to operate our program</h3>
+						<p>As we did with our Address Book program, let's create a menu that we can use to drive our program. We'll include 5 basic operations.</p>
+						<div class="code">
+def main():
+    cursor, connection = connect_to_database()
+    choice = ""
+    while choice != "5":
+        print "1. Add User"
+        print "2. View Users"
+        print "3. Add Comment"
+        print "4. View Comments"
+        print "5. Quit"
+        choice = raw_input("> ")
+        if choice == "1": add_user(cursor, connection)
+        elif choice == "2": view_users(cursor)
+        elif choice == "3": add_comment(cursor,connection)
+        elif choice == "4": view_comments(cursor)
+        elif choice == "5": break
+        else: print "Please enter a number 1-5."
+    close_database(connection)
+
+if __name__ == "__main__":
+    main()
+</div>         
+						<p>This is a nice start to the program, although you might be wondering what <i>cursor</i> and <i>connection</i> refer to. We'll have to discuss those below.</p>
+						<p>Also, we can't really do anything with it yet&mdash;we need to write those functions.</p>
+						<p>Let's begin with opening up the database.</p>
+					</div>
+					
+					<div class="level3">
+						<h3>5.c. Opening and closing a database</h3>
+						<p>Assuming the database has already been created (as we've done using SQLite Manager), your Python program is going to need to be able to open that database at the beginning of the program. Here's a procedure that will let us do that.</p>
+						<div class="code">def connect_to_database():
+    connection = sqlite3.connect('bullBoard.sqlite')
+    cursor = connection.cursor()
+    return cursor, connection
+</div>
+                        <p>The <i>connection</i> variable is used to refer to the connection that we've established with this particular database. The <i>cursor</i> object is used to point to successive records in a database, and return them to our program so that we can access them.</p>
+						<p>Your Python program also needs to be able to close that database once we're done working with it. This one is easy.</p>
+						<div class="code">def close_database(connection):
+    connection.close()
+						</div>
+					</div>
+					<div class="level3">
+						<h3>5.d. Adding a user to the database</h3>
+						<p>Finally... <i>now</i> we get to actually do something with our database. Let's figure out how we can add users and store them in the database.</p>
+						<div class="code">def add_user(cursor,connection):
+    nickname = raw_input("Enter usernickname: ")
+    email = raw_input("Enter your email: ")
+    password = raw_input("Enter a password: ")
+    now = datetime.date.today()  <span style="color: #fff"># current day</span>
+    userHash = hashlib.sha1(str(random.random())).hexdigest()  
+    userPassword = hashlib.sha1(password).hexdigest()
+    <span style="color: #fff">"""
+    To execute an SQL query for SQLite, Python needs to
+    assemble the query contents. Once you've
+    established a means for executing an SQL query, you
+    have to:
+        a. assemble the query
+        b. execute it using the cursor
+    """</span>  
+    cursor.execute('INSERT into userTable \
+    (userNick, userEmail, userSignup, userHash, \
+    userPassword, userActive) \
+    values (?,?,?,?,?,?)', \
+    (nickname,email,now,userHash, userPassword,'True')   
+    <span style="color:#fff"># Save ("commit") the changes to the database</span>
+    connection.commit() 
+    print "User successfully added to databases."</div>
+                        <p>There are a few things about this program, as written, that are already going to cause us problems. Maybe you've already anticipated some of them.</p>
+                        <ul>
+                            <li>When we type in the password, anyone looking over our shoulder can see it. We should build in some security there.</li>
+                            <li>If someone tries to enter an email or a nickname that's already been registered, we don't check to see if someone with that info already exists in the data table. We need to figure out at some point how to manage that possibility.</li>
+                        </ul>
+                        <p>But for now, let's just see if this works. Go ahead and run the program, and see if you can enter any information into the database. You won't be able to verify that the information has been written to the database just yet&mdash;we still need to write that function!&mdash;but you can certainly user SQLite Manager in Firefox to take a look and see if the program is working as expected.</p>
+					
+					</div><!--level3-->
+					<div class="level3">
+						<h3>5.e. Viewing the userTable</h3>
+						<p>Things are going just fine&mdash;we can add users to our database using the Python program that we've written.</p>
+						<p>We can also <i>read</i> information from the database as well. Let's see how that works by adding a new function to our program:</p>
+						<div class="code">def view_users(cursor):
+    <span style="color:#fff">"""Execute a SELECT statement on the database
+    to get information"""</span>
+    cursor.execute('SELECT userNick, userEmail, \
+    userActive FROM userTable')
+    data = cursor.fetchall()
+    <span style="color:#fff">""" At this point, the variable data contains a list
+    of rows returned from the database, and each row is
+    another list of the three values we asked for: 
+    userNick, userEmail, and userActive. Now let's
+    print that information out, along with some
+    fancy string formatting."""</span>
+    print "%1s%78s%1s" % ("+",78*"-","+")
+    print "|%15s|%50s|%11s|" % ("userNick","email","active")
+    print "%1s%74s%1s" % ("+",78*"-","+")
+    for record in data:
+        print "|%15s|%50s|%11s|" % (record[0],record[1],record[2])
+    print "%1s%78s%1s" % ("+",78*"-","+")</div>
+    					<p>Take a moment to enter that function into your program, and then call it from the <b>main()</b> to test it.</p>
+    					<p>If you'd like to clean this up a bit before we move on to looking at the comments, now is a good time to do that. We can address our two concerns above&mdash;password security and ensuring that we con't have duplicates in out userTable&mdash;with a bit more code.</p>
+    					<div id="on5-7" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-7', 'on5-7');">See expanded version of <b>add_user</b> function</a>
+								</div>
+								<div id="expand5-7" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-7', 'on5-7');">Minimize</a>
+									<p></p>								
+									<div class="code">def add_user(cursor,connection):
+    """
+    This function collects user data and adds it to the
+    database via cursor. Don't assemble directly using
+    strings due to insecurity--use tuples. See 
+    http://docs.python.org/library/sqlite3.html 
+    for more info.
+    """
+    nickname = raw_input("Enter usernickname: ")
+    email = raw_input("Enter your email: ")
+    os.system("stty -echo")	<span style="color:#fff"># Disable local echo</span>
+    password = raw_input("Enter a password: ")
+    os.system("stty echo")  <span style="color:#fff"># Enable echo again</span>
+    now = datetime.date.today()  <span style="color:#fff"># current day
+    # create random 32-character hash to represent user</span>
+    userHash = hashlib.sha1(str(random.random())).hexdigest()  
+    <span style="color:#fff"># create random 32-character hash of their password</span>
+    userPassword = hashlib.sha1(password).hexdigest()
+    <span style="color:#fff">"""
+    To execute an SQL query for SQLite, Python needs to
+    assemble the query contents in a tuple. Once you've
+    established a means for executing an SQL query, you
+    have to:
+        a. assemble the query
+        b. execute it using the cursor (c)
+    """
+    # checks database to see if someone is there already</span>
+    cursor.execute('SELECT userNick, userEmail from userTable \
+    WHERE userNick = ? or userEmail = ?', (nickname, email))
+    <span style="color:#fff"># (Tuple) above substitutes in for ? in statement
+    # Get results from the query and store in list data</span>
+    data = cursor.fetchall()   
+    <span style="color:#fff">""" If we got any results from that query,
+    let them know that their data is duplicated."""</span>
+    if len(data) > 0:         
+        print "I'm sorry.",
+        for row in data:
+            if row[0] == nickname:
+                print "That nickname is already taken."
+            if row[1] == email:
+                print "That email is already registered"
+    else: <span style="color:#fff"># No duplicates, so enter info!</span>  
+        cursor.execute('INSERT into userTable (userNick, \
+        userEmail, userSignup, userHash, userPassword, \
+        userActive) values (?,?,?,?,?,?)', \
+        (nickname,email,now,userHash,userPassword,'True')   
+        <span style="color:#fff"># Save ("commit") the changes to the database</span>
+        connection.commit()
+        print "User successfully added to databases."</div><!--code-->
+		    					</div><!--expand5-5-->
+
+
+
+    					
+					</div><!--level3-->
+					<div class="level3">
+						<h3>5.f. The Comments Table</h3>
+						<p>Our userTable is coming along pretty nicely... and now we turn our attention to the commentsTable.</p>
+						<p>In the context of our Discussion Board, the commentsTable is going to be used to store the comments that people leave for each other on the database. We've already spent a little time thinking about what the commentsTable will look like. Now let's figure out how to make it happen.</p>
+						<div class="level4"-->
+							<h4>5.f.i. Creating the commentsTable</h4>
+							<p>As before, we'll use the Firefox extension SQLite Manager to create the new table.</p>
+							<div class="problem">
+								<p><b>Create the commentsTable for BullBoard.sqlite</b></p>
+								<p>Use SQLite Manager to create the table that we've already designed, OR start up SQLite3 at the command line and see if you can figure out what command will create the table there.</p>
+								<div id="on5-4" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-4', 'on5-4');">See CLI sqlite3 statement</a>
+								</div>
+								<div id="expand5-4" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-4', 'on5-4');">Minimize</a>
+									<div class="code">$ <span style="color:#fff">sqlite3 BullBoard.sqlite</span>
+SQLite version 3.7.3
+Enter ".help" for instructions
+Enter SQL statements terminated with a ";"
+sqlite> <span style="color:#fff">CREATE TABLE "commentTable" (
+    "commentID" integer PRIMARY KEY AUTOINCREMENT  NOT NULL UNIQUE, 
+    "commentThread" INTEGER, 
+    "commentUserID" INTEGER NOT NULL, 
+    "commentTime" DATETIME NOT NULL  DEFAULT CURRENT_TIMESTAMP,
+    "commentHash" VARCHAR NOT NULL  UNIQUE , 
+    "comment" VARCHAR NOT NULL , 
+    "commentFlagged" BOOL NOT NULL  DEFAULT False
+    );</span>
+sqlite></div><!--code-->
+								</div><!--expand5-4-->
+							</div><!--problem-->
+						</div><!--level4-->
+						<div class="level4"-->
+							<h4>5.f.ii. Entering data into the commentsTable</h4>
+							<p>We want people to be able to, using our Python program, enter comments into the table.</p>
+							<p>This turns out to be a bit tricky, because we don't want just anyone to be able to leave a comment&mdash;only if people are in the userTable do we want them to have that capability.</p>
+							<p>Also, the interface here is a bit clunky in your program, but this is the best we can do for the moment: we'll have the program ask the user their name, which comment they're replying too (if any), and what their new comment is.</p>
+							<div class="problem">
+								<p><b>Create a new function, <i>add_comment</i></b>, that will allow users to add a comment to our new table, commentsTable.</p>
+								<div class="code">def add_comment(c,connection):
+    <span style="color:#fff">"""This function adds a comment from a user"""</span>
+    nickname = raw_input("What is your database nickname? ")
+    <span style="color:#fff"># Check to get an id for that user</span>
+    cursor.execute('SELECT userID from userTable \
+    WHERE userNick = ?', ([nickname]))
+    data = cursor.fetchall()
+    <span style="color:#fff">"""cursor.fetchall() gets the record from
+    the database and stores it in the list "data". Now we'll check 
+    to see if the length of that list is 1 (only a single nickname
+    can match), and if it is, get the first field of the values 
+    returned, which will be the userID. It's this userID that we'll 
+    use to see who left the comment."""</span>
+    if len(data) == 1:
+        userID = int(data[0][0])
+    else:
+        print "I'm sorry, you're not in the database."
+        return
+    <span style="color:#fff">"""The comment thread is used to keep
+    track of individual conversations. All original comment threads
+    start with a 0. Subsequent comments for that thread will have a 
+    commentThread value that corresponds to the unique commentID for 
+    the original."""</span>
+    commentThread = input("What comment thread is this in \
+    response to, if any (0 if original)?")
+    comment = raw_input("What comment is that user adding? ")
+    now = datetime.datetime.today()
+    <span style="color:#fff"># create random 32-character hash to represent comment</span>
+    commentHash = hashlib.sha1(str(random.random())).hexdigest()
+    <span style="color:#fff">"""We've got all the information that
+    we need to create a new comment record in the commentsTable. 
+    Now create the tuple with all that data, and execute an INSERT
+    command to put that info in the commentsTable."""</span>
+    myTuple = (commentThread,userID,now,commentHash, \
+    comment,'False')
+    cursor.execute('INSERT into commentTable (commentThread, \
+    commentUserID, commentTime, commentHash, comment, \
+    commentFlagged) values (?,?,?,?,?,?)', myTuple)   
+    <span style="color:#fff"># Save ("commit") the changes to the database</span>
+    connection.commit()</div>
+    							<p>You'll also need to add a new menu item into your main program so that you can test this function. Run the program and test out the <b>add_comment()</b> function, checking with Firefox's SQLite Manager to see that the commentsTable is being updated correctly.</p>
+							</div><!--problem-->
+						</div><!--level4-->
+						<div class="level4"-->
+							<h4>5.f.iii. Viewing the commentsTable</h4>
+							<p>Well, we're in pretty good shape to this point. We're able to add users and comments to the database, and we're able to view the users. What's the next logical step?</p>
+							<p>We need to view the comments! We're going to take this in two steps.</p>
+							<div class="problem">
+								<p><b>Write a new function, <i>view_comments(c)</i>, that allows the user to see all the comments that have been listed.</b></p>
+								<p>You may already have some idea of how to do this, based on our experience with viewing the users. We want to get the commentThread, commentUserID, commentTime, and comment from the commentTable, but only if the comment <i>hasn't</i> been flagged. Take a guess at how you might do that, using the code listing hidden below for help as necessary.</p>
+								<div id="on5-5" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-5', 'on5-5');">See code listing for view_comments(c), version 1</a>
+								</div>
+								<div id="expand5-5" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-5', 'on5-5');">Minimize</a>
+									<p></p>								
+									<div class="code">def view_comments(c):
+    <span style="color:#fff">"""This function allows the user to see comments, 
+    threaded by subject"""</span>
+    cursor.execute('SELECT commentThread, commentUserID, commentTime, \
+    comment FROM commentTable WHERE commentFlagged == "False"')
+    data = cursor.fetchall()
+    for record in data:
+        for field in record:
+            print field
+        print "-------"</div><!--code-->
+		    					</div><!--expand5-5-->
+							</div><!--problem-->
+							<p>That's not bad... but there's still something else that we need to do to make this work the way it should.</p>
+							<p>Once you've entered a few comments, and a few follow-up comments referring to other threads, you'll see one of the problems with our view_comments() function: it's hard to follow a thread.</p>
+							<div class="problem">
+								<p><b>Modify the <i>view_comments(c)</i> function so that it prints comments, organized by thread.</b></p>
+								<div id="on5-6" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-6', 'on5-6');">See code listing for view_comments(c), version 2</a>
+								</div>
+								<div id="expand5-6" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5-6', 'on5-6');">Minimize</a>
+									<p></p>								
+									<div class="code">def view_comments(c):
+    <span style="color:#fff">"""This function allows the user to see comments,
+    threaded by subject"""</span>
+    cursor.execute('SELECT commentID, commentThread, commentUserID, \
+    commentTime, comment from commentTable WHERE commentFlagged \
+    == "False" ORDER BY commentTime')
+    <span style="color:#fff"># Get all the comments</span>
+    data = cursor.fetchall()
+    <span style="color:#fff"># Loop through all comments...</span>
+    for record in data:
+    	<span style="color:#fff">""" Print only original threads
+    	(those with a commentThread of 0)"""</span>
+        if record[1] == 0:
+            <span style="color:#fff"># Print the threads</span>
+            for field in record:
+                print field,
+            print "\n-------"
+            <span style="color:#fff">"""Now go through comments
+            in an embedded loop to pull out the ones
+            that have a commentThread that matches
+            the commentID of the original post."""</span>
+            for record2 in data:
+                <span style="color:#fff"># if commentThread matches commentID</span>
+                if record2[1] != 0 and record2[1] == record[0]:
+                    for field in record2:
+                        print field,
+                    print "\n-------"
+            print "======="</div><!--code-->
+		    					</div><!--expand5-6-->
+							</div><!--problem-->
+						</div><!--level4-->
+					</div><!--level3-->
+				</div><!--level2-->
+				<div id="part6" class="level2">
+					<h2>6. Python and Apache</h2>
+					<p>Not done this year.</p>
+				</div><!--level2-->	
+			</div><!--level1-->
+		</div><!--content-->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy; 2011, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

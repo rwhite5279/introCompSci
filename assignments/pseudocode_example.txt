@@ -1,0 +1,13 @@
+# PSEUDOCODE FOR CRAPS-PLAYING PROGRAM
+
+# Roll two dice for the user and add their faces together
+# If they got a 7 or 11:
+#     they win!
+# If they got a 2, 3, or 12:
+#     they lose!
+# If they got anything else:
+#     Remember the point value
+#     Have them keep rolling until:
+#         They roll the point again, and win!
+#     or
+#         They roll a 7, and lose!

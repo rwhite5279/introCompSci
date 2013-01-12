@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Intro to Computer Science - How to Install Python</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css"><!-- @import url("../styles_compsci.css"); -->
+	</style>	
+</head>
+<body>
+	<div id="mainwrapper">
+	<div id="header">
+		<div id="horzmenu"><a href="../index.html">Schedule</a> | <a href="../admin/policies.html"> Policies</a> | <a href="../links.html">Links</a> | <a href="../faqs.html">FAQs</a></div>
+		<h1><a href="../index.html">Intro to Computer Science</a></h1>
+	</div> <!--header-->
+	<div id="content">	
+		<img src="../images/python_logo.png" style="float: right" />
+		<h1>Installing Python</h1>
+		<p>For this course, you will almost certainly need to have a command line interface, Python, and IDLE installed on your computer. The way one goes about doing this varies depending on whether you're running a Windows, Apple, or Linux operating system. Preliminary instructions on how to go about installing Python on your home computer are given here, although you may reasonably consider <a href="#usb_flash_drive">using a USB flash drive</a>.</p>
+		<h2>Apple OS X</h2>
+		<p>Apple's OS X comes with Python installed. Simply open up a command-line interface (the "Terminal" application, at /Applications/Utlities/Terminal.app ) and enter <span class="code">$ python</span> to start it.</p>
+		<p>(Although we won't be using it as part of this course, you may run the Integrated Development Environment IDLE by entering <span class="code">python -m idlelib.idle</span> at the command line.</p>
+		
+		
+		<h2>Windows</h2>
+		<p>Windows typically doesn't have Python installed on it, so you'll need to go to python.org to download the <a href="http://www.python.org/download/releases/2.7.3/">Python 2.7.3</a> <span class="code">.msi</span> installer file, and execute it to install Python on your machine. You should probably also install the "Python for Windows Extensions".</p>
+		<p>You'll also want to install <a href="http://www.cygwin.com/">Cygwin</a>, which will allow you to use your Terminal to connect to the course's server. When you run <b>setup.exe</b>, be sure to install <b>openssh</b>&mdash;you'll need that to be able to upload files to our server.</p>
+		<p>Once you've got Python installed, you'll have three ways of running it&mdash;we'll be using all three in this course, at one time or another.</p>
+		<ul>
+			<li>To run interactive Python interpreter, run the Application <span class="code">Python (command line)</span></li>
+			<li>...</li>
+			<li>...</li>
+		</ul>
+		
+		<h2>Linux</h2>
+		<p>Congratulations! All Linux distros come up with a command line interface installed, and many have Python already installed (at the prompt enter <span class="code">python</span> to start it).</p>
+		<p>If Python is <i>not</i> installed, you can get it from <a href="http://www.python.org">www.python.org</a>&mdash;follow instructions at the website to download and install it on your machine.</p>
+		<p>IDLE can be installed by using the package manager for you particular machine to get and install. In Ubuntu, for example, entering <span class="code">sudo apt-get install idle</span> will do this.</p>
+		<p>Or, you can download the idle.tgz file, extract the files, use the Terminal to go to the main directory, and do the standard</p>
+			<ol><li><span class="code">./configure</span></li><li><span class="code">make</span>, and </li><li><span class="code">make install</li></ol>
+			<p>Classic!</p>
+		
+		<a name="usb_flash_drive">
+		<h2>Running from a USB Flash Drive</h2></a>
+		<p>If you don't have access to your own machine or are unable to install software on your home machine, please consult the instructor regarding using a USB Flash Drive. Without too much difficulty, we'll be able to set up your flash drive so that you can:</p>
+		<ul>
+			<li>insert the drive into your home PC and boot into Ubuntu (Linux)</li>
+			<li>use a text editor like <b>nano</b> or <b>gedit</b> to write programs and save them</li>
+			<li>run Python</li>
+			<li>run <span class="code">scp</span> to submit your assignments</li>
+		</ul>
+						
+		</div> <!--content -->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy; 2013, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Polytechnic Computer Science - Lectures - Unit 1</title>
+    <meta name="resource-type" content="document" />
+    <meta name="author" content="richard white" />
+    <meta name="description" content="polytechnic computer programming" />
+    <meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+    <meta name="distribution" content="global" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+    <style type="text/css">
+    <!-- Lecture styles here -->
+        html {margin: 0; padding: 0; } 
+        body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+        a:link, a:visited   {text-decoration: underline; color: blue; }
+        a:hover{text-decoration: underline; color: red;}
+        a:active    {text-decoration: none; color: blue;}
+        h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+        .level1 {margin:0; padding: 10px;}
+        h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+        .level2 {padding-left: 20px;}
+        h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+        .level3 {padding-left: 40px;}
+        h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+        .level4 {padding-left: 60px;}
+        div#footer p    {font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+        div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+        div#footer a:hover, div#footer a:active {color: #ccc; }
+        .code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+        .problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+        .definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+        .homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+        .problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+        .definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+        .homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+        .homework p {margin: 0; padding: 0;}
+        ul li {list-style-type: square; margin-top: 1em; }
+        table {border-collapse: collapse;}
+        td {margin: 0; padding: 10px; border: solid 1px #000; vertical-align: top; }
+        img {width: 100%; }
+        .ilc {font-family: Courier, monospace; font-size: 1.2em; font-weight: bold; } // inline code span style
+    <!-- End of lecture styles -->
+    </style>    
+    
+    <script type="text/javascript">
+    // From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <div id="mainwrapper">
+        <div id="content">
+            <div class="level1">
+                <h1>Introduction to Computer Science: <br />
+                An Intro to Programming</h1>
+                <ul>
+                    <li><a href="#part1">Unit 1, Day 1 - Introduction to the course</a></li>
+                    <li><a href="#part2">Unit 1, Day 2 - Introduction to text editing</a></li>
+                    <li><a href="#part3">Unit 1, Day 2 - Introduction to programming</a></li>
+                    <li><a href="#part4">Unit 1, Day 3 - Introduction to the server</a></li>
+                    <li><a href="#part5">Unit 1, Day 4 - Programming Basics</a></li>
+                    <li><a href="#part6">Unit 1, Day 5 - Numeric Data Types</a></li>
+                </ul>
+                    <div id="part1" class="level2">
+                        <h2>1. Introduction to the course</h2>
+                        <div class="level3">
+                            <h3>1.a. The course</h3>
+                            <p>This course is an elective for 11th/12th grade students, and is designed to be an introduction to computer science and software engineering using the Python programming language.</p>
+                            <p>Python can be installed on Apple's OS X, Microsoft's Windows, and Unix/Linux OSes.</p>
+                            <p>This course doesn't cover computing hardware specifically, although computer programs are run on hardware, and may be used to control hardware.</p>
+                            <p>This course <i>does</i> cover <i>programming...</i></p>
+                            <div class="code">Last login: Mon Feb 16 22:50:55 on ttys000
+JulesVerne:~ 21:28 $</div>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.b. The textbook</h3>
+                            <p>The textbook for the course is:<br />
+                            Zelle, J. 2010. <i><a href="https://fbeedle.com/content/python-programming-introduction-computer-science—2nd-edition">Python Programming: An introduction to computer science</a></i>, Second Edition.</p>
+                            <p>Please note that this edition of the book uses Python 3, which is <i>not</i> the version of Python we'll be using in this course&mdash;we'll be using Python 2.7. The differences between the two versions, for the purposes of this course, are minor.</p>
+                            
+                             <div id="on2" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand2', 'on2');">See differences</a>
+								</div>
+								<div id="expand2" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand2', 'on2');">Minimize</a>
+									<ul>
+                                        <li>In version 2.7, parentheses are not required for print statements (although you can include them):
+                                        <div class="code">print "Hello, world!"</div>
+                                        Version 3.0:
+                                        <div class="code">print ("Hello, world!")</div></li>
+                                        <li>In version 2.7, the <b>input</b> statement gets a numeric value, and <b>raw_input</b> gets a string value.
+                                        <div class="code">userName = raw_input("Enter your name: ")
+        userAge = input("Enter your age: ")</div>
+                                        In version 3, the <b>input</b> statement gets string values, which must be converted to numeric values using the <b>eval()</b> function:
+                                        <div class="code">userName = input("Enter your name: ")
+        userAge = eval(input("Enter your age: ")</div></li>
+                                        <li>In version 2.7, the division operator <b>/</b>, when working on integers, returns the whole number result only:
+                                        <div class="code">>>> <span style="color:#fff">print 7/2</span>
+        3</div>
+                                        In version 3, the division operator returns a real result:
+                                        <div class="code">>>> <span style="color:#fff">print 7/2</span>
+        3.5</div></li>
+                                    </ul>
+
+								</div>
+                            <p>These differences are ones that you'll quickly learn to manage. The textbook is an excellent resource, and the reading provides lots of background material that we won't have time to cover in class.</p>
+                            
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.c. The website...</h3>
+                            <p>...is at <a href="http://www.crashwhite.com/introcompsci">www.crashwhite.com/introcompsci</a></p>
+                            <p>It includes:</p>
+                            <ul>
+                                <li>overview of course</li>
+                                <li>course schedule (including assignments</li>
+                                <li>handouts for assignments, pseudocode, solutions</li>
+                                <li>course readings</li>
+                                <li>links to online quizzes</li>
+                                <li>links to other resources</li>
+                            </ul>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.d. The computers</h3>
+                            <p>In class and at home, you'll probably be using your own laptop computer for assignments. You'll be responsible for managing your own computer, power supply, software installations, etc.</p>
+                            <p>Strategies for managing your work and files, depending on your situation:</p>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td style="font-weight: bold; width: 25%;">Who you are:</td>
+                                    <td style="background-color: #ccc; font-weight: bold; width: 25%;">Mac user, using school's iMac and your own Mac at home</td>
+                                    <td style="background-color: #ccc; font-weight: bold; width: 25%;">Windows user, using school's iMac and Windows at home</td>
+                                    <td style="background-color: #ccc; font-weight: bold; width: 25%;">Mac/PC user, bringing your own laptop to school</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold">Where do you keep your data?</td>
+                                    <td>Keep your files stored on a flash drive, and/or keep them on the class server</td>
+                                    <td>Keep your files stored on a flash drive, and/or keep them on the class server</td>
+                                    <td>Keep your files stored on your computer, and make regular backups of your hard drive</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold">How will you run Python, SSH, SFTP?</td>
+                                    <td>Software comes pre-installed on OS X (except PyGame)</td>
+                                    <td>Download and install Cygwin, OR, boot Ubuntu (Linux) from a USB Flash Drive on your PC and work there.</td>
+                                    <td>PC: Download and install Cygwin.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold">Advantages/Disadvantages</td>
+                                    <td>No need to carry a laptop back and forth. You may have to struggle to get PyGame installed on your home computer at some point.</td>
+                                    <td>No need to carry a laptop back and forth, but you'll have to run Cygwin at home, or boot from a USB flash drive to run Linux.</td>
+                                    <td>You get to work on your own machine and don't have to worry about transferring files. But your whole laptop could get stolen&mdash;and you better have backups of all your data in case something happens.</td>
+                                </tr>    
+                            </table> 
+                            
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.e. Using our machines</h3>
+                            <p>Do this:</p>
+                            <div class="problem">
+                                <p><b>NOTE: Blue boxes in these Lecture Notes indicate an activity to be performed.</b></p>
+                                <ol>
+                                    <li>Log in to your machine</li>
+                                    <li>Make sure you can access the wireless access point using credentials supplied by the instructor</li>
+                                    <li>Launch the Terminal application</li>         
+                                </ol>
+                            </div>
+                            <p>Some definitions:</p>
+                            <div class="definition">
+                                <p><b>NOTE: Green boxes in these Lecture Notes indicate important definitions or syntax that you'll need to remember.</b></p>
+                                <p>The <b>Terminal</b> is a "command-line interface" (CLI) text-only application that allows you to access the <i>shell</i>. Your mouse will do you no good here.</p>
+                            </div>
+                            <div class="definition">
+                                <p>The <b>Shell</b> is a program that allows you to give instructions to the operating system.</p>
+                            </div>
+                            <div class="definition">
+                                <p>A <b>graphical user interface (GUI)</b> offers a more visually appealing way of giving a program instructions, and usually involves the use of a mouse.</p>
+                            </div>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.f. Directories</h3>
+                            <p>Files are organized into "folders" called <i>directories</i>. On the machine you can <b>be</b> somewhere (your "working directory"), and <b>look</b> other places (using various commands.</p>
+                            <p>The <i>root</i> directory "/" is the largest container in the file system. Everything is else is contained in directories nested in the root directory.</p>
+                            <p>Your "home directory" is contained in /Users/ on the Apple. It's in /home/ on Ubuntu.</p>
+                            <img src="images/Apple_File_System_Structure.png" />
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.g. The shell</h3>
+                            <p>When you start a Terminal session, you begin in your "home directory," which is typically identified by your userID, often your name.</p>
+                            <div class="problem">
+                                Use the command <span class="ilc">ls</span> to list the files and folders in your current directory.
+                                <div class="code">PhileasFogg:~ whiter$ <span style="color:#fff">ls</span></div>
+                            </div>
+                            <div class="problem">
+                                Use the command <span class="ilc">ls</span> to list <i>other</i> directories, using the follow possible combinations:
+                                <div class="code">$ <span style="color:#fff">ls Documents</span>  # list files in Documents folder</div>
+                                <div class="code">$ <span style="color:#fff">ls ./</span>    # list files in current directory (same as ls)</div>
+                                <div class="code">$ <span style="color:#fff">ls ../</span>   # list files in directory above the current</div>
+                                <div class="code">$ <span style="color:#fff">ls ~</span>    # list files in your home directory</div>
+                                <div class="code">$ <span style="color:#fff">ls /</span>     # list files in the root directory</div>
+                            </div>
+                            <p>You use the <span class="ilc">ls</span> command to "look" at files and directories on your computer, and you use the <span class="ilc">cd</span> command to "move to" places in your directory structure.</p>
+                            <div class="problem">
+                                Use the command <span class="ilc">cd</span> to <i><span class="ilc">c</span>hange <span class="ilc">d</span>irectory</i> into a different location:
+                                <div class="code">$ <span style="color:#fff">cd Documents</span>  # move into the Documents folder</div>
+                                <div class="code">$ <span style="color:#fff">cd ../</span>    # move into directory above current one</div>
+                                <div class="code">$ <span style="color:#fff">cd ~/</span>  # move into your home directory</div>
+                                <div class="code">$ <span style="color:#fff">cd /</span>   # move into the root directory</div>
+                            </div>
+                            <div class="problem">
+                                Take a moment to <span class="ilc">ls</span> the files in various directories, and practice using <span class="ilc">cd</span> to move around the file system.<br /><br />
+                                What single command takes you to your home folder?<br /><br />
+                                What single command takes you to the root directory of the computer?<br /><br />
+                                What command would you use to list the contents of the root directory while you're in your home directory?
+                            </div>
+                            <p>We'll be using a number of Terminal commands throughout the semester.</p>
+                            <div class="definition">
+                                <b>Common terminal commands</b>
+                                <ul>
+                                    <li><span class="ilc">pwd</span> = <span class="ilc">p</span>rint <span class="ilc">w</span>orking <span class="ilc">d</span>irectory: show where you are currently located in the file directory</li>
+                                    <li><span class="ilc">ls</span> = <span class="ilc">l</span>i<span class="ilc">s</span>t files; also try <span class="ilc">ls -a</span>, <span class="ilc">ls -l</span>, and <span class="ilc">ls -R</span></li>
+                                    <li><span class="ilc">cd</span> = <span class="ilc">c</span>hange <span class="ilc">d</span>irectory</li>
+                                    <li><span class="ilc">[tab]</span> = autocomplete a command</li>
+                                    <li><span class="ilc">ctrl-c</span> = halt execution of a program</li>
+                                    <li><span class="ilc">exit</span> = log out of a session (leave the Terminal or a program)</li>
+                                </ul>
+                            </div>
+                            
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.h. The server</h3>
+                            <p>Most people are used to working on a <i>local</i> machine, and you'll certainly be doing that in here. It's often the case, though, that one uses a local machine to access files and services from a distant computer (a <b>server</b>) located somewhere else. There is a server for this class, which you'll be using in lots of ways.</p>
+                            <ul>
+                                <li>using <span class="ilc">ssh</span> to run Python (from a PC, you'll need to login using Cygwin)</li>
+                                <li>using <span class="ilc">sftp</span> or <span class="ilc">scp</span> to submit assignments (PC requires Cygwin)</li>
+                                <li>hosting webpages</li>
+                            </ul>
+                            <p>As mention above, PC users will need to install the <a href="../misc/cygwin.html">Cygwin package</a> to be able to access the class's server.</p>
+                            <p>You'll get information from the instructor on how to go about accessing our server. Do not share your login credentials with anyone, and don't do anything silly on our server: storing bad stuff (porn, copyrighted materials, large media files), streaming content, giving access to people not in this course, etc.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.i. Some warnings</h3>
+                            <p>Computers and data are sensitive, and it's easy to destroy them.</p>
+                            <p><b>Physical Safety of machines:</b></p>
+                            <ul>
+                                <li>Don't move laptops when they're not asleep.</li>
+                                <li>Keep liquids well away from hardware.</li>
+                                <li>Keep machines secured when you're not around.</li>
+                            </ul>
+                            <p><b>Safety of data:</b></p>
+                            <ul>
+                                <li><i>Make backups of your data.</i> When you lose data&mdash;and you <i>will</i>&mdash;you're only recourse is to restore from a recent backup. Make sure you have one.</li>
+                                <li>Be careful in the Terminal--it <i>is</i> possible to completely destroy your machine with a single wrong command. (Yes, you'll learn how.)</li>
+                            </ul>
+                            <p><b>More Warnings!</b></p>
+                            <ul>
+                                <li><b>Use strong passwords</b>&mdash;we'll talk about this.</li>
+                                <li><b>Put computers away nicely</b>&mdash;be sure to leave time at the end of class for logging out and cleaning up your work area.</li>
+                                <li><b>Terms of Service (TOS), Approved Use Policies (AUPs)</b>&mdash;You'll be agreeing to these.</li>
+                                <li><b>Cheating</b>&mdash;What's the difference between Copy/Paste and cheating?</li>
+                                <li><b>Just because you <i>can</i>, doesn't mean you <i>should</i></b>:
+                                <ul>
+                                    <li>EULA = "End User License Agreement"</li>
+                                    <li>AUP = "Approved Use Policy"</li>
+                                    <li>DMCA = "Digital Millenium Copyright Act"</li>
+                                    <li>DRM = "Digital Rights Management"</li>
+                                </ul>
+                                </li>
+                            </ul>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>1.j. Assignments</h3>
+                            <p>There will be a number of different types of assignments in this course. You might like to know at the start what types of assignments there are, and how you might be expected to approach them.</p>
+                            <ul>
+                                <li><b>In class exercises</b><br />
+                                These will be completed as we develop new material in class. These will be quick examples to help you learn how new commands work, and aren't graded.</li>
+                                <li><b>Homework Execises</b><br />
+                                These will allow you to practice your skills with a little less guidance. Some of these will be turned in (via the class server) for evaluation by the instructor and credit.</li>
+                                <li><b>Online Quizzes</b><br />
+                                These will be offered every week or two, and usually accompany an online reading assignment outside of class. Not really anything to stress about.</li>
+                                <li><b>Major Projects</b><br />
+                                These are longer-term projects that may take anywhere from a few days to a week or more. There will be two "independent" projects included with this, in which you'll have some choice as to what the focus of your project is. You'll receive a separate assignment handout for each of these projects describing the parameters, requirements, etc. These projects are a major factor in your grade, and should be planned for and taken seriously.</li>
+                            </ul>
+                        </div>
+                        <div class="level3">
+                            <h3>1.k. Help?</h3>
+                            <p>Computer geeks and programmers, unfortunately, often tend to be loners. That's no fun.</p>
+                            <p>There's definitely something to be said for being a self-starter, and bashing away on the computer late into the evening figuring out how this all works. By trying things a few different ways and seeing what works&mdash;and what doesn't&mdash;you can learn an enormous amount. This is the preferred way of picking up programming, but it does take a little time.</p>
+                            <p>You can occasionally improve your efficiency (if not your knowledge) by taking advantage of fellow geeks. You should ask other students how they did stuff, or ask the instructor, or Google for assistance when things aren't going the way they should.</p>
+                        </div>
+                        
+                    </div><!--level2-->
+                    <div id="part2" class="level2">
+                        <h2>2. More shell commands, and an intro to text editing</h2>
+                        <div class="level3">
+                            <h3>2.a. More shell commands</h3>
+                            <div class="definition">
+                                In the Terminal, you can create a new directory (folder) in your current directory using the <span class="ilc">mkdir</span> (<span class="ilc">m</span>a<span class="ilc">k</span>e <span class="ilc">dir</span>ectory) command: <br />
+                                <div class="code">$ <span style="color:#fff">mkdir newFolder</span></div>
+                            </div>
+                            <div class="problem">
+                                <ol>
+                                    <li>Take a moment to create a new directory in your Documents folder called "notes".</li>
+                                    <li>Use <span class="ilc">ls</span> to confirm that the folder was created.</li>
+                                    <li>Then make a folder in your Documents directory called "code"</b>.</li>
+                                    <li>Use the <span class="ilc">ls –al</span> command to list out the attributes of these folders. Can you figure out what some of the columns listed mean?</li>
+                                    <li><span class="ilc">cd</span> into these folders to see if there is anything in them, then return to the home directory.</li>
+                                </ol>
+                            </div>
+                            <p>You'll find that you'll be creating lots of files in this course, and it will make some sense for you to keep them organized into directory structure that you've created and that makes sense to you.</p>
+                            <div class="problem">
+                                Try each of the following commands to see how they work.
+                                <div class="code">$ <span style="color:#fff">man ls</span>        # shows the manual for a command
+                # Enter 'f' to go forward,
+                # 'b' to go backward,
+                # 'q' to quit.</div>
+                                <div class="code">$ <span style="color:#fff">ls –Ralp /</span>    # lists Recursively,All,Long,/</div>
+                                <div class="code">$ <span style="color:#fff">[ctrl]c</span>      # breaks out of a process</div>
+                                <div class="code">$ <span style="color:#fff">cd ~/Documents/code</span></div>
+                                <div class="code">$ <span style="color:#fff">touch filea.py</span>    # creates a file</div>
+                                <div class="code">$ <span style="color:#fff">cp fileA.py fileB.py</span>    # copies a file</div>
+                                <div class="code">$ <span style="color:#fff">$ mv fileb.py ../</span>       # moves a file one directory above the current "working directory"</div>
+                                <div class="code">$ <span style="color:#fff">$ cd ~/Documents/stuffToDiscard/;  rm –r ./</span>  
+                # Combine two commands on a line
+                # Changes to the stuffToDiscard directory;
+                # then removes everything in that (current) 
+                # directory and below, recursively.
+                # USE WITH CAUTION!</div>
+                            </div>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>2.b. Text Editing</h3>
+                            <p>A text editor is <i>not</i> a word processor. Text editors work with pure text, and have no ability to "make things look pretty" like a word processor does. There are no superscripts or subscripts, no underlining, no bold, and no italics.</p>
+                            <p>The advantage to a text editor is that it handles unformatted <i>plain text</i>, which is easier for both computers and programmers to work with. </p>
+                            <p>You can choose which text editor you want to work with in here. Some possibilities:</p>
+                            <ul>
+                                <li>Windows: <b><a href="http://notepad-plus-plus.org/">Notepad++</a></b></li>
+                                <li>Apple: <b><a href="http://www.barebones.com/products/textwrangler/">TextWrangler</a></b>, <b>nano</b> (run in Terminal), or <b>TextEdit</b> (Preferences: "Plain text")</li>
+                                <li>Linux/UNIX, etc: <b>nano</b>, <b>vim</b>, <b>emacs</b>, <b>gedit</b>, <b>pico</b></li>
+                            </ul>
+                            <p>At this stage of the game, for this class you are strongly encouraged to use <b>nano</b>, for a number of reasons: it's free, it's widely available, it's the easiest of the Terminal-based text editors to learn, and it's what you'll be using when you log in to our server. The more practice you have with nano, the easier it's going to be for you to program.</p>
+                            <div class="problem">
+                                Practice using <b>nano</b>.
+                                <ul>
+                                    <li>Start <b>nano</b> in the Terminal:
+                                    <div class="code">$ <span style="color:#fff">nano</span></div></li>
+                                    <li>Note that you can't use the mouse! Commands are listed on bottom two lines of the window:<br />
+                                    <img src="images/nano_menu.jpg" />
+                                    </li>
+                                    <li>Take a moment to use nano to create a text file called <b>todo.txt</b>, which includes a short list of things you need to do. Save this folder into your <b>notes</b> directory. (How are you planning on doing that?)</li>
+                                </ul>
+                            </div>
+                        </div><!--level3-->
+                        
+                    </div><!--level2-->
+                    <div id="part3" class="level2">
+                        <h2>3. Introduction to programming</h2>
+                        <div class="level3">
+                            <h3>3.a. Levels of languages</h3>
+                            <p>Instructions given to a computer can be coded at a number of different levels, including:</p>
+                            <ul>
+                                <li>Machine language</li>
+                                <li>Assembly</li>
+                                <li>High-level</li>
+                            </ul>
+                            <p>The following is a high-level (Python) program:</p>
+                            <div class="code">def main():
+    user_string = raw_input("Please enter a sentence: ")
+    word_list = user_string.split(" ")
+    acronym = ""
+    for word in word_list:
+        acronym = acronym + word[0].capitalize()
+    print "Your acronym is",acronym     
+
+main ()</div>
+                            <p>Note how this program is made up of words and well-known symbols that include English words as part of the code.</p>
+                            <p>This high-level program has to be converted to something to a code&mdash;ultimately a code that just uses 1s and 0s&mdash;that the computer can run. Here is the lower-level hexadecimal code for the same program:</p>
+                            <div class="code">0000000 f2d1 0a0d 10d8 4ce7 0063 0000 0000 0000
+0000010 0100 0000 4000 0000 7300 0014 0000 0064
+0000020 8400 0000 005a 6500 0000 0083 0100 0164
+0000030 5300 0228 0000 6300 0000 0000 0005 0000
+0000040 0006 0000 0043 0000 6573 0000 6400 0001
+0000050 0064 6b00 0000 007d 7400 0001 0264 8300
+0000060 0001 017d 7c00 0000 0269 7c00 0001 0364
+0000070 8300 0002 027d 6400 0004 037d 7800 0025
+0000080 027c 4400 1d5d 7d00 0004 037c 7c00 0000
+0000090 0369 7c00 0004 0564 1900 0183 1700 037d
+00000a0 7100 0037 6457 0006 7c47 0003 4847 0064
+00000b0 5300 0728 0000 4e00 ff69 ffff 73ff 0022
+00000c0 0000 6c50 6165 6573 6520 746e 7265 6120
+00000d0 6d20 6c75 6974 772d 726f 2064 7473 6972
+00000e0 676e 203a 0174 0000 2000 0074 0000 6900
+00000f0 0000 0000 0f73 0000 5900 756f 2072 6361
+0000100 6f72 796e 206d 7369 0428 0000 7400 0006
+0000110 0000 7473 6972 676e 0974 0000 7200 7761
+0000120 695f 706e 7475 0574 0000 7300 6c70 7469
+0000130 0a74 0000 6300 7061 7469 6c61 7a69 2865
+0000140 0005 0000 0252 0000 7400 000b 0000 7375
+0000150 7265 735f 7274 6e69 7467 0009 0000 6f77
+0000160 6472 6c5f 7369 7474 0007 0000 6361 6f72
+0000170 796e 746d 0004 0000 6f77 6472 0028 0000
+0000180 2800 0000 0000 0773 0000 6100 7263 2e6f
+0000190 7970 0474 0000 6d00 6961 016e 0000 7300
+00001a0 0010 0000 0100 010c 010c 0112 0106 0007
+00001b0 0106 011b 284e 0001 0000 0a52 0000 2800
+00001c0 0000 0000 0028 0000 2800 0000 0000 0773
+00001d0 0000 6100 7263 2e6f 7970 0874 0000 3c00
+00001e0 6f6d 7564 656c 013e 0000 7300 0002 0000
+00001f0 0809                                   
+00001f2</div>
+                            <p>Additionally, programs may either be <b>compiled</b>, or <b>interpreted</b>. For a compiled program, the "source code" is given to the computer in advance so that instructions can be converted into a machine language program that will be run directly. An interpreted program is taken by an interpreter that runs the program for you indirectly on the computer.</p>
+                            <p>Python runs via an interpreter, which makes it extraordinarily easy to use. Java, used in the AP Computer Science course, is a compiled language: each time you make a change to a program, you have to first recompile the program, and then run the compiled versions of the program.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>3.b. Python</h3>
+                            <p>We're going to be using the Python programming language in this course, and there are three ways that you can write and execute Python instructions:</p>
+                            <ul>
+                                <li>Running Python and executing instructions interactively through the interpreter&mdash;this is handy for learning, but not very good for real programming.</li>
+                                <li>Running an Integrated Development Environment (IDE)&mdash;IDEs have lots of tools that can come in handy for very large programs, but are probably not as useful for what we'll be doing.</li>
+                                <li>Writing programs using a text editor, then using Python to compile and execute those programs&mdash;this is what we'll be doing most of the time!</li>
+                            </ul>
+                            <p>Let's try running Python interactively first.</p>
+                            <div class="level4">
+                                <h4>3.b.i. Using the Python interpreter</h4>
+                                <p>To start the Python interpreter, type <b>python</b> at the command line and hit the [Enter] key:</p>
+                                <div class="code">$ <span style="color:#fff">python [Enter]</span>
+Python 2.5.1 (r251:54863, Feb  6 2009, 19:02:12) 
+[GCC 4.0.1 (Apple Inc. build 5465)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> </div>
+                                <p>The <b>>>></b> prompt let's you know that Python is waiting for you to enter an instruction.</p>
+                                <div class="problem">
+                                    <p>Try this and see what happens:</p>
+                                    <div class="code">>>> <span style="color:#fff">print “Hello, world!”</span></div>
+                                    <p>Then try a few other statements in the interpreter to see what happens:</p>
+                                    <ul>
+                                        <li>print Hello, world!</li>
+                                        <li>print 3+4</li>
+                                        <li>print “3+4”</li>
+                                        <li>print 3,4</li>
+                                        <li>print 34</li>
+                                        <li>print 3 4</li>          
+                                    </ul>
+                                </div>
+                                <p>Once you're done with your interactive session, exit by typing "exit()", or holding down the <b>ctrl</b> key while pressing <b>d</b>.</p>
+                                <div class="code">>>> <span style="color:#fff">^D</span></div>
+                                <p>Executing instructions like this one at a time in the interpreter is kind of cool, especially when you're trying to figure out a command that's new to you, or if you want to experiment real quickly with an idea.</p>
+                                <p>There's one big disadvantage, though: if you want to execute your instructions again, you have to type them in again. Usually, it's much better to write a <i>program</i>.</p>
+                            </div><!--level4-->
+                            <div class="level4">
+                                <h4>3.b.ii. Using Python to compile and run a program</h4>
+                                <p>Before Python can compile and run the program, you have to write the program first, for which you need a text editor.</p>
+                                <div class="problem">
+                                    <p><b>Do this:</b></p>
+                                    <ul>
+                                        <li>In the Terminal, create a directory called "unit1" in your "code" folder. Then <span style="ilc">cd</span> into this folder.</li>
+                                        <li>Use <b>nano</b> or another text editor to create the program <b>helloworld-whiter.py</b>.</li>
+                                        <li>This program should print out the message "Hello, world!" when it runs, along with the sum of the numbers 1-10 and a personalized goodbye message to you. Once you think you've written the program, save it in your "code/unit1" folder, exit nano, and try running your program:
+                                        <div class="code">$ <span style="color:#fff">python helloworld-whiter.py</span></div></li>
+                                    </ul>
+                                </div><!--problem-->
+                                <p>If your program runs perfectly the first time, congratulations! You got really, <i>really</i> lucky. And if your program <i>didn't</i> work as you expected it might&mdash;either because you mis-typed something, or because you're still trying to figure out how all of this works, well... welcome to the world of programming. We're going to be writing programs in here, but we're going to spend even more time trying to get the programs to work the way we want them to.</p>
+                                    <p>It's kind of like solving a puzzle... and it's a <i>fantastic</i> feeling when you solve the puzzle and get your program to work!</p>
+                            </div><!--level4-->
+                            <div class="level4">
+                                <h4>3.b.iii. Some logistical details</h4>
+                                <p>You can see that we've introduced the file-naming convention that we'll be using throughout the course. It's important that each file you work on be identified, by assignment and by author. It's the equivalent of putting your name on your paper.</p>
+                                <div class="definition">
+                                    <p><b>File Naming Convention in this course</b>:</p>
+                                    <p><i>assignmentName</i>-<i>lastnameFirstinitial</i>.py</p>
+                                    <p>The assignment name will be given in class for each assignment. For exercises from the book, use this convention:</p>
+                                    <p><i>ch02ex17-whiter.py</i>, where 02 is a two-digit code for the chapter, and 17 is the exercise number.</p>
+                                </div>
+                                <div class="definition">
+                                    <p><b>Don't use spaces in your filenames.</b></p>
+                                    <p>Most computer systems use a space (" ") to separate instructions, or parameters, or items in a list. Although modern operating systems allow for a space in a filename (<i>my program.py</i>, for example), it's not a good idea. When referring to such a program, you'll either have to "escape" the space by putting a backslash in front of it ( <b>python <i>my\ program.py</i></b>) or putting quotes around the filename (python "my program.py"), both of which require extra typing and effort on your part.</p>
+                                    <p>There are two strategies for indicating "words" in a filename: use underscores or use capital letters. <i>my program.py</i> should be written as <i>my_program.py</i> or <i>myProgram.py</i>.</p>
+                                </div>
+                                <p>You'll also typically want to have two windows open simultaneously on your screen: one for the code that you're writing, and one for running that code. You'll switch back and forth between the two windows as you work, writing code in the window on the left, and then running the code in the window on the right to see how your program is coming along.</p>
+                                <img src="images/two_windows.png" style="width: 100%;" />
+                                <p>If you <i>really</i> get into coding, you may even move into using two monitors at some point.</p>
+                            </div>
+                            <div class="level4">
+                                <h4>3.b.iv. Comments</h4>
+                                <p><i>Real</i> programs have additional components, some of which we're going to introduce right away.</p>
+                                <div class="problem">
+                                    <p>Using nano again, edit your program to include comments: text that is not used by Python, but that is used by programmers to identify and understand the code. Python ignores everything to the right of a #, so we use that to indicate a comment.
+</p>
+                                    <div class="code"># Richard White, 2010-01-08
+# Hello, World! program
+
+# This program prints “Hello, world!”
+
+print “Hello, world!”
+print 1+2+3+4+5+6+7+8+9+10
+print "Goodbye, Richard"
+</div>
+                                <p>Save your program and run it again to make sure that it works just as it did before.</p>
+                                </div>
+                            </div>
+                            <div class="level4">
+                                <h4>3.b.v. Suites</h4>
+                                <p>Programs include logical sections of code blocks, which in Python are called <i>suites</i>.</p>
+                                <div class="definition"><p>A <b>suite</b> in Python is a logical block of code, identified at the beginning by a colon (:), with all lines indented exactly 4 spaces from the previous line.</p>
+                                <p>NOTE: Do not use <b>[tab]s</b> to create your spacing unless you have configured your text editor to replace tabs with spaces. Four spaces may <i>look</i> the same as a [tab], but Python won't be able to run your program correctly. Also, although the "4 spaces" rule is not <i>required</i> by Python&mdash;you can actually use any spaced-indent for a suite, as long as the same indent is used consistently throughout the program&mdash;in here we'll be using 4-spaces, which is standard Python "best practice."</p></div>
+                                <p>You could reasonably wonder why we should include in our program 3 blank lines, and 5 lines of comments that don’t make the program run any differently.</p>
+                                <p>Experienced coders already know the answers to these questions, but you may not get it for awhile. Briefly:</p>
+                                <ul>
+                                    <li>The blank lines make the program easier to read, for you and anyone else who’s looking at your work.</li>
+                                    <li>The comments identify important parts of the program, useful to you and anyone else who’s looking at your work.</li>
+                                </ul>
+                                <div class="problem">
+                                <p>Now modify your program to include a <b>main</b> function, as follows:</p>
+                                <div class="code"># Richard White, 2012-02-08
+# Hello, World! program
+
+# This program prints “Hello, world!”
+
+# Define the main function
+def main():
+    print “Hello, world!”
+    print 1+2+3+4+5+6+7+8+9+10
+    print "Goodbye, Richard"
+
+# Call the main function
+main() 
+</div>
+                                </div><!--problem-->
+                                <p>Here, the <b>def</b> instruction in Python defines a function called "main", which contains a bit of code that won't be run until the name is used later on in the program.</p>
+                                <p>Down below, then, we "call the function" by writing "main()", which tells the interpreter to execute the instructions that we'd described earlier on in the function definition.</p>
+                                <p>Again, you might wonder why we've made our straightforward program a little more complex by defining a function.</p>
+                                <ul>
+                                    <li>The function definitions provide a modularity to your program that will be extremely important to us in the near future. We want to get comfortable as quickly as possible with the idea of modular programs.</li>
+                                </ul>
+                                <p>From here on our, you'll <i>always</i> be writing your programs with at least one function&mdash;<b>main()</b>&mdash;and then calling that function to execute it.</p>
+                            </div><!--level4-->
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>3.c. Loops</h3>
+                            <p>If someone were to ask you to write a program that called <b>helloworldmultiples-whiter.py</b> to print "Hello, world!" five times, you might write something like this:</p>
+                            <div class="code"># print "Hello, world!" five times
+def main():
+    print “Hello, world!”
+    print "Hello, world!"
+    print "Hello, world!"
+    print "Hello, world!"
+    print "Hello, world!"
+
+# Call the main function
+main()</div>
+                            <p>That might work here, but you wouldn't want to follow that strategy if you had to write "Hello, world!" a hundred times.</p>
+                            <div class="definition">
+                                A <b>loop</b> is a series of instructions that may be repeated over and over according to certain conditions.<br /><br />
+                                In Python, there are two main types of loop structures: <b>for loops</b> and <b>while loops</b>.
+                            </div>
+                            <div class="problem">
+                                Enter the following program and see what happens when you run it:
+                                <div class="code"># for-loop example
+def main():
+    print "Here's a loop example"
+    for i in range(10):
+        print “Hello, world!”
+    print "And that's all there is."
+
+main()</div>
+                            </div>
+                            <p>Did it work? If not, you'll have to debug the program to get it running.</p>
+                            <p>Note that the <b>body</b> of the loop&mdash;the part that's going to be repeated over and over&mdash;gets indented 4 spaces as a code block. <i>Any statement that is indented, and thus in the code block, will be repeated as part of the loop.</i> When you don't want the next statement to be part of the body of the loop, you stop indenting. That next statement, then, is where execution of the program will begin <i>after</i> the loop has finished running.</p>
+                            <p>What do you think the variable <i>i</i> was doing while the program ran through this loop?</p>
+                            <div class="problem">
+                                <p>Modify the program so the body of the loop has two print statements: one that prints the value of <i>i</i>, and one that prints out "Hello, world!"</p>
+                                
+                                <div id="on1" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand1', 'on1');">See solution</a>
+								</div>
+								<div id="expand1" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand1', 'on1');">Minimize</a>
+									<div class="code"># for-loop example
+def main():
+    print "Here's a loop example"
+    for i in range(10):
+        print i
+        print “Hello, world!”
+    print "And that's all there is."
+
+main()</div>
+								</div>
+                            </div>
+                            <p>In this program there were two code "blocks": the <b>main</b> function indented 4 spaces, and the "body" of the <b>for loop</b> which is indented 8 spaces.</p>
+                            <p>This program uses a variable <i>i</i> to store a value that changes as the program runs. First the value 0 is stored in <i>i</i> during the first iteration of the loop, and the code block beneath is executed with the value 0 used anytime <i>i</i> is mentioned.</p>
+                            <p>At the end of the code block, execution returns to the top of the code block, but now with <i>i</i> having a value of 1. The variable <i>i</i> gets successive values stored in it as the loop repeats over and over, 10 times, with <i>i</i> running from 0 to 9. After that, the loop stops, and execution continues on to the next line below the loop.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>3.d. Inputting numbers and assigning values to variables</h3>
+                            <p>Being able to write a program to do something a fixed number of times is nice, but we don't want to have to rewrite the program every time the number changes. What if we wanted to have “Hello, world!” print a different number of times, depending on what the user wants?</p>
+                            <div class="problem">
+                                <p>Enter this code and run the program.</p>
+                                <div class="code"># Richard White, 2010-01-08
+# Hello, World! program
+
+def main():
+    num = input(“How many times do you want to be greeted? “)
+    for i in range(num):
+        print “Hello, world!”
+    print “...and goodbye!”
+
+# Call the main function
+main()</div>
+                            </div>
+                            <p>You saw before how the variable <i>i</i> was assigned successive values in a <b>for</b> loop. Here are a couple of other ways that you can assign a value to a variable.</p>
+                            <div class="definition">
+                                <p>To assign a value to a variable in a program:<br />
+                                <b>&lt;variable&gt; = &lt;expression&gt;</b><br />
+                                <br />
+                                Examples:<br />
+                                <span class="ilc">height_in_feet = 5.8</span><br />
+                                <span class="ilc">height_in_inches = 12 * height_in_feet</span><br />
+                                <span class="ilc">height_in_inches = height_in_inches + 0.5</span></br />
+                                
+                                
+                            </div>
+                            <p>Also,</p>
+                            <div class="definition">
+                                <p>To allow a user to enter a value while the program is running:<br />
+                                <b>&lt;variable&gt; = input(&lt;prompt&gt;)</b> # for entering numbers, or<br />
+                                <br />
+                                <b>&lt;variable&gt; = raw_input(&lt;prompt&gt;)</b> # for entering "strings"<br />
+                                <br />
+                                Examples:<br />
+                                <span class="ilc">age = input("Enter your age")</span><br />
+                                <span class="ilc">user_name = raw_input("Enter your name")</span></p>
+                            </div>      
+                        </div><!--level3-->
+                        
+                    </div><!--level2-->
+                    <div id="part4" class="level2">
+                        <h2>4. Introduction to the server</h2>
+                        <div class="level3">
+                            <h3>4.a. What is a server? Where is our server?</h3>
+                            <p>When a computer is connected to a network, an Internet Protocol (IP) address or a hostname is required to interact with that computer.</p>
+                            <p>Your own machine, the one that you're working on right now, has the IP address <b>127.0.0.1</b>, and a hostname of <b>localhost</b>.</p>
+                            <p>A remote networked computer called a <b>server</b> may&mdash;with proper authentication&mdash;allow for users to log in, whether they're on another computer in the same room or one halfway across the world. This class's server is headless, and tucked away in some corner of campus. The only way you can access that machine is via the command line.</p>
+                            <div class="definition">
+                                <p>Our server is located at IP <b>**.**.***.***</b> and has a hostname <b>**********.***********.org</b></p>
+                            </div>
+                        </div>
+                        <div class="level3">
+                            <h3>4.b. What can you do?</h3>
+                            <p>You'll be interacting with this course's server in a number of different ways, depending on your needs. You might:</p>
+                            <ul>
+                                <li>Log in using <b>ssh</b> (the Secure SHell) in order to use the computer to run Python, edit programs, write web pages, etc.</li>
+                                <li>Submit a copy of an assignment using <b>scp</b> (Secure CoPy)</li>
+                                <li>Log in using <b>sftp</b> in order to upload assignments or other files to the server.</li>
+                                <li>View webpages that you've written that are being served by the server.</li>
+                            </ul>
+                            <p>Let's take a look at using SSH first.</p>
+                            <div class="level4">
+                                <h4>4.b.i. Logging in to the server.</h4>
+                                <p>To log in to the server, you'll need a userID and password that will be distributed to you in class. You will receive stern warnings from the instructor at this point about strong passwords and sharing your login credentials with others.</p>
+                                <p>When you've received your login credentials:</p>
+                                <div class="definition">
+                                    <p>The <b>S</b>ecure <b>Sh</b>ell (SSH) allows one to securely log in to and use a remote computer's shell.</p>
+                                </div>
+                                <div class="problem">
+                                    <p>Log in to the course's remote server by using SSH as follows:</p>
+                                    <div class="code">$ <span style="color:#fff">ssh userID@crashwhite.polytechnic.org</span>
+userID@crashwhite.polytechnic.org's password:
+Welcome to Ubuntu 12.04.1 LTS (GNU/Linux 3.2.0-29-generic x86_64)
+...
+Last login: Wed Jan  9 11:27:19 2013 from 10.30.236.113
+userID@crashwhite:~$
+</div>
+                                    <p><i>As soon as you have logged in, change your password!</i> Come up with a strong, unique password&mdash;again, you'll get more advice from the instructor on this&mdash;and then change your password by issuing the following command, and following the instructions:</p>
+                                    <div class="code">$ <span style="color:#fff">passwd</span></div>
+                                    <p>Once you've changed your password, you can log off using the <b>exit</b> command:</p>
+                                    <div class="code">userID@crashwhite:~$ <span style="color:#fff">exit</span>
+logout
+Connection to crashwhite.polytechnic.org closed.
+$
+</div>
+                                </div>
+                            </div><!--level4-->
+                            <div class="level4">
+                                <h4>4.b.ii. Looking around the server</h4>
+                                <p>Once you’re on the server, you can do most of the things that you can do on your own machine:
+</p>
+                                <ul>
+                                    <li><span class="ilc">ls</span> - list the files in the current directory</li>
+                                    <li><span class="ilc">cd &lt;location&gt;</span> - change directory to a new location</li>
+                                    <li><span class="ilc">cp &lt;oldFile&gt; &lt;newFile&gt;</span> - create a new copy of a file</li>
+                                    <li><span class="ilc">mv &lt;fileName&gt; &lt;newLocation&gt;</span></li>
+                                    <li><span class="ilc">mkdir &lt;directoryName&gt;</span> - create a new directory at the current location</li>
+                                    <li><span class="ilc">rm &lt;fileName&gt;</span> - remove a file</li>
+                                    <li><span class="ilc">pwd</span> - print current directory location</li>
+                                </ul>
+                                <p>Take a moment to <b>cd</b> around the directory structure, and use <b>ls</b> or <b>ls -al</b> to see what files are there. Remember that you can use the following symbols to help you navigate the file structure:</p>
+                                <ul>
+                                    <li><span class="ilc">./</span> - current directory</li>
+                                    <li><span class="ilc">../</span> - directory level above the current one</li>
+                                    <li><span class="ilc">~/</span> - your home directory</li>
+                                    <li><span class="ilc">/</span> - the root directory</li>
+                                </ul>
+                                
+                                <div class="problem">
+                                    <p>Use the <b>mkdir</b> command to create a directory called <i>gradedAssignments</i> in your home directory. This is where the instructor will place work that you've submitted after it has been graded.</p>
+                                    <div class="code">$ <span style="color:#fff">cd ~</span>
+$ <span style="color:#fff">mkdir gradedAssignments</span>
+$ <span style="color:#fff">ls -lp</span>
+total 4
+drwxr-xr-x 2 userID student 4096 2012-02-07 08:26 gradedAssignments/</div>
+                                </div>
+                                
+                            </div><!--level4-->
+                            
+                            <div class="level4">
+                                <h4>4.b.iii. Run <i>Python</i> on the server</h4>
+                                <p>If you don't have Python installed on your local machine and don't want to have to mess around with that, you can log in to the server and run it there.</p>
+                                <div class="code">userid@crashwhite:~$ <span style="color: #fff">python</span>
+Python 2.7.3 (default, Aug  1 2012, 05:14:39) 
+[GCC 4.6.3] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>></div>
+                                <p>On the server you can write and edit programs in almost the same way that you do on your local computer. You can write programs using nano, you can save them in your home directory on the server, and you can run those programs using Python.</p>
+                            </div><!--level4-->
+                            
+                            <div class="level4">
+                                <h4>4.b.iv. Understanding permissions</h4>
+                                <p><b>Permissions</b> are a little tricky to understand at first, but we should be able to figure it out without too much difficulty.</p>
+                                <div class="definition"><b>Permissions</b> determine which users and which groups of users have access to a given file or directory, and what kind of access they have.</div>
+                                <p>Take a look at the following output:</p>
+                                <div class="code">whiter@crashwhite:/home$ <span style="color:#fff">ls -al</span>
+total 0
+drwxr-xr-x   6 root              204 Nov 23 07:40 .
+drwxr-xr-x  14 root              476 Nov 23 07:37 ..
+drwxr-xr-x   2 alice   partners   68 Nov 23 07:40 alice_docs
+drwx-wx-wx   2 bob     partners   68 Nov 23 07:40 bob_docs
+drwxr-xr-x   2 whiter  staff      68 Nov 23 07:38 secrets
+-rw-r--r--   1 whiter  staff       0 Nov 23 07:38 todo.txt
+whiter@crashwhite:/home$</div>
+                                <p>The <span class="ilc">ls -al</span> command tells the the shell to list <b>a</b>ll the files in the current directory (including hidden ones) in <b>l</b>ong format, so that we can see directory permissions, which are listed in the left column of the list.</p>                                  
+                                <p>Let's take a moment focus on those directory permissions listed over on the left.</p>
+                                <img src="images/permissions.jpg" />
+                                <p>After the <b>d</b> which indicates that we're looking at a directory (containing files), there is a series of 9 characters, organized in groups of 3, and consisting of the letters r, w, x, or a dash ('-').</p>
+                                <ul>
+                                    <li><b>r</b> = "read" access</li>
+                                    <li><b>w</b> = "write" access</li>
+                                    <li><b>x</b> = "execute" access</li>
+                                    <li><b>-</b> = no access</li>
+                                </ul>
+                                <ul>
+                                    <li>First 3 characters: the user's (owner's) permissions for this file/directory</li>
+                                    <li>Second 3 characters: the group's permissions for this file/directory</li>
+                                    <li>Third 3 characters: the world's permissions</li>
+                                </ul>
+                                <p>What does all this mean? In the example above, you can see that I (whiter) am the owner of the directory <i>whiter</i>, and I have <b>rwx</b> permission on this directory. For a directory, the <b>r</b> means that I can see the names of files in the directory, the <b>w</b> means that I can add, rename, or delete files, and the <b>x</b> means that I can read or write files in the directory, and execute files as programs.</p>
+                                <p>The fact that the next three columns have "-" in them means that other people in my group do <i>not</i> have access, and the three columns of "-" after that mean that the world at large doesn't have access to the directory.</p>
+                                <p>If you want to <i>change</i> permissions for a folder or a file, you use the <b>chmod</b> command.</p>
+                                <img src="images/permission_changing.jpg" />
+                                <p>There won't be much occasion for you to have to worry about permissions in this class, although you might be interested to know that permissions are critical for an instructor who wants to set up a Dropbox where you can submit assignments.</p>
+                                <img src="images/file_permissions.jpg" />
+                            </div>
+                            
+                            <div class="level4">
+                                <h4>4.b.vi. Submitting assignments</h4>
+                                <p>In addition to being able to work on the server, you'll be submitting your programming assignments to a Public folder on the server. For this you'll be using the <span class="ilc">scp</span> command.</p>
+                                <div class="definition">
+                                    <span class="ilc">scp</span> is used to securely copy files from one "source" computer (often your local machine) to another "destination" computer (often the class server) according to the following syntax:<br />
+                                    <br />
+                                    <span class="ilc">scp &lt;source&gt; &lt;destination&gt;</span><br />    
+                                </div>
+                                In order to make this command work, you'll need to provide username and server information as part of the statement.</p>
+                                <p>To securely copy a file from <i>my</i> local computer to <i>my</i> Documents directory on the server, I'd use this:</p>
+                                <div class="code">$ <span style="color:#fff">scp my_file.txt whiter@crashwhite.polytechnic.org:Documents</span>
+whiter@crashwhite.polytechnic.org's password: 
+my_file.txt                     100%   11KB  11.4KB/s   00:01
+$</div><!--code-->
+
+                                <p>To securely copy a file from <i>your</i> local computer to the instructor's Dropbox on the server&mdash;which is what you'll do to submit assignments&mdash;you'll use this:</p>
+                                <div class="code">$ <span style="color:#fff">scp ch07ex02-userid.py userid@crashwhite.polytechnic.org:/home/whiter/Public/Dropbox/ch07ex02/</span>
+userid@crashwhite.polytechnic.org's password: 
+ch07ex02-userid.py             100%   11KB  11.4KB/s   00:01
+$</div><!--code-->
+
+                                <p><b>scp</b> is what you use to securely transfer files from one computer to another over the internet. If you're already logged on to the server and you want to copy something from your own home folder to the instructor's folder, you don't need to use the <span class="ilc">scp</span> command. You can just <span class="ilc">cp</span> your file into the appropriate folder.</p>
+                                <div class="code">userid/Documents$ <span style="color:#fff">cp ch07ex02-userid.py /home/whiter/Public/Dropbox/ch07ex02</span>
+$ 
+</div><!--code-->   
+                                <p>And speaking of submitting assignments, you'll need to make sure that your assignments are "turned in" (uploaded to the server) on time. Points will be assigned according to a rubric that will vary with the assignment, but a typical breakdown of points is along these lines:</p>
+                                <ul>
+                                    <li>10% no compilation errors</li>
+                                    <li>10% no runtime errors</li>
+                                    <li>20% comments as required</li>
+                                    <li>20% delivered on time</li>
+                                    <li>40% runs as specified</li>
+                                </ul>
+                            </div><!--level4-->                             
+                        </div><!--level3-->      
+                    </div><!--level2-->
+                    <div id="part5" class="level2">
+                        <h2>5. Programming Basics</h2>
+                        <div class="level3">
+                            <h3>5.a. Software Development</h3>
+                            <p>Writing good software is challenging, but <i>fun</i>!</p>
+                            <p>The process of writing a program involves quite a bit more than simply sitting down at the computer and entering code. A typical problem will require that you:</p>
+                            <ol>
+                                <li>Analyze the problem</li>
+                                <li>Determine the specifications</li>
+                                <li>Design the program's overall structure</li>
+                                <li>Write the program (lots of testing and debugging here)</li>
+                                <li>Deliver the program</li>
+                                <li>Maintain the program (updating it as required, repairing it as needed)</li>
+                            </ol>
+                            <p>In this course, you'll often be provided with the first 2 items, and #6 won't typically be something you'll have to worry about.</p>
+                        </div><!--level3--><div class="level3">
+                            <h3>5.b. Flowcharts</h3>
+                            <div class="definition"><p>Flowcharts are a classic tool for analyzing the flow of instructions&mdash;especially <i>loops</i> and <i>branches</i> in an <i>algorithm</i> (steps to solve a problem).</p></div>
+                            <p>We'll be using flowcharts as a tool for discussing problems and developing solutions, especially as assignments get more sophisticated.</p>
+                            <img src="images/tech_support_cheat_sheet.png" style="border: solid 1pt black;" />
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>5.c. Pseudocode</h3>
+                            <div class="definition">
+                                <p>Pseudocode is a “faux-language” that we can use to begin thinking about how we’re going to write a program. It allows us to think about input, output, branching and looping control structures without having to worry about the actual syntax of Python.</p>
+                            </div>
+                            <div class="code"># Pseudocode for an investment program
+# Define the main function
+
+# Get the initial values from the user: \
+            yearly investment, apr, and number of years
+# Set principal = 0 as initial value
+#    Set up loop to run from 1 to the number of years
+#        Based on values given, calculate new principal
+#    Once loop is done, print out final principal
+
+# Call the main function</div>
+                            <p>Think of pseudocode as a hybrid language, halfway between English and actual code. It won't actually run on the computer, of course, but it's an important stepping stone to getting the program designed.</p>
+                            <div class="code"># Actual program to determine result of investing money
+def main():
+    yearly_investment = input("Enter the amount to be invested each year: ")
+    apr = input("Enter the interest rate: ")
+    years = input ("Enter the number of years that you'll be investing: ")
+    principal = 0
+    for i in range (1,years+1):
+        principal = principal + yearly_investment 
+        print "Amount invested in year", i, "is ", "$%0.2f" % (yearly_investment), "."  
+        principal = principal + principal * apr   
+        print "At the end of the year, you have $%0.2f" % (principal), "."    
+main()</div>
+                            <p>For solutions provided by the instructor in this course, you'll often find a pseudocode version of the final program before the actual program. If you find you are having difficulty trying to figure out how to write a program, it may help to look at the pseudocode first, and then trying to write the program again on your own, without yet resorting to the actual solution.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>5.d. Identifiers vs. Reserved Words</h3>
+                            <div class="definition">
+                                <p><b>Identifiers</b> are used to name programs, functions, modules, variables.</p>
+                                <p>Python identifiers:</p>
+                                <ul>
+                                    <li>must begin with a letter or underscore “_”</li>
+                                    <li>must include only letters, digits, or underscores</li>
+                                    <li>are case-sensitive</li>
+                                    <li>can’t be a reserved word</li>
+                                </ul>
+                            </div>
+                            <p>An important part of producing good, human-readable code is using identifiers that are "self-documenting": a variable used to refer to the user's name should be called <i>userName</i> or <i>user_name</i>, and not just <i>n</i>. It will take a fraction of a second longer to type the complete name when you're writing the code, but you'll save minutes or even hours later on when you're debugging the code.</p>
+                            <div class="definition">
+                                <p><b>Reserved words</b> in a programming language are those words that have special significance, and can't be used for other purposes by a programmer.</p>
+                                <p>The reserved words in Python include:<br />
+                                <i>and, assert, break, class, continue, def, del, elif, else, except, exec, finally, for, from, global, if, import, in, is, lambda, not, or, pass, print, raise, return, try, while, yield</i></p>
+                            </div>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>5.e. Code Review</h3>
+                            <p>You can quickly improve both your coding and your debugging skills by examining programs that other people have written.</p>
+                            <p>Be sure you take a few moments to go over other people's programs, see what techniques they've used that you hadn't though of, or see how their programs might be improved.</p>
+                            <p>You'll quickly come to realize how important good comments are in a program, as well as using self-commenting variables that help one to understand how a program works.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>5.f. More FOR loops</h3>
+                            <p>We've already looked at <b>for</b> loops a little. Let's see some more examples:</p>
+                            <div class="problem">
+                                <p>Try each of the following for statements in the Python interpreter, and notice the differences in output:</p>
+                                <div class="code">>>> <span style="color: #fff">for i in range(10):
+...     print i [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color: #fff">for i in range(1,10):
+...     print i [Enter]
+... [Enter]
+</span></div>
+                                <div class="code">>>> <span style="color: #fff">for i in (1,10):
+...     print i [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color: #fff">for i in range(1,10,2):
+...     print i [Enter]
+... [Enter]</span></div>
+                            </div>
+                            <div class="definition">
+                                <p>The <b>for</b> loop has the following syntax:
+                                <div class="code">for &lt;variable&gt; in &lt;sequence&gt;:
+    &lt;body&gt;  # Notice that the body of the loop is indented 4 spaces, 
+            # as all suites should be.</div>
+                                <p>&lt;sequence&gt; may be:</p>
+                                <ul>
+                                    <li>an actual sequence of values, like <b>[1,3,5,7,9]</b></li>
+                                    <li>something like <b>range(10)</b>, which begins at 0 and goes up to one less than 10</li>
+                                    <li>something like range <b>(1,10)</b>, which starts at 1 and goes until the number before 10</li>
+                                    <li>something like <b>range(1,10,2)</b>, which begins at 1 and goes up by 2 until just before 10</li>
+                                    <li>some other sequence of values, like <b>['alice','bob','charlie','dave']</b>
+                                </ul>
+                            </div>
+                            <div class="problem">
+                                <p>Come up with four different ways to print the numbers 1-10 on the screen.
+                                <div id="on3" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand3', 'on3');">See solutions</a>
+								</div>
+								<div id="expand3" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand3', 'on3');">Minimize</a>
+									<div class="code">print 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</div>
+									<div class="code">print "1 2 3 4 5 6 7 8 9 10"</div>
+									<div class="code">for i in range(10):
+    print i+1</div>
+									<div class="code">for i in range(1,11):
+    print i</div>
+								</div>
+                                
+                                
+                                
+                                
+                                
+                                
+                            </div>
+                            <div class="problem">
+                                <p>Predict what you think will be outputted by each of these loops. Then enter them into a program or the Python interpreter, and see what happens.</p>
+                                <div class="code">>>> <span style="color:#fff">for i in (“Hello, world!”):
+...     print i [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color:#fff">for i in range(10):
+...     print i+1 [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color:#fff">for i in range(0,20,3):
+...     print i [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color:#fff">for j in range(10,0,-1):
+...     print j [Enter]
+... [Enter]</span></div>
+                                <div class="code">>>> <span style="color:#fff">for j in (10,0,-1):
+...     print j [Enter]
+... [Enter]</span></div>        
+                                <div class="code">>>> <span style="color:#fff">for n in ("Anne","Bob","Coraline"):
+...     print n [Enter]
+... [Enter]</span></div>                
+                            </div>
+                            <p>The <b>for</b> loop is an example of a <i>definite</i> loop: the program knows in advance how many times it expects to be repeating the body of the loop.</p>
+                            <p>But what if you don't know how many times you're going to be repeating the loop?</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>5.g. <i>while</i> loops</h3>
+                            <p>Although we haven't yet introduced the "conditional loop", take a look at the program below and see if you can figure out what it does.</p>
+                            <div class="code">def main():
+    n = input("Enter a positive number, please: ")
+    i = 1
+    while (i &lt; n+1):
+        print i
+        i = i + 1
+    print "All done"
+
+# Call the main function
+main()</div>
+                            <p>We'll be formally learning about the <b>while</b> loop during our next unit.</p>
+                            <p>Let's take a moment, though, to talk about that "=" sign up there. In math we use that sign to indicate that two values are equivalent, but that's not really what that sign means in programming. When we say "i = 1", what we're really saying is "the <i>variable</i> i <i>gets</i> the value 1." You should practice saying "gets" (instead of 'equals') when you're talking about a statement to help you remember this fact.</p>
+                        </div><!--level3-->
+                    </div><!--level2-->
+                    <div id="part6" class="level2">
+                        <h2>6. Numeric Data Types</h2>
+                        <p>Programming languages represent different <i>types</i> of data differently, and it's important for you to be aware of what data type one is working with. Data types in Python include <i>int</i> (integers), <i>float</i> numbers (floating point, or decimals), <i>str</i> (strings, of text), <i>list</i> (for lists of things), <i>tuple</i> (kind of like lists, but immutable), <i>dictionary</i>...</p>
+                        <p>To begin, let's look at several of the numeric data types, operations that can be performed on those numbers, and some of the ways we can work with those numbers using functions in the <b>math</b> module.</p>
+                        <div class="level3">
+                            <h3>6.a. Integers and Floating Point numbers</h3>
+                            <div class="definition">
+                                <i>Plain integers</i> are simply that: integers, i.e. numerical values without a decimal point. You can confirm the type of a number by using the <b>type()</b> function in interactive mode:</p>
+                                <div class="code">>>> <span style="color:#fff">type(3)</span><span style="color:#0f0">
+&lt;type 'int'&gt;</span></div>
+                                <p>Integers have 32 bits of precision. If you need more than that, you'll need to use the <b>longint</b> data type, which has unlimited precision. Longint values are indicated with an "L" at the end of the number, i.e. 3L.</p>
+                            </div>
+                            <div class="definition">
+                                <p><i>Floats</i> are floating point numbers, i.e. numerical values that <i>do</i> have a decimal point.</p>
+                                <div class="code">>>> <span style="color:#fff">type(3.0)</span><span style="color:#0f0">
+&lt;type 'float'&gt;</span></div>
+                            </div>
+                            <p>Why distinguish between the two? It's all about speed. It's far easier for computers to deal with integers, and therefore far faster for them to perform operations with integers. Differences in speed won't be apparent in <i>most</i> programs that we write, but for any program that performs the same operation thousands, million, or billions of times, working with integers where possible produces a significant increase in speed.</p>
+                            <p>Of course, if you need to work with decimals (floats), then you'll have to use them where appropriate.</p>
+                            <div class="problem">
+                                <p>Start up the Python interpreter and try out each of the examples here. Can you predict what the output of each will be?</p>
+                                <div class="code">>>> <span style="color:#fff">5 + 2</span></div>
+                                <div class="code">>>> <span style="color:#fff">5.0 + 2</span></div>
+                                <div class="code">>>> <span style="color:#fff">5.0 / 2</span></div>
+                                <div class="code">>>> <span style="color:#fff">5 / 2  # careful on this one!</span></div>
+                                <div class="code">>>> <span style="color:#fff">5 % 2  # this is related to the last one</span></div>
+                                <div class="code">>>> <span style="color:#fff">5 * 2</span></div>
+                                <div class="code">>>> <span style="color:#fff">5 * 2.0</span></div>
+                                <div class="code">>>> <span style="color:#fff">5 ** 2</span></div>
+                                <div class="code">>>> <span style="color:#fff">16 ** 0.5</span></div>
+                                <p>Note that the "/" operator, when used with integers, produces a whole number result, with the remainder of the division process discarded.</p>
+                                <p>The "%" operator gives you that remainder.</p>
+                            </div>
+                            
+                            <div class="definition">
+                                <p><b>Division in Python 2 vs. Python 3</b></p>
+                                <p>Note the peculiar behavior of the "/" operator in the example above? That's only in Python 2.x, which is what we're using for this course. That behavior has been changed in Python 3, so that the "/" operator acts as you'd probably expect: <b>print 5/2</b> yields a result of 2.5.</p>
+                                <p>If you'd like to include this behavior from Python 3 in your Python 2 programs, just include this statement near the beginning of your Python 2 program:</p>
+                                <div class="code">from __future__ import division</div>
+                                <p>Any "/" operators in your Python 2.x program will now act as they do in Python 3.</p>
+                            </div>
+                            <p>You can use Python's built-in functions to convert from one data type to another:</p>
+                            <div class="code">>>> <span style="color:#fff">print float(3)</span><span style="color:#0f0">
+3.0</span></div>
+                            <div class="code">>>> <span style="color:#fff">print int(3.7)</span><span style="color:#0f0">
+3</span></div>
+                            <div class="code">>>> <span style="color:#fff">print round(3.7)</span><span style="color:#0f0">
+4</span></div>
+                            
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>6.b. The <i>math</i> module</h3>
+                            <div class="definition">
+                                <p>A <i>module</i> (sometimes called a <i>library</i>) is a program that contains a useful set of related functions.</p>
+                                <p>To use a module in a program, use <b>import modulename</b> near the beginning of your program.</p>
+                            </div>
+                            <p>Let's see how to use the <b>math</b> module to perform calculations. Enter the following code in the Python interpreter.</p>
+                            <div class="code">>>> <span style="color:#fff">import math   # Gets the entire math library</span>
+<span style="color:#0f0">>>> </span><span style="color:#fff">r = 3</span>
+<span style="color:#0f0">>>> </span><span style="color:#fff">circumference = 2 * math.pi * r    # use pi from library</span>
+<span style="color:#0f0">>>> </span><span style="color:#fff">print circumference</span></div>
+                            
+                            <p>Other functions contained in the <b>math</b> module include:</p>
+                            <ul>
+                                <li>e, log(x), exp(x)</li>
+                                <li>sin(x), cos(x), tan(x), asin(x), acos(x), atan(x)</li>
+                                <li>radians(x), degrees(x)</li>
+                            </ul>
+                            <p>Python's trig functions require that the value given be in radians. So, to calculate the horizontal component of velocity for a jet traveling 200 meters/second at 30 degrees above the horizontal:</p>
+                            <div class="code">>>> <span style="color:#fff">import math</span><span style="color:#0f0">
+>>> </span><span style="color:#fff">horz_vel = 200*math.cos(math.radians(30))<span style="color:#0f0">
+>>> </span><span style="color:#fff">print horz_vel<span style="color:#0f0">
+173.205080757</span></div>
+                            </div>
+                            <p>Note that if you forget to import the <b>math</b> module, you'll get an error.</p>
+                            <p>For a more complete list of methods available in the <b>math</b> module, use <b>help(math)</b> after importing the module.</p>
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>6.c. Different ways to <i>import</i> a module</h3>
+                            <p>Modules obviously provide a convenient way of expanding Python's capabilities beyond the <i>built-in functions</i> that are available any time Python executes a program.</p>
+                            <p>We've already seen the traditional way of importing a module. Note that we have to indicate the module name (<b>math</b>) before we indicate the method we want to used from that module (<b>.pi</b>).</p>
+                            <div class="code">>>> <span style="color:#fff">import math   # Gets the entire math library</span><span style="color:#0f0">
+>>> </span><span style="color:#fff">circumference = 2 * math.pi * r    # use pi from library</span></div>
+                            <p>This technique, at the start, is the recommended way to use a method from an imported module.</p>
+                            <p>Another option, though, if you really only need the <b>pi</b> function, is this:</p>
+                            <div class="code">>>> <span style="color:#fff">from math import pi  # Gets just the pi function</span><span style="color:#0f0">
+>>> </span><span style="color:#fff">circumference = 2 * pi * r   # calculates using pi</span></div> 
+                            <p>The advantage here is that you can just use the identifier <b>pi</b> all by itself, without having to also specify the module name. The disadvantage is that there is some potential for confusion between the <b>pi</b> that you've imported and any <i>other</i> <b>pi</b> variable that you might be using in your program. The likelihood of this happening in a small program is pretty low, but as your programs become more complex, clearly distinguishing between your local variables and those imported from modules will be important.</p>
+                            <p>The previous example gets only the pi function. If you wanted to get all the functions from <b>math</b>, you would do this:</p>
+                            <div class="code">>>> <span style="color:#fff">from math import *    # Gets all math functions</span><span style="color:#0f0">
+>>> </span><span style="color:#fff">print pi, sin(pi/2)   # use any function directly</span></div>
+
+                            <div class="problem">
+                                In the Python interpreter, <span class="ilc">import math</span> and then <span class="ilc">print sin(0)</span>. Did you get the answer you expected?</br />
+                                <br />
+                                Now try <span class="ilc">print sin(math.pi/2)</span>, which should give you a value of 1. Did you get the answer you expect?<br />
+                                <br />
+                                Now try <span class="ilc">print sin(math.pi)</span>, which should give you a value of 0. Did you get the answer you expected?<br />
+                                <br />
+                                What happened?<br />
+                                <br />
+                                Let's try something easier. <span class="ilc">print 0.1 + 0.2</span><br />
+                                <br />
+                                What???!<br />
+                                <br />
+                                <div id="on5" style="padding: 5px;">
+									<a href="javascript: expandCollapse('expand5', 'on5');">I'm confused!</a>
+								</div>
+								<div id="expand5" style="display: none; padding: 5px;">
+									<a href="javascript: expandCollapse('expand5', 'on5');">Minimize</a><br />
+									<br />
+									This problem has to do with the way computers do math. Decimal numbers like 0.1 that we're perfectly comfortable with are represented as binary numbers in the computer, and in that conversion process, imperfections arise. Think of writing the fraction <b>1/3</b> as a decimal: <b>0.3</b> isn't exactly correct. Neither is <b>0.33</b>, or even <b>0.33333333</b>. Representing a fraction as a decimal occasionally causes problems, and the same is true of representing decimal numbers in binary form, which is what computers have to do.<br />
+									<br />
+									For further information, see <a href="http://docs.python.org/2/tutorial/floatingpoint.html">http://docs.python.org/2/tutorial/floatingpoint.html</a>.
+								</div>   
+                            </div>
+                            
+                        </div><!--level3-->
+                        <div class="level3">
+                            <h3>6.d. Improving <i>nano</i></h3>
+                            <p>Like a lot of things in life, a few minor tweaks here and there can pay off in big gains. How can you make <b>nano</b> a better editor?</p>
+                            <p>It might be helpful if you could have Python identifiers indicated in a different color. It would be great if you could use the [Tab] key to space over 4 characters as required, rather than 8. It would be great if they were actually spaces, rather than the Tab character, which will mess up Python's ability to read the code.</p>
+                            <p>A "resource file" that allows you to customize <b>nano</b> is what you need. One is available in the instructor's Public folder on the school server, and you can:</p>
+                            <ol>
+                                <li>Use the <b>cp</b> command to copy it from the instructor's Public folder into your own home directory on the server, like this.
+                                    <div class="code">$ <span style="color: #fff">cp /home/whiter/Public/.nanorc ~</span></div>
+                                    Note that the file is "hidden" from normal directory listings&mdash;that's what the dot in front of the "nanorc" name indicates. It will show up in your listings, however, if you give the command <span class="ilc">ls -a</span>.
+                                </li>
+                                <li>
+                                    You can also copy it onto a directory on your computer at home with a similar command, using <b>scp</b>:
+                                    <div class="code">$ <span style="color: #fff">scp userid@crashwhite.polytechnic.org:/home/whiter/Public/.nanorc ~</span></div>
+                                    This securely copies the file from the source (the instructor's Public directory, accessed via userid's login) to the home directory on your local computer (that's the "~"). Launch <b>nano</b>, write a Python program, and see the color formatting appears in your Terminal!
+                                </li>
+                            </ol>
+                            
+                        </div><!--level3-->
+
+                        <div class="level3">
+                            <h3>6.e. A factorial function</h3>
+                            <p>Even if a <i>built-in function</i> is not available to you, you can easily create your own.</p>
+                            <div class="problem">
+                                <p>Write a program called <b>fact.py</b> that calculates the factorial of a number entered by the user.</p>
+                                <p>Specifications:</p>
+                                <ul>
+                                    <li>Ask the user for a number they want to be "factorialized."</li>
+                                    <li>Calculate the factorial and print out the result</li>
+                                </ul>
+                            </div><!--problem-->
+                        </div><!--level3-->
+                    </div><!--level2-->
+            </div><!--level1-->
+        </div><!--content-->
+    </div> <!--mainwrapper-->
+    <div id="footer">
+        <p>&copy;2013, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+    </div>
+</body>
+</html>

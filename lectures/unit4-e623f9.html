@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Lectures - Unit 4</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+	<style type="text/css">
+	<!-- Lecture styles here -->
+		html {margin: 0; padding: 0; } 
+        body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+        a:link, a:visited   {text-decoration: underline; color: blue; }
+        a:hover{text-decoration: underline; color: red;}
+        a:active    {text-decoration: none; color: blue;}
+        h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+        .level1 {margin:0; padding: 10px;}
+        h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+        .level2 {padding-left: 20px;}
+        h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+        .level3 {padding-left: 40px;}
+        h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+        .level4 {padding-left: 60px;}
+        div#footer p    {font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+        div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+        div#footer a:hover, div#footer a:active {color: #ccc; }
+        .code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+        .problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+        .definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+        .homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+        .problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+        .definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+        .homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+        .homework p {margin: 0; padding: 0;}
+        ul li {list-style-type: square; margin-top: 1em; }
+        table {border-collapse: collapse;}
+        td {margin: 0; padding: 10px; border: solid 1px #000; vertical-align: top; }
+        img {width: 100%; }
+	<!-- End of lecture styles -->
+	</style>	
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="content">
+			<div class="level1">
+				<h1>Introduction to Computer Science: <br />
+				HTML</h1>
+				<p>Welcome to Unit 4!</p>
+				<ul>
+					<li><a href="#part1">Unit 4, Day 1 - The World Wide Web, HyperText Markup Language</a></li>
+					<li><a href="#part2">Unit 4, Day 2 - Cascading Style Sheets, sftp</a></li>
+					<li><a href="#part3">Unit 4, Day 3-5 - Independent Project - Website</a></li>
+				</ul>
+					<div id="part1" class="level2">
+						<h2>1. Beginnings, and HTML</h2>
+						<p>Let's get started, shall we?</p>
+						<div class="level3">
+							<h3>1.a. A Brief History of the Internet</h3>
+							<p>The World Wide Web (WWW) didn't spring into existence overnight. The first email sent from one user to another (from within a single machine) occurred in 1965. It wasn't until a few years later, in 1969, that the ARPAnet, precursor to the Internet, sent and received its first packets of information.</p>
+							<p>You can read more about these early days of the Internet's development on <a href="http://en.wikipedia.org/wiki/History_of_the_Internet">Wikipedia</a>, and hear a bit about it from Ethan Zuckerman's <a href="http://www.youtube.com/watch?v=7Nl6fOQAftA">A History of the Internet</a> (2 minutes, YouTube).</p>
+							<p>Note that the Internet&mdash;a network for passing information back and forth, is NOT the same thing as the World Wide Web. That was yet to come.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>1.b. The World Wide Web</h3>
+							<div style="float: right; width: 30%;"><a href="http://upload.wikimedia.org/wikipedia/en/b/b7/NCSA_Mosaic.PNG"><img src="images/mosaic-thumb.png"  /></a></div>
+							<p>In 1989, Tim Berners-Lee famously proposed a system by which <i>hypertext</i> viewed in a <i>browser</i> could be used "to link and access information of various kinds as a web of nodes in which the user can browse at will."</p>
+							<p>To accomplish such a thing, two devices were needed: a <i>webserver</i> to deliver the information (first built in 1990), and browser software to allow one's computer to traverse the hyperlinks.</p>
+							<p>The first graphical browser, Mosaic, was created in 1993.</p>
+							<p>You can read more about the development of the World Wide Web on <a href="http://en.wikipedia.org/wiki/World_Wide_Web">Wikipedia</a>.</p>
+							<div style="content: '.'; display: block; height: 0; clear: both; visibility: hidden;"></div>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>1.c. HyperText Markup Language (HTML)</h3>
+							<p>Text can be represented on machines in lots of different ways:</p>
+							<div class="code">÷Z≤,#ä¢+Õ÷Zº˜m¯øŸlòÕfW÷>ºN!ÑB_}ı’wØ3ÍÕŸÜz’¶†\.ÿl6îJ∑Mß@iå1ÿ(&äcí$&ébåÕ€)=∏
+ﬂÃ.û¯·1˘…∫á
+ÉâıG?VŸ5ÆZ≥Y≠XLÊ,Á+J†‰iÿlìú$Îìf9ÉnBûEhÂ¡7l¶¶˚â©≥Ã˙'ËÓêª}œ-´0˙-M—r
+ıj¬fq ≈ƒÛÀeÜIª|v_%ÖG5≈˘&??`nr›C¢˛êœuJlıªπ—A!ÑBº7í$ëêYàèÄΩuÎ÷ùn∑;0∆DZk„ΩWØ”Õ\◊5”ÈîÛÛs...xÚ‰	õÕ•∆“4•ﬂÔcåπ“Â∫àÎ∫æ2Ú˘¸¸ú~øœ|>
+‚8˛M∫kΩ˜¨◊kû&lt;y¬ŸŸÁÁÁÃf3‡iûÁ9÷Zå1m`ÏΩßiö¶iGVœf≥v∆„1√·ê„„c¢(¬⁄g∂ø~#™™2ôP◊5J)¨µt:
+</div>
+							
+							<div class="code">NOTES FROM 2010-03-23
+It turns out that text can be encoded in many different ways:
+• Binary
+• Text files
+• .doc files (from Microsoft Word)
+• .html files...
+</div>
+							<div class="code">&lt;h1>Notes from 2010-03-23&lt;/h1>
+&lt;p>It turns out that text can be encoded in many different ways:&lt;/p>
+&lt;ul>
+	&lt;li>Binary&lt;/li>
+	&lt;li>Text files&lt;/li>
+	&lt;li>.doc files (from Microsoft Word)&lt;/li>
+	&lt;li>.html files...&lt;/li>
+&lt;/ul></div>
+							<p><b>HyperText Markup Language</b> provides a means of coding webpages so that they can be correctly displayed by a browser. It uses tags (indicated by angle brackets) to indicate how text—structured in the form of headers, paragraphs, lists, embedded graphics, etc—should be rendered.</p>
+							<p>HTML was initially proposed by Berners-Lee in 1990, and published in 1993, modified to HTML 2.0 in 1995...</p>
+							
+							<div class="code">&lt;!--  This is an example of a webpage -->
+&lt;html>
+  &lt;head>
+    &lt;title>Mr. White's Web Page&lt;/title>
+  &lt;/head>
+  &lt;body>
+    &lt;h1>A Web page&lt;/h1>
+    &lt;p>If you want to see my website, please 
+    &lt;a href="http://www.crashwhite.com">click here&lt;/a>.&lt;/p>
+  &lt;/body>
+&lt;/html></div>
+							<p>Webpages are most often viewed using a browser: Microsoft's Internet Explorer, Mozilla's Firefox, Safari, Chrome, Opera, etc. The HTML source code for the page is interpreted by the browser and then displayed.</p>
+							<p>You can see the source code for most webpages by clicking <b>View > Source</b> in your browser's menu.</p>
+							<p>Creating a webpage is easily done by creating a text file with the extension <b>.html</b>; opening that file using a browser will cause the browser to interpret the HTML code and display the page appropriately.</p>	
+						</div><!--level3-->
+						<div class="level3">
+							<h3>1.d. Writing a webpage</h3>
+							<p>Let's get started.</p>
+							<div class="level4">
+								<h4>1.d.i. Create your workspace</h4>
+								<div class="problem">
+								<p>Create a new folder in your compsci directory call public_html . All of your webpages will be stored in this folder.
+</p>
+								<div class="code">$ cd ~
+$ mkdir public_html</div>
+								<p>Now, navigate to that folder and create the following file in it.</p>
+								<div class="code">$ cd public_html
+$ nano helloworld.html
+&lt;!-- My first webpage -->
+&lt;html>
+    &lt;head>
+        &lt;title>"Yup, it's me!"&lt;/title>
+    &lt;/head>
+    &lt;body>
+        &lt;p>Hello, world!&lt;/p>
+    &lt;/body>
+&lt;/html></div>
+								<p>Once you've got it saved, use a browser (Firefox or Safari) to <b>File > Open file...</b> the <i>helloworld.html</i> document.
+</p>
+								</div><!--problem-->
+							</div><!--level4-->
+							<div class="level4">
+								<h4>1.d.ii. Create a link</h4>
+								<p>The real power of "the web" isn't displaying text... it's using hyperlinks to navigate from one page to another.</p>
+								<div class="problem">
+									Edit your file as follows, and then test it in a browser to see how it works.
+</p>
+								<div class="code">&lt;body>
+    &lt;p>Hello, world!      &lt;!-- Line break? -->
+        Would you like to read 
+        &lt;a href="http://www.latimes.com">the news?&lt;/a>
+    &lt;/p>
+    &lt;p>You don't &lt;strong>have&lt;/strong> to!&lt;/p>       
+&lt;/body></div>
+								<p>Note that the spacing of the text in the <i>html</i> code doesn't necessarily match the spacing of the text when it's displayed in the browser. While tags give you some control over formatting, in general <i>html</i> is designed so that text can be flexibly displayed in a browser window, whether it's on a Mac, a PC, a tablet, or a phone.</p>
+								</div><!--problem-->
+							</div><!--level4-->	
+							<div class="level4">
+								<h4>1.d.iii. Tags</h4>
+								<div class="definition">
+									<p>A list of some of the most common HTML tags:</p>
+									<ul>
+										<li><b>&lt;html> ... &lt;/html></b>      encloses HTML code</li>
+										<li><b>&lt;head> ... &lt;/head></b>      encloses header information</li>
+										<li><b>&lt;body> ... &lt;/body></b>      encloses the code you'll be using to display information</li>
+										<li><b>&lt;!-- encloses a comment --></b></li>
+										<li><b>&lt;p> ... &lt;/p></b>            enclose paragraphs</li>
+										<li><b>&lt;br /></b> inserts a break</li>
+										<li><b>&lt;b> ... &lt;/b></b> create bold text</li>
+										<li><b>&lt;i> ... &lt;/i></b> create italicized text</li>
+										<li><b>&lt;a href="thesecondpage.html">Page 2&lt;/a></b> encloses a link</li>
+										<li><b>&lt;img src="my_photo.jpg" /></b> inserts an image</li>
+									</ul>
+								</div><!--definition-->
+							</div><!--level4-->
+							<div class="level4">
+								<h4>1.d.iv. Build a website</h4>
+								<div class="problem">
+									<p>Create two webpages that include at least one photo, links to each other, and an external link.</p>
+								</div>
+							</div>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>Websites in the Real World</h3>
+							<p>We've created some simple pages here without too much difficulty. Browsers will even render text files; try opening a <b>.txt</b> file or a <b>.py</b> file with your browser and see what happens.</p>
+							<p>More complex pages or websites may be coded by hand, or they might be created by using a higher-level development solution. If you get interested in developing websites, you have options:</p>
+							<ul>
+								<li>code by hand ( <a href="http://www.learnapphysics.com">www.learnapphysics.com</a> )</li>
+								<li>use a template ( <a href="http://www.oswd.org">oswd.org</a> )</li>
+								<li>use an online cloud-based solution ( <a href="http://www.squarespace.com/">squarespace.com</a> )</li>
+								<li>use local software to develop a site ( <a href="http://bluefish.openoffice.nl/">bluefish</a> , <a href="http://kompozer.net">kompozer</a> )</li>
+							</ul>
+
+
+						</div><!--level3-->
+					</div><!--level2-->
+					<div id="part2" class="level2">
+						<h2>2. Cascading Style Sheets, sftp</h2>
+						<div class="problem">
+							<p>Take a look at the following code, and guess what gets displayed on the screen when this page is displayed in a browser?</p>
+							<div class="code">&lt;!--  This is an example of a webpage -->
+&lt;html>
+    &lt;head>&lt;title>Just an example&lt;/title>&lt;/head>
+    &lt;body style="background: #ccc">
+        &lt;div style="font-size: 200%"><!-- header -->Welcome!&lt;/div>
+        &lt;div style="font-style: italic">What would you like to do?
+        &lt;ul>
+            &lt;li>View my &lt;a href="code.html" 
+            style="font-weight: bold">Python programs&lt;/a>&lt;/li>
+            &lt;li>View my &lt;a href="bio.html" 
+            style="font-weight: bold">biography&lt;/a>&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+    &lt;div style="background: yellow; color: #fc0">Updated 2010-03-23&lt;/div>
+    &lt;/body>
+&lt;/html></div>
+							<p>You can see that some <i>styling</i> has been added to this page.</p>
+						</div>
+						<p>Styles allow one to extend the formatting conventions of standard HTML, but they bring additional challenges with them. What is good style? How does a webpage designer ensure consistent style throughout a website? How can large-scale site changes be managed?</p>
+						<p>The solution is <b>Cascading Style Sheets</b>.</p>
+						<div class="level3">
+							<h3>2.a. Cascading Style Sheets (CSS)</h3>
+							<div class="definition">
+								<p><b>Cascading Style Sheets</b> are a means of describing the formatting of various elements in an HTML file.</p>
+							</div>
+							<p>Let's see what that looks like for an actual webpage.</p>
+							<img src="images/compsci_page.jpg" style="border: solid 1px black" />
+							<p>Above is a webpage for this course, with text style and formatting defined in various ways for the page. Although it's certainly possible to individually assign styles for each element of a webpage, that can a) get tedious, and b) lead to errors when <i>changes</i> to a style have to be made throughout a site.</p>
+							<p>Let's take a look at the <b>.html</b> file for this page.</p>
+							<img src="images/compsci_html.jpg" style="border: solid 1px black" />
+							<p>You can see here some of the html tags that we've started using, but there's also an interesting reference to an external <b>.css</b> file. It's that file that contains all of the styling for our website.</p>
+							<p>What does <i>that</i> file look like?</p>
+							<img src="images/compsci_css.jpg" style="border: solid 1px black" />
+							<p>You can see here that the <b>.css</b> file has references to all sorts of formatting rules that are different for different elements or sections of the document. Margins, padding, background colors, text colors, widths, and other specifications have all been defined for the different parts of the html document.</p>
+							<div class="definition">
+								<p>One of the primary goals of CSS is to separate a website's <b>content</b> from its <b>formatting</b>. The <i>.html</i> document describes the content of the site, while the <i>.css</i> document describes the formatting of the site.</p>
+							</div>
+							<div class="problem">
+								<p>Create two new webpages and a third file, a custom style sheet, that is used by both pages to produce consistent styling across both pages.</p>
+								<p>Your webpages should refer to the css in the header as follows:</p>
+								<div class="code">&lt;style type="text/css">
+    &lt;!-- @import url("screen.css"); -->
+&lt;/style></div>
+								<p>You can specify formatting rules for already defined elements of a webpage: paragraphs (&lt;p>), headers (&lt;h1>), etc.</p>
+								<p>You'll also have divisions in the body of your webpage that you can indicate as follows:</p>
+								<div class="code">&lt;div class="shout">Everything in here will be part of a "shout"&lt;/div></div>
+								<p>Your CSS file should be called <b>screen.css</b>, and include style descriptions similar to these:</p>
+								<div class="code">html {margin: 0; padding: 0; }
+body {margin: 0; padding: 0; border: 0; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 80.01%; font-weight: normal; color: #000; background: #ccc;  }      // Defaults for the whole page
+p {font-style: italic}          // Sets all paragraphs to italic
+div.shout {font-weight: bold}   // All text in a division called "shout"
+                                // will be bold
+a:link, a:visited	{text-decoration: underline; color: red; }
+a:hover, a:active	{text-decoration: underline; color: blue; background-color: #cf0; }		// These lines describe how "anchors" (links) behave</div>
+							</div>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>2.b. The HTTP server</h3>
+							<p>Up to this point, your webpages have only been visible to (and usable by) you. For them to be visible by others, they need to be uploaded to a webserver, a program that runs on a networked computer and is specifically designed to deliver pages on the WWW.</p>
+							<p>The <b>crashwhite.polytechnic.org</b> server that we've been using to store our files, and run Python, is also running <a href="http://httpd.apache.org/">Apache</a>, a popular open-source server.</p>
+							<p>When someone on the Internet types in a Uniform Resource Locator (URL), it usually includes a Domain Name such as <i>polytechnic.org</i> or <i>crashwhite.com</i>. A Domain Name Server (DNS) keeps a list of what domain names are mapped to what Internet Protocol (IP) addresses, and routes requests for your webpage to the appropriate server.</p>
+							<p>For the moment, there aren't any terribly useful html files on our server, so you won't actually be able to see anything, but... let's point our browser to the server and see what happens anyway.</p>
+							<div class="problem">
+								<p>Launch Firefox and enter the Uniform Resource Locator (URL): <b>http://crashwhite.polytechnic.org/~rwhite</b></p>
+								<p>This goes to the folder <b>public_html</b> in <b>/home/rwhite/</b> and tries to find a file there that it can display (default <i>index.html</i>).</p>
+							</div>
+							<p>What we need, then is a way of getting your local <b>.html</b> files that you've written onto a webserver, so that people looking for your website will be able to see your webpages.</p>
+						</div><!--level3-->
+						<div class="level3">
+							<h3>2.c. Secure File Transfer Protocol</h3>
+							<p>It may be that you creating your <b>.html</b> files on the same server that's going to be serving them. If so, you don't need to worry about transferring them to the server--they're already there.</p>
+							<p>More commonly, though, you're working offline or on a different computer, and you need to be able to transfer the appropriate files to the server at a later time. We've already learned how to use SecureCopy (scp) to do this. Now we're going to learn another&mdash;and for our purposes here, more useful way&mdash;to transfer files.</p>
+							<img src="images/apache_diagram.png" />
+							<p>Assuming you have a webpage written that you'd like to serve, you need to upload it to the server using Secure File Transfer Protocol (SFTP, included with SSH).</p>
+							<p>The basic syntax for logging in to the server using <b>sftp</b> looks like this:</p>
+							<div class="code">$ <span style="color:#fff">sftp rwhite@crashwhite.polytechnic.org</span>
+Connecting to crashwhite.polytechnic.org...
+rwhite@crashwhite.polytechnic.org's password: 
+sftp> <span style="color:#fff">ls</span>
+Documents                  Public                      public_html                                              
+sftp> <span style="color:#fff">cd public_html</span></div>
+							<p>Once you've logged in using <b>sftp</b> you can issue commands, much as you would if you were logged in via <b>ssh</b>. Although there are very similar commands in some cases, <b>ssh</b> and <b>sftp</b> are used for different things.</p>
+							<p>A comparison of some <b>ssh</b> and <b>sftp</b>:</p>
+							<table>
+								<tr><td style="text-align: center; width: 50%"><b>SSH</b></td><td style="text-align: center; width: 50%"><b>SFTP</b></td></tr>
+								<tr><td>Used for working on the server</td><td>Used for transferring files to and from the server</td></tr>
+								<tr><td style="background-color: black; color: #0f0">$ ssh rwhite@crashwhite.polytechnic.org</td><td style="background-color: black; color: #0f0">$ sftp rwhite@crashwhite.polytechnic.org</td></tr>
+								<tr><td style="color: red">$ pwd   # prints working directory</td><td style="color: red">$ pwd   # prints remote working dir<br />$ lpwd    # prints local working dir</td></tr>
+								<tr><td style="color: green">$ ls  # lists the files in a directory</td><td style="color: green">$ ls  # lists files in remote directory<br />$ lls  # lists files in local directory</td></tr>
+								<tr><td style="color: blue">$ cd ../  # changes directory</td><td style="color: blue">$ cd ../   # changes remote directory<br />$ lcd ../    # changes local directory</td></tr>
+								<tr><td></td><td>$ <b>get</b> filename.html    # downloads file from current remote directory to current local directory</td></tr>
+								<tr><td></td><td>$ <b>put</b> filename.html # uploads file from current local directory to current remote directory</td></tr>
+							</table>
+							<p>So, let's say you have a couple of pictures on your local machine in the directory <i>Pictures</i>, and you want to upload them to the server so that you can use them in a webpage. What would that look like?</p>
+							<div class="code">$ <span style="color: #fff">sftp rwhite@crashwhite.polytechnic.org</span>
+Connecting to crashwhite.polytechnic.org...
+rwhite@crashwhite.polytechnic.org's password: 
+sftp> <span style="color: #fff">lpwd    # "local print working directory" = where am i?</span>
+Local working directory: /Users/rwhite
+sftp> <span style="color: #fff">lcd Documents/Pictures  # "local cd"</span>
+sftp> <span style="color: #fff">lls            # "local ls"</span>
+proof_bakery.jpg
+sftp> <span style="color: #fff">ls             # "server ls"</span>
+Documents         Public            public_html                                      
+sftp> <span style="color: #fff">cd public_html # "server cd"</span>
+sftp> <span style="color: #fff">put *.jpg      # "put all .jpg files from local onto server"</span>
+Uploading proof_bakery.jpg to /home/rwhite/public_html/proof_bakery.jpg
+proof_bakery.jpg               100%  410KB 410.4KB/s   00:01    
+sftp></div>
+							
+					</div><!--level2-->
+					<div id="part3" class="level2">
+						<h2>3. Independent Project - Website</h2>
+						<p>Now that you've had some practice with HTML, let's put together a small website.</p>
+						<p>Specifications for this project can be found <a href="../assignments/assignment5-html.pdf">here</a>.</p>
+						</div><!--level3-->
+					</div><!--level2-->
+					
+					
+			</div><!--level1-->
+		</div><!--content-->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy; 2011, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>

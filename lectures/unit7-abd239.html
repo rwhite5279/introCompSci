@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Polytechnic Computer Science - Lectures - Unit 3a</title>
+    <meta name="resource-type" content="document" />
+    <meta name="author" content="richard white" />
+    <meta name="description" content="polytechnic computer programming" />
+    <meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+    <meta name="distribution" content="global" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed for Polytechnic Computer Science" href="../feed.xml" />
+    <style type="text/css">
+    <!-- Lecture styles here -->
+        html {margin: 0; padding: 0; } 
+        body {margin: 0; padding: 10px; font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 90.01%; font-weight: normal; color: #000; background: #fff; } 
+        a:link, a:visited   {text-decoration: underline; color: blue; }
+        a:hover{text-decoration: underline; color: red;}
+        a:active    {text-decoration: none; color: blue;}
+        h1 {font-size: 2em; padding: 5px; background-color: #333; color: #fff;}
+        .level1 {margin:0; padding: 10px;}
+        h2 {font-size: 1.5em; padding: 5px; background-color: #666; color: #fff;}
+        .level2 {padding-left: 20px;}
+        h3 {font-size: 1.2em; padding: 5px; background-color: #999; color: #000;}
+        .level3 {padding-left: 40px;}
+        h4 {font-size: 1.1em; padding: 5px; background-color: #ccc; color: #333;}
+        .level4 {padding-left: 60px;}
+        div#footer p    {font-size: 90%; background: #666; color: #fff; clear: both; padding: 5px; margin: 0; }
+        div#footer a:link, div#footer a:visited {text-decoration: underline; color: #fff; }
+        div#footer a:hover, div#footer a:active {color: #ccc; }
+        .code {margin: 5px; padding: 10px; font-size: 1.2em; background: #000; color: #0f0; font-family: Courier, monospace; font-weight: normal; white-space: pre;}
+        .problem {margin: 5px; padding: 10px; background-color: #9cf; color: #000; border: dashed 1px #000;}
+        .definition {margin: 5px; padding: 10px; background-color: #9c6; color: #000; border: dotted 1px #000;}
+        .homework {margin: 5px; padding: 10px; background-color: #f99; color: #000; border: solid 1px #000;}
+        .problem h1 { background-color: #9cf; color: #000; font-size: 120%; padding: 0; }
+        .definition h1 { background-color: #9c6; color: #000; font-size: 120%; padding: 0;  }
+        .homework h1 { background-color: #f99; color: #000; font-size: 120%; margin: 0; padding: 0;  } 
+        .homework p {margin: 0; padding: 0;}
+        ul li {list-style-type: square; margin-top: 1em; }
+        table {border-collapse: collapse;}
+        td {margin: 0; padding: 10px; border: solid 1px #000; vertical-align: top; }
+        img {width: 100%; }
+    <!-- End of lecture styles -->
+    </style>    
+    
+    <script type="text/javascript">
+    // From http://www.blakems.com/archives/000087.html
+        function expandCollapse() {
+            for (var i=0; i<expandCollapse.arguments.length; i++) {
+                var element = document.getElementById(expandCollapse.arguments[i]);
+                element.style.display = (element.style.display == "none") ? "block" : "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <div id="mainwrapper">
+        <div id="content">
+            <div class="level1">
+                <h1>Introduction to Version Control with Git</h1>
+                <p>Once you begin writing more complicated programs, you'll find it helpful to have some sort of <i>Version Control System</i>.</p>
+                <p>A VCS helps you keep track of ongoing progress as you develop your program, and allows for multiple versions of your program to exist simultaneously. What if you make edits to a program over the course of a day or three, only to find that a previous version of the program works better than the new one? What if you're sharing development of a program with a partner or a team, with the understanding that different people will be writing different parts of the program. Who keeps track of the "official" version of the program? How do the members of a team combine work?</p>
+                <p>You do <i>not</i> want to be the loser in charge of copy-pasting snippets of code and proofreading/debugging thousands of lines of code.</p>
+                <p>Version Control helps to manage complex projects. There are different systems one can choose from, including SVN, Subversion, CVS, and Git. Because of the recent popularity of GitHub, we're going to be learning Git.</p>
+                
+                <div id="part1" class="level2">
+                    <h2>1. Before Using Git</h2>
+                    <p>Let's set up a directory that's going to store the files that we're working on. It could be a <b>public_html</b> folder that holds all the files for a website, or it could be be a <b>myProject</b> directory that holds a graphics-based game you're working on, as well as the <i>graphics.py</i> module that needs to be imported into that game. Regardless, you've got a folder, and for the purposes of our discussion, we're going to call it <b>myProject</b>.</p>
+                    <h2>2. Install Git</h2>
+                    <p>Git is a software package that runs via the command line (Terminal). To install it:</p>
+                    <ul>
+                        <li><b>Mac OS X</b> - You almost certainly already have <b>git</b> installed. Try typing <i>git --version</i> to see.
+<div class="code">$ <span style = "color:#fff">git --version</span>
+git version 1.7.4.4 </div></li>
+                        <li><b>Linux</b> - You'll probably need to install <i>git-core</i>, which is easy enough to do. On Ubuntu for example:
+<div class="code">$ <span style = "color:#fff">git --version</span>
+The program 'git' is currently not installed.  You can install it by typing:
+sudo apt-get install git-core
+$ <span style = "color:#fff">sudo apt-get install git-core</span>
+.
+.
+.
+</div></li>
+                        <li><b>Windows</b> - Download and install the <a href="http://code.google.com/p/msysgit/downloads/list">msysgit</a> package.</li>
+                    </ul>
+                    <p>Once you've got <b>Git</b> installed on your machine, give it some global characteristics that it can use to identify you when you're working on your projects:</p>
+<div class="code">$ <span style = "color:#fff">git config --global user.name "Richard White"</span>
+$ <span style = "color:#fff">git config --global user.email "rwhite@crashwhite.com"</span></div>
+                </div><!--level2"-->
+                <div id="part2" class="level2">
+                    <h2>2. Using Git</h2>
+                    <p>There are a few different ways to use Git. We're going to start out by seeing how to use it to manage ongoing progress of your own local work&mdash;you're basically working alone, and just using git to keep track of multiple versions of your project as you develop it.</p>
+                    <p>Then, we'll see how you can "check out" a software version from a central repository, develop that package, and then commit your changes back to the repository.</p>
+                    <div class="level3">
+                        <h3>2.a. Initializing Git with a local directory</h3>
+                        <p>It's super easy.</p>
+                        <ol>
+                            <li>At the command line, navigate into the directory of project.</li>
+                            <li>Type <i>git init</i></li>
+                        </ol>
+                        <p>That's it. Let's see what happens before and after.</p>
+                        <div class="code">$ <span style="color:#fff">cd myProject</span>
+$ <span style="color:#fff">ls -a</span>
+.		README.txt  rogue_notes.txt
+..		rogue.py	
+$ <span style="color:#fff">git init</span>
+Initialized empty Git repository in /Users/rwhite/Desktop/myProject/.git/
+$ <span style="color:#fff">ls -a</span>
+.		.git		rogue.py
+..		README.txt	rogue_notes.txt
+</div> 
+                        <p>Awesome. You can see that a new "hidden" directory has been created. (It's ordinarily hidden from the <i>ls</i> command, unless we specify the <i>-a</i> flag to show <i>all</i> contents). It's this .git directory that holds all the information that will help us manage the multiple versions of our program over time.</p>
+                        <p>Note that we've <i>initialized</i> git, but we haven't actually done anything with it yet.</p>
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>2.b. Adding files, Committing files</h3>
+                        <p>At this point, my files are <i>untracked</i>&mdash;they're in the directory that I'm working on, but I haven't yet told Git to start monitoring them. You can check the status of all the files in your project using the <i>git status</i> command:</p>
+<div class="code">$ <span style="color:#fff">git status</span>
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in what will be committed)
+#
+#	README.txt
+#	rogue.py
+#	rogue_notes.txt
+nothing added to commit but untracked files present (use "git add" to track)</div>
+                        <p>I'm going to <i>add</i> all these files to the git index so that they can be tracked:</p>
+<div class="code">$ <span style="color:#fff">git add -A</span></div>
+                        <p>Now what does the git status look like?</p>
+<div class="code">$ <span style="color:#fff">git status</span>
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
+#
+#	new file:   README.txt
+#	new file:   rogue.py
+#	new file:   rogue_notes.txt
+#</div>
+                        <p>Interestingly, Git <i>still</i> doesn't know anything about our project, at least not officially. You can check on your recent activity with git by checking out the <i>git log</i>:</p>
+<div class="code">$ <span style="color:#fff">git log</span>
+fatal: bad default revision 'HEAD'</div>
+                        <p>The last step, then, in making sure that Git knows about what we're doing is to officially <i>commit</i> our work to the Git index. "Committing" is along the lines of a large-scale "save," in the same way that one might save one's status in video or computer game: you don't want to do it every minute or two, because that's time consuming, annoying, and quickly fills up your disk with unnecessary data, but you definitely want to do it right before you take on a boss.</p>
+                        <p>Let's do our first commit on this project:</p>
+<div class="code">$ <span style="color:#fff">git commit</span>
+  1                                                                                       
+  2 # Please enter the commit message for your changes. Lines starting
+  3 # with '#' will be ignored, and an empty message aborts the commit.
+  4 # On branch master
+  5 #
+  6 # Initial commit
+  7 #
+  8 # Changes to be committed:
+  9 #   (use "git rm --cached <file>..." to unstage)
+ 10 #
+ 11 #   new file:   README.txt
+ 12 #   new file:   rogue.py
+ 13 #   new file:   rogue_notes.txt
+ 14 #
+</div>
+                        <p>Each time you commit, you'll be asked to enter information regarding that commit, which will be used (by yourself or others) later on to identify what happened during this particular commit. It's recommended that you use a short (&lt;50 characters) description of the changes that you've made, followed by a blank line and then a more complete version of your description, if desired.</p>
+                        <p>At this point, you should try changing a file in the directory, then using <i>git add</i> and <i>git commit</i> to record changes to your project. Note that you can use the command <i>git commit -a</i> to combine these two steps.</p>
+                        <p>Then, take a look at <i>git log</i> and see what it says:</p>
+<div class="code">$ <span style="color:#fff">git log</span></div>
+                        <p>You'll see a listing of your changes to the project from most recent down to oldest, along with a list of who made those changes, and when. Not bad!</p>
+                                  
+                    </div><!--level3-->
+                    <div class="level3">
+                        <h3>2.c. Comparing Versions</h3>
+                        <p>So far this may seem like a lot of work, and we haven't seen any real benefit from this version control. But here's where the benefit comes in.</p>
+                        <div class="level4">
+                            <h4>2.c.i. Recovering from changes that you haven't committed yet</h4>
+                            <div class="code">$ <span style="color:#fff">git reset --hard HEAD</span></div>
+                        </div><!--level4-->
+                        <div class="level4">
+                            <h4>2.c.ii. Returning to an earlier committed state</h4>
+                            <div class="code">$ <span style="color:#fff">git reset --hard HEAD</span></div>
+                        </div><!--level4-->
+                    </div><!--level3-->
+
+            
+                </div><!--level2-->
+            </div><!--level1-->
+        </div><!--content-->
+    </div> <!--mainwrapper-->
+    <div id="footer">
+        <p>&copy; 2012, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="../admin/terms_of_service.html">Terms of Service</a></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,431 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>montyhall-whiter.py</title>
+	<style type="text/css">
+/* Stylesheet generated from TextMate theme
+ *
+ * Mac Classic
+ * 
+ *
+ */
+
+/* Mostly to improve view within the TextMate HTML viewer */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+pre.textmate-source {
+	margin: 0;
+	padding: 0 0 0 2px;
+	font-family: Monaco, monospace;
+	font-size: 12px;
+	line-height: 1.3em;
+	word-wrap: break-word;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -o-pre-wrap;
+}
+
+pre.textmate-source.mac_classic {
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+pre.textmate-source .linenum {
+	width: 75px;
+	padding: 0.1em 1em 0.2em 0;
+	color: #888;
+	background-color: #eee;
+}
+pre.textmate-source.mac_classic span {
+   padding-top: 0.2em;
+   padding-bottom: 0.1em;
+}
+pre.textmate-source.mac_classic ::selection {
+	background-color: rgba(77, 151, 255, 0.33);
+}
+/* Comment */
+pre.textmate-source.mac_classic .comment {
+	color: #0066FF;
+	font-style: italic;
+}
+
+/* Keyword */
+pre.textmate-source.mac_classic .keyword, pre.textmate-source.mac_classic .storage {
+	color: #0000FF;
+	font-weight: bold;
+}
+
+/* Number */
+pre.textmate-source.mac_classic .constant_numeric {
+	color: #0000CD;
+}
+
+/* User-defined constant */
+pre.textmate-source.mac_classic .constant {
+	color: #C5060B;
+	font-weight: bold;
+}
+
+/* Built-in constant */
+pre.textmate-source.mac_classic .constant_language {
+	color: #585CF6;
+	font-weight: bold;
+}
+
+/* Variable */
+pre.textmate-source.mac_classic .variable_language, pre.textmate-source.mac_classic .variable_other {
+	color: #318495;
+}
+
+/* String */
+pre.textmate-source.mac_classic .string {
+	color: #036A07;
+}
+
+/* String interpolation */
+pre.textmate-source.mac_classic .constant_character_escape, pre.textmate-source.mac_classic .string .source {
+	color: #26B31A;
+}
+
+/* Preprocessor line */
+pre.textmate-source.mac_classic .meta_preprocessor {
+	color: #1A921C;
+}
+
+/* Preprocessor directive */
+pre.textmate-source.mac_classic .keyword_control_import {
+	color: #0C450D;
+	font-weight: bold;
+}
+
+/* Function name */
+pre.textmate-source.mac_classic .entity_name_function, pre.textmate-source.mac_classic .support_function_any-method {
+	color: #0000A2;
+	font-weight: bold;
+}
+
+/* Type name */
+pre.textmate-source.mac_classic .entity_name_type {
+	text-decoration: underline;
+}
+
+/* Inherited class name */
+pre.textmate-source.mac_classic .entity_other_inherited-class {
+	font-style: italic;
+}
+
+/* Function parameter */
+pre.textmate-source.mac_classic .variable_parameter {
+	font-style: italic;
+}
+
+/* Function argument and result types */
+pre.textmate-source.mac_classic .storage_type_method {
+	color: #70727E;
+}
+
+/* Section */
+pre.textmate-source.mac_classic .meta_section .entity_name_section, pre.textmate-source.mac_classic .declaration_section .entity_name_section {
+	font-style: italic;
+}
+
+/* Library function */
+pre.textmate-source.mac_classic .support_function {
+	color: #3C4C72;
+	font-weight: bold;
+}
+
+/* Library object */
+pre.textmate-source.mac_classic .support_class, pre.textmate-source.mac_classic .support_type {
+	color: #6D79DE;
+	font-weight: bold;
+}
+
+/* Library constant */
+pre.textmate-source.mac_classic .support_constant {
+	color: #06960E;
+	font-weight: bold;
+}
+
+/* Library variable */
+pre.textmate-source.mac_classic .support_variable {
+	color: #21439C;
+	font-weight: bold;
+}
+
+/* JS: Operator */
+pre.textmate-source.mac_classic .keyword_operator_js {
+	color: #687687;
+}
+
+/* Invalid */
+pre.textmate-source.mac_classic .invalid {
+	color: #FFFFFF;
+	background-color: #990000;
+}
+
+/* Invalid trailing whitespace */
+pre.textmate-source.mac_classic .invalid_deprecated_trailing-whitespace {
+	background-color: #FFD0D0;
+}
+
+/* Embedded source */
+pre.textmate-source.mac_classic .text .source, pre.textmate-source.mac_classic .string_unquoted {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Embedded embedded source */
+pre.textmate-source.mac_classic .text .source .string_unquoted, pre.textmate-source.mac_classic .text .source .text .source {
+	background-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Markup XML declaration */
+pre.textmate-source.mac_classic .meta_tag_preprocessor_xml {
+	color: #68685B;
+}
+
+/* Markup DOCTYPE */
+pre.textmate-source.mac_classic .meta_tag_sgml_doctype, pre.textmate-source.mac_classic .meta_tag_sgml_doctype .entity, pre.textmate-source.mac_classic .meta_tag_sgml_doctype .string, pre.textmate-source.mac_classic .meta_tag_preprocessor_xml, pre.textmate-source.mac_classic .meta_tag_preprocessor_xml .entity, pre.textmate-source.mac_classic .meta_tag_preprocessor_xml .string {
+	color: #888888;
+}
+
+/* Markup DTD */
+pre.textmate-source.mac_classic .string_quoted_docinfo_doctype_DTD {
+	font-style: italic;
+}
+
+/* Markup tag */
+pre.textmate-source.mac_classic .meta_tag, pre.textmate-source.mac_classic .declaration_tag {
+	color: #1C02FF;
+}
+
+/* Markup name of tag */
+pre.textmate-source.mac_classic .entity_name_tag {
+	font-weight: bold;
+}
+
+/* Markup tag attribute */
+pre.textmate-source.mac_classic .entity_other_attribute-name {
+	font-style: italic;
+}
+
+/* Markup: Heading */
+pre.textmate-source.mac_classic .markup_heading {
+	color: #0C07FF;
+	font-weight: bold;
+}
+
+/* Markup: Quote */
+pre.textmate-source.mac_classic .markup_quote {
+	color: #000000;
+	font-style: italic;
+}
+
+/* Markup: List */
+pre.textmate-source.mac_classic .markup_list {
+	color: #B90690;
+}
+
+
+
+	</style>
+</head>
+
+<body><pre class="textmate-source mac_classic"><span class="source source_python"><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> montyhall.py
+</span><span class="string string_quoted string_quoted_double string_quoted_double_block string_quoted_double_block_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"""</span>Monty Hall demonstration program, by Richard White, 2010-03-11.
+This program is designed to demonstrate the Monty Hall problem, or at least allow the user to experiment with it.
+
+The "Monty Hall" problem is this:
+In the TV game show "Let's Make a Deal," master of ceremonies Monty Hall invites contestants to choose door #1, #2, or #3, behind one of which is a prize car. Behind the other two doors is typically a goat. After the contestant picks a door (say Door #1 for our example), Monty Hall will open one of the other doors (say Door #2) to reveal one of the goats. "Now that you've seen that, do you want to change your mind? You can still pick Door #3 if you choose!"
+
+Does the contestant have a better chance of winning the car if he stays with his original choice (#1), switches to the new door (#3), or are the odds of winning the car equal between #1 and #3?
+
+This version of the program is simply a text version that allows the user to choose the doors, and then reveals the results. A logical extension of the current program would be to make a graphics version, more appealing to the user. It would also be nice to run some actual statistics on this, to explain the statistical analysis, and then give some real results of 100 trials, say, so that they can see some evidence of the analysis.<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"""</span></span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> PSEUDOCODE
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> montyhall.py
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Explain program to users
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Display doors, ask them to choose
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Reveal one of the other doors
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Give them the option of changing their choice, get choice
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Reveal answer
+</span><span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Play again?
+</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> ------------------ PROGRAM ---------------------------
+</span>
+<span class="keyword keyword_control keyword_control_import keyword_control_import_python">import</span> random
+
+<span class="meta meta_function meta_function_python"><span class="storage storage_type storage_type_function storage_type_function_python">def</span> <span class="entity entity_name entity_name_function entity_name_function_python">intro</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_begin punctuation_definition_parameters_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_end punctuation_definition_parameters_end_python">)</span><span class="punctuation punctuation_section punctuation_section_function punctuation_section_function_begin punctuation_section_function_begin_python">:</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>We're going to play <span class="constant constant_character constant_character_escape constant_character_escape_double-quote constant_character_escape_double-quote_python">\"</span>Let's Make a Deal!<span class="constant constant_character constant_character_escape constant_character_escape_double-quote constant_character_escape_double-quote_python">\"</span><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python"><span class="meta meta_empty-string meta_empty-string_double meta_empty-string_double_python">"</span></span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>There's a car hidden behind Door 1, 2, or 3.<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Behind the other doors are goats.<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Let's see if you can win that car!!!<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+
+<span class="meta meta_function meta_function_python"><span class="storage storage_type storage_type_function storage_type_function_python">def</span> <span class="entity entity_name entity_name_function entity_name_function_python">play</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_begin punctuation_definition_parameters_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_end punctuation_definition_parameters_end_python">)</span><span class="punctuation punctuation_section punctuation_section_function punctuation_section_function_begin punctuation_section_function_begin_python">:</span></span>  
+    <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> initialize doors with random prizes
+</span>    doors <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_structure meta_structure_list meta_structure_list_python"><span class="punctuation punctuation_definition punctuation_definition_list punctuation_definition_list_begin punctuation_definition_list_begin_python">[</span><span class="punctuation punctuation_definition punctuation_definition_list punctuation_definition_list_end punctuation_definition_list_end_python">]</span></span>
+    prizes <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_structure meta_structure_list meta_structure_list_python"><span class="punctuation punctuation_definition punctuation_definition_list punctuation_definition_list_begin punctuation_definition_list_begin_python">[</span><span class="meta meta_structure meta_structure_list meta_structure_list_item meta_structure_list_item_python"><span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>car<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span></span><span class="punctuation punctuation_separator punctuation_separator_list punctuation_separator_list_python">,</span><span class="meta meta_structure meta_structure_list meta_structure_list_item meta_structure_list_item_python"><span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>goat<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span></span><span class="punctuation punctuation_separator punctuation_separator_list punctuation_separator_list_python">,</span><span class="meta meta_structure meta_structure_list meta_structure_list_item meta_structure_list_item_python"><span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>goat<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span></span><span class="punctuation punctuation_definition punctuation_definition_list punctuation_definition_list_end punctuation_definition_list_end_python">]</span></span>  <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> These are the prizes to choose from
+</span>
+    <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Go through list of prizes, and pop them off randomly, putting them
+</span>    <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> behind doors.
+</span>    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">while</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">len</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python">prizes</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span> <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">&gt;</span> <span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">0</span>:          
+        <span class="meta meta_function-call meta_function-call_python">doors.append<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="meta meta_function-call meta_function-call_python">prizes.pop<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="meta meta_function-call meta_function-call_python">random.randint<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">0</span>,<span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">len</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python">prizes</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span><span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">-</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+
+    <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Now we can print out the doors for people
+</span>    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">for</span> i <span class="keyword keyword_operator keyword_operator_logical keyword_operator_logical_python">in</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">range</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>,<span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">4</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>:
+        <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>[  <span class="constant constant_other constant_other_placeholder constant_other_placeholder_python">%1d</span>  ]<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span> <span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">%</span> i,
+    <span class="keyword keyword_other keyword_other_python">print</span>
+    doorA <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">input</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Which door which you like to choose (1, 2, or 3)?<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>You've chosen Door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorA
+    find_a_goat <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> doorA<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">-</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>               <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Sets up variable so that we run through
+</span>                                        <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> loop to find the other goat door
+</span>                                        <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Note that when doorA = 1, find_a_goat = 0
+</span>    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">while</span> ((find_a_goat <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">==</span> doorA<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">-</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>) <span class="keyword keyword_operator keyword_operator_logical keyword_operator_logical_python">or</span> (<span class="meta meta_item-access meta_item-access_python">doors<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">[</span><span class="meta meta_item-access meta_item-access_arguments meta_item-access_arguments_python">find_a_goat</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">]</span></span> <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">==</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>car<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>)):
+        find_a_goat <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_function-call meta_function-call_python">random.randint<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">0</span>,<span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">2</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">for</span> i <span class="keyword keyword_operator keyword_operator_logical keyword_operator_logical_python">in</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">range</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>,<span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">4</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>:                <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Find last door and assign it to doorB
+</span>        <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">if</span> ((i <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">!=</span> doorA) <span class="keyword keyword_operator keyword_operator_logical keyword_operator_logical_python">and</span> (i <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">!=</span> find_a_goat<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">+</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>)):
+            doorB <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> i
+            <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">break</span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Now before we look behind that door, let's<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>take a look at what's behind door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,find_a_goat<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">+</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>
+    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">for</span> i <span class="keyword keyword_operator keyword_operator_logical keyword_operator_logical_python">in</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">range</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>,<span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">4</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>:                <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Go through doors
+</span>        <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">if</span> (i <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">==</span> find_a_goat<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">+</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span>):        <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> If it's the goat one...
+</span>            <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>[<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,<span class="meta meta_item-access meta_item-access_python">doors<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">[</span><span class="meta meta_item-access meta_item-access_arguments meta_item-access_arguments_python">i<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">-</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">]</span></span>,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>]<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,   <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> ... print it out
+</span>        <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">else</span>:
+            <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>[  <span class="constant constant_other constant_other_placeholder constant_other_placeholder_python">%1d</span> ]<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span> <span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">%</span> i,       <span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> Otherwise, just print the number
+</span>    <span class="keyword keyword_other keyword_other_python">print</span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>It's a good thing you didn't choose that one!<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Now, let me ask you: you've selected Door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorA
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Do you want to KEEP that door, or do you want to switch from<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorA,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>to Door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorB,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>?<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>(Enter<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorA,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>or<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,doorB,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>) <span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,
+    final_choice <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">input</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+    <span class="keyword keyword_other keyword_other_python">print</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>You chose Door #<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,final_choice,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>, and you won a<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>,<span class="meta meta_item-access meta_item-access_python">doors<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">[</span><span class="meta meta_item-access meta_item-access_arguments meta_item-access_arguments_python">final_choice<span class="keyword keyword_operator keyword_operator_arithmetic keyword_operator_arithmetic_python">-</span><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">1</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">]</span></span>,<span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>.<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+
+<span class="comment comment_line comment_line_number-sign comment_line_number-sign_python"><span class="punctuation punctuation_definition punctuation_definition_comment punctuation_definition_comment_python">#</span> --------------CALL THE FUNCTIONS------------------------
+</span>
+<span class="meta meta_function meta_function_python"><span class="storage storage_type storage_type_function storage_type_function_python">def</span> <span class="entity entity_name entity_name_function entity_name_function_python">main</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_begin punctuation_definition_parameters_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_parameters punctuation_definition_parameters_end punctuation_definition_parameters_end_python">)</span><span class="punctuation punctuation_section punctuation_section_function punctuation_section_function_begin punctuation_section_function_begin_python">:</span></span>
+    <span class="meta meta_function-call meta_function-call_python">intro<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+    play_again <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>y<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>
+    <span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">while</span> (<span class="meta meta_item-access meta_item-access_python">play_again<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">[</span><span class="meta meta_item-access meta_item-access_arguments meta_item-access_arguments_python"><span class="constant constant_numeric constant_numeric_integer constant_numeric_integer_decimal constant_numeric_integer_decimal_python">0</span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">]</span></span>.<span class="meta meta_function-call meta_function-call_python">lower<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span> <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">==</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>y<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>):
+        <span class="meta meta_function-call meta_function-call_python">play<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+        play_again <span class="keyword keyword_operator keyword_operator_assignment keyword_operator_assignment_python">=</span> <span class="meta meta_function-call meta_function-call_python"><span class="support support_function support_function_builtin support_function_builtin_python">raw_input</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="meta meta_function-call meta_function-call_arguments meta_function-call_arguments_python"><span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>Wanna play again? y/n <span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span></span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+        
+<span class="keyword keyword_control keyword_control_flow keyword_control_flow_python">if</span> <span class="support support_variable support_variable_magic support_variable_magic_python">__name__</span> <span class="keyword keyword_operator keyword_operator_comparison keyword_operator_comparison_python">==</span> <span class="string string_quoted string_quoted_double string_quoted_double_single-line string_quoted_double_single-line_python"><span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_begin punctuation_definition_string_begin_python">"</span>__main__<span class="punctuation punctuation_definition punctuation_definition_string punctuation_definition_string_end punctuation_definition_string_end_python">"</span></span>:
+    <span class="meta meta_function-call meta_function-call_python">main<span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_begin punctuation_definition_arguments_begin_python">(</span><span class="punctuation punctuation_definition punctuation_definition_arguments punctuation_definition_arguments_end punctuation_definition_arguments_end_python">)</span></span>
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="https://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Polytechnic Computer Science - Student Info Form</title>
+	<meta name="resource-type" content="document" />
+	<meta name="author" content="richard white" />
+	<meta name="description" content="polytechnic computer programming" />
+	<meta name="keywords" content="richard white, polytechnic school, computer programming, computer science" />
+	<meta name="distribution" content="global" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />	
+
+	<base href="https://nero.nocdirect.com/~jcrashwh/compsci/" />
+	
+	<style type="text/css"><!-- @import url("styles_compsci.css"); -->
+		.background1 {background: #ddd; margin: 5px; padding: 5px; }
+		.background2 {background: #bbb; margin: 5px; padding: 5px; }
+	</style>
+	
+	<!-- Couldn't get base href to work with subdirectories, so major rework of links was done in this document, to accomodate https secure browsing. -->
+	
+	
+	<SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+	    var aryRequired = new Array();
+	    var intArrayCount = 0;
+	    
+	    function defineRequired(strElementName, strDisplayMessage, blnIsEmail, blnIsNumber)
+	    {
+	        var objRequired = new Object();
+	        objRequired.ElementName = strElementName;
+	        objRequired.DisplayMessage = strDisplayMessage;
+	        objRequired.IsEmail = blnIsEmail;
+	        objRequired.IsNumber = blnIsNumber;
+	        aryRequired[intArrayCount] = objRequired;
+	        intArrayCount++;
+	    }
+	    
+	    function checkForm(objForm)
+	    {
+	        //web tv bug fix
+	        if (navigator.userAgent.indexOf("WebTV") == -1) {
+	          for (var i = 0; i < aryRequired.length; i++) {
+	            var blnFail = true; 
+	            var objElement = eval("objForm." + aryRequired[i].ElementName);
+	           
+	            if (objElement.length && !objElement.type && document.images) {
+	              //looping through element array
+	              for (var x = 0; x < objElement.length; x++) {
+	                if (objElement[x].checked && objElement[x].value != "") blnFail = false;
+	              } 
+	            } 
+	            else {
+	              if (objElement.value != "") {
+	                if (aryRequired[i].IsEmail) { if (CheckEmail(objElement.value)) blnFail = false; }
+	                else if (aryRequired[i].IsNumber) { if (!isNaN(objElement.value)) blnFail = false; }
+	                else blnFail = false;
+	              }
+	            }
+	            if (blnFail) {  
+	              alert(aryRequired[i].DisplayMessage);
+	              if (objElement.length && !objElement.type) objElement[0].focus();
+	              else objElement.focus();
+	              return false;
+	            } 
+	          }
+	        // all elements passed, submit form
+	        }
+	        return true;
+	    }
+	    
+	    function CheckEmail(strData) 
+	    {
+	        var posAt = strData.indexOf("@")
+	        var strName = strData.substring(0, posAt)
+	        var strDomain = strData.substring(posAt+1, strData.length)
+	        var posDot = strDomain.indexOf(".")
+	        var strSubDomain = strDomain.substring(posDot+1,strDomain.length)
+	        
+	        if ( strName=="" || strDomain=="" || posDot < 1 || strSubDomain =="") return false;
+	        else return true;
+	    }
+	
+	    // Change these to the inputs you want required
+	    defineRequired("academicintegrity","The Academic Integrity Box must be checked. Please go Back to read the Academic Integrity statement, and click the Academic Integrity checkbox before resubmitting this form. Thank you!");
+	    defineRequired("firstname","You need to enter your first name before submitting this form.");
+	    defineRequired("lastname","You need to enter your last name before submitting this form.");
+	    defineRequired("studentemail","You need to enter your email address before submitting this form.");
+	    defineRequired("studentphone","You need to enter a home or cell phone number before submitting this form.");
+	    defineRequired("studentaddress","Please enter an address where I can mail you information, if necessary.");
+	    defineRequired("password","Please enter a strong password that will be used as your default for various accounts.");
+	    defineRequired("parent1firstname","Please enter a parent's first name.");
+	    defineRequired("parent1lastname","Please enter a parent's last name.");
+	    defineRequired("parent1relationship","Please identify your parent's relationship to you.");
+	    defineRequired("parent1address","Please enter your parent's address.");  
+	
+	</SCRIPT>
+
+
+</head>
+<body>
+	<div id="mainwrapper">
+		<div id="header">
+			<div id="horzmenu"><a href="index.html">Schedule</a> | <a href="policies.html"> Policies</a> | <a href="contact.html">Contact</a> | <a href="links.html">Links</a> | <a href="about.html">About</a></div>
+			<h1><a href="../index.html">Polytechnic Computer Science</a></h1>
+		</div> <!--header-->
+		<div id="content">	
+			<h1>Student Information Form</h1>
+			<p>As your instructor, it is helpful for me to have certain information about you, mostly contact information so that I can reach you or your parent/guardian(s) outside of school hours. The answers you submit here are for my personal use only--if you are concerned about submitting personal information in a form on the Internet&mdash;and you <i>should</i> be&mdash;verify that this is a secure form by looking for the padlock icon in your browser. I appreciate the time and effort you put into filling it out, and am happy to offer you a nominal amount of extra credit as thanks for completing this "assignment."</p>
+			<p>This form should take no more than 10 minutes or so to fill out. When you've finished, be sure to hit the "Submit" button at the bottom.</p>
+			<form method="post" action="https://nero.nocdirect.com/~jcrashwh/cgi-bin/r7gAThFYemuo.pl">
+			<input type="hidden" name="recipient" value="rwhite@crashwhite.com" />
+			<input type="hidden" name="subject" value="compsci student info form" />
+			<input type="hidden" name="required" value="firstname,lastname,studentemail,password,studentphone,studentaddress,academicintegrity,parent1firstname,parent1lastname,parent1relationship,parent1address" />
+			<input type="hidden" name="redirect" value="https://nero.nocdirect.com/~jcrashwh/compsci/misc/studentinfothankyou.html" />
+			<input type="hidden" name="sort" value="order:course,firstname,lastname,nickname,studentemail,password,skypeID,aimID,msnID,gchatID,googleplusID,icqID,otherID,noID,os,studentphone,studentaddress,academicintegrity,parent1firstname,parent1lastname,parent1relationship,parent1email,parent1address,parent1homephone,parent1workphone,parent2firstname,parent2lastname,parent2relationship,parent2email,parent2address,parent2homephone,parent2workphone,extracurricular,hobbies,music,comments" />
+			<input type="hidden" name="print_blank_fields" value="true" />
+			<div class="background1">
+			<h3>Personal Info</h3>
+			1. Which of Mr. White's courses are you enrolled in?<br />
+			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="course" value="ap" />AP Physics<br /> -->
+			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="course" value="conceptual" />Conceptual Physics<br /> -->
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="course" value="compsci" checked="checked" />Computer Science<br />
+			<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="course" value="advisee" />Advisee<br /> -->
+			<br />
+			2. <input type="text" name="firstname" size="40" /> Your first name<br />
+			<br />
+			3. <input type="text" name="lastname" size="40" /> Your last name<br />
+			<br />
+			4. <input type="text" name="nickname" size="40" value="Optional" /> Any other name or nickname that you prefer to called by<br />
+			<br />
+			5. <input type="text" name="studentemail" size="40" /> Your e-mail address<br />
+			<br />
+			6. <input type="password" name="password" size="20" /> Please enter a <a href="misc/passwords.html">strong password</a> that will be used as your default for various accounts.<br /> 
+			<br />
+			7. Your Screen Name(s):<br />
+			Skype screen name <input type="text" name="skypeID" size="40" /><br />
+			AIM screen name <input type="text" name="aimID" size="40" /><br />
+			MSN screen name <input type="text" name="msnID" size="40" /><br />
+			Google Chat screen name <input type="text" name="gchatID" size="40" /><br />
+			Google+ screen name <input type="text" name="googleplusID" size="40" /><br />
+			ICQ screen name <input type="text" name="icqID" size="40" /><br />
+			Other screen name <input type="text" name="otherID" size="40" /><br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" name="noID" />I don't have a chat Screen Name<br />
+			<br />
+			8. Your preferred operating system on your home computer is:<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="os" value="Windows" />Windows<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="os" value="Apple OS X" />Apple OS X<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="ox" value="Linux / Unix" />Linux / Unix<br />
+            <br />
+			9. <input type="text" name="studentphone" size="20" /> Your phone number<br />
+			<br />
+			10. <input type="text" name="studentaddress" size="40" /> Your mailing address (including number, street, city, zipcode)<br />
+			<br />
+			11. <input type="checkbox" name="academicintegrity" /> I have read the <a href="policies.html#academic_integrity">Academic Integrity</a> section and agree to abide by it.<br />
+			<br />
+		  </div>
+			<div class="background2">
+			<h3>Parent/Guardian Info</h3>
+			12. <input type="text" name="parent1firstname" size="40" /> Parent/Guardian #1's first name<br />
+			<br />
+			13. <input type="text" name="parent1lastname" size="40" /> Parent/Guardian #1's last name<br />
+			<br />
+			14. This person is your:<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent1relationship" value="mother" />Mother<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent1relationship" value="father" />Father<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent1relationship" value="stepmother" />Stepmother<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent1relationship" value="stepfather" />Stepfather<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent1relationship" value="other" />Other (please specify how related): <input type="text" name="parent1relationship" size="20" /><br />
+			<br />
+			15. <input type="text" name="parent1email" size="40" /> Parent/Guardian #1's e-mail address<br />
+			<br />
+			16. <input type="text" name="parent1address" size="40" /> Parent/Guardian #1's mailing address<br />
+			<br />
+			17. <input type="text" name="parent1homephone" size="20" /> Parent/Guardian #1's home phone number<br />
+			<br />
+			18. <input type="text" name="parent1workphone" size="20" /> Parent/Guardian #1's work phone number<br />
+			<br />
+		  </div>
+			<div class="background1">
+			<h3>More Parent/Guardian Info</h3>
+			19. <input type="text" name="parent2firstname" size="40" /> Parent/Guardian #2's first name<br />
+			<br />
+			20. <input type="text" name="parent2lastname" size="40" /> Parent/Guardian #2's last name<br />
+			<br />
+			21. This person is your:<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent2relationship" value="mother" />Mother<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent2relationship" value="father" />Father<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent2relationship" value="stepmother" />Stepmother<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent2relationship" value="stepfather" />Stepfather<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="parent2relationship" value="other" />Other (please specify how related): <input type="text" name="parent2relationship" size="20" /><br />
+			<br />
+			22. <input type="text" name="parent2email" size="40" /> Parent/Guardian #2's e-mail address<br />
+			<br />
+			23. <input type="text" name="parent2address" size="40" /> Parent/Guardian #2's mailing address<br />
+			<br />
+			24. <input type="text" name="parent2homephone" size="20" /> Parent/Guardian #2's home phone number<br />
+			<br />
+			25. <input type="text" name="parent2workphone" size="20" /> Parent/Guardian #2's work phone number<br />
+			<br />
+		  </div>
+			<div class="background2">
+			<h3>More Stuff About You!</h3>
+			26. <input type="text" name="extracurricular" size="50" value="Example: Jazz Band, Spirit Squad, S.T.A.N.D., Soccer" /> List any extracurricular activities that you're involved in <i>at school</i><br />
+			<br />
+			27. <input type="text" name="hobbies" size="50" value="Example: sleep, eat pizza, hang w/friends, read Harry Potter" /> List the things you like to do <i>on your own time</i><br />
+			<br />
+			28. <input type="text" name="music" size="50" value="Example: Led Zeppelin, Black-Eyed Peas, Radiohead..." /> List three of your favorite musical artists<br />
+			<br />
+			29. Please enter information here regarding your prior experience programming, and what it is you're hoping that you'll get to learn about in the Intro to Computer Science class.<br />
+			<br />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<textarea name="comments" cols="80" rows="7" wrap="soft"></textarea><br />
+			<br />
+		  </div>
+			<br />
+			<input type="submit" value="Send Info" onClick="return checkForm(this.form)" />			
+	  </form>
+				
+		</div> <!--content -->
+	</div> <!--mainwrapper-->
+	<div id="footer">
+		<p>&copy;2012, <a href="mailto:rwhite@crashwhite.com">Richard White</a> | <a href="admin/terms_of_service.html">Terms of Service</a></p>
+	</div>
+</body>
+</html>
